@@ -1,0 +1,16 @@
+﻿using MainSpace.MainMenu.Views;
+using UnityEngine;
+
+namespace MainSpace.MainMenu.Root
+{
+    public sealed class ViewStorage : MonoBehaviour
+    {
+        [SerializeField] private MainMenuView _mainMenuView;
+        [SerializeField] private ScreenView _forGirlsScreen;
+        [SerializeField] private ScreenView _forBoysScreen;
+
+        public MainMenuView MainMenuView => _mainMenuView;
+        public ScreenView ForGirlsScreen => _forGirlsScreen;
+        public ScreenView ForBoysScreen => _forBoysScreen;
+    }
+}
