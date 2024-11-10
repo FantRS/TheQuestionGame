@@ -28,8 +28,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1458361951822603405}
   - {fileID: 4789902095408469258}
+  - {fileID: 1458361951822603405}
   m_Father: {fileID: 6455191146138823174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questionText: {fileID: 4752457677636657381}
   _mainMenuScreen: {fileID: 1315301534633114321}
-  _randomQuestionButton: {fileID: 8094187504788123460}
+  _nextQuestionButton: {fileID: 8094187504788123460}
   _backButton: {fileID: 4048804531732186832}
 --- !u!1 &533643546522003147
 GameObject:
@@ -372,7 +372,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Random
+  m_Text: Next
 --- !u!1 &1315301534633114321
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,8 +546,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5911165328854725207}
   - {fileID: 275544774933324117}
+  - {fileID: 5911165328854725207}
   m_Father: {fileID: 6177914397098390035}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 5468706352133253203}
   - component: {fileID: 8094187504788123460}
   m_Layer: 5
-  m_Name: RandomButton
+  m_Name: NextQuestionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1825,7 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questionText: {fileID: 2820615294097562474}
   _mainMenuScreen: {fileID: 1315301534633114321}
-  _randomQuestionButton: {fileID: 3769639052985568923}
+  _nextQuestionButton: {fileID: 3769639052985568923}
   _backButton: {fileID: 9180823780060364420}
 --- !u!1 &8184851716177020862
 GameObject:
@@ -2105,7 +2105,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Random
+  m_Text: Next
 --- !u!1 &8989648845816904425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,7 +2119,7 @@ GameObject:
   - component: {fileID: 4068890946724055043}
   - component: {fileID: 3769639052985568923}
   m_Layer: 5
-  m_Name: RandomButton
+  m_Name: NextQuestionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

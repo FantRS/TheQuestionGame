@@ -9,18 +9,18 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _questionText;
         [SerializeField] private GameObject _mainMenuScreen;
 
-        [SerializeField] private Button _randomQuestionButton;
+        [SerializeField] private Button _nextQuestionButton;
         [SerializeField] private Button _backButton;
 
-        public event Action OnRandomQuestionButtonClickEvent;
+        public event Action OnNextQuestionButtonClickEvent;
 
         private void OnEnable()
         {
             Debug.Log("OnEnable : ScreenView");
 
-            _randomQuestionButton.onClick.AddListener(() =>
+            _nextQuestionButton.onClick.AddListener(() =>
             {
-                OnRandomQuestionButtonClickEvent?.Invoke();
+                OnNextQuestionButtonClickEvent?.Invoke();
             });
 
             _backButton.onClick.AddListener(() =>
@@ -34,7 +34,7 @@ namespace MainSpace.MainMenu.Views
         {
             Debug.Log("Disable : ScreenView");
 
-            OnRandomQuestionButtonClickEvent = null;
+            OnNextQuestionButtonClickEvent = null;
         }
 
         public void ChangeQuestionText(string questionText)
