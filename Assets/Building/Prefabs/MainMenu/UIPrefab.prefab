@@ -1508,6 +1508,14 @@ MonoBehaviour:
   _lifeQuestionsScreen: {fileID: 3839726707612167843}
   _dreamQuestionsScreen: {fileID: 8294599102421283577}
   _churchQuestionsScreen: {fileID: 1015239777211754391}
+  _forGirlsQuestionsCount: {fileID: 4675406450852707628}
+  _forBoysQuestionsCount: {fileID: 2115924297756758450}
+  _forLoverQuestionsCount: {fileID: 7839828931713611270}
+  _funnyQuestionsCount: {fileID: 8681334759624329735}
+  _artistsQuestionsCount: {fileID: 2176916262953895398}
+  _lifeQuestionsCount: {fileID: 6834678166364026783}
+  _dreamQuestionsCount: {fileID: 1643161229098969077}
+  _churchQuestionsCount: {fileID: 5665650348452867210}
 --- !u!1 &1423653592856999827
 GameObject:
   m_ObjectHideFlags: 0

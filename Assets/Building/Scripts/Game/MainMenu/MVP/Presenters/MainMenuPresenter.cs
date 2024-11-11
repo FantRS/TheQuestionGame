@@ -1,5 +1,6 @@
 ﻿using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
+using R3;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -16,6 +17,7 @@ namespace MainSpace.MainMenu.Presenters
             _mainMenuModel = model;
 
             EventSubsctiptions();
+            UpdateQuestionsCount();
         }
 
         private void EventSubsctiptions()
@@ -83,6 +85,18 @@ namespace MainSpace.MainMenu.Presenters
                 CreateNewPresenter(_mainMenuModel.ViewStorage.ChurchScreen,
                     new ScreenModel(_mainMenuModel.QuestionsConfig.ChurchQuestionConfig));
             };
+        }
+
+        private void UpdateQuestionsCount()
+        {
+            _mainMenuView.ShowGirlsQuestionsCount(_mainMenuModel.GirlsQuestions);
+            _mainMenuView.ShowBoysQuestionsCount(_mainMenuModel.BoysQuestions);
+            _mainMenuView.ShowLoversQuestionsCount(_mainMenuModel.LoverQuestions);
+            _mainMenuView.ShowFunnyQuestionsCount(_mainMenuModel.FunnyQuestions);
+            _mainMenuView.ShowArtistQuestionsCount(_mainMenuModel.ArtQuestions);
+            _mainMenuView.ShowLifeQuestionsCount(_mainMenuModel.LifeQuestions);
+            _mainMenuView.ShowDreamQuestionsCount(_mainMenuModel.DreamQuestions);
+            _mainMenuView.ShowChurchQuestionsCount(_mainMenuModel.ChurchQuestions);
         }
 
         private void CreateNewPresenter(ScreenView view, ScreenModel model)
