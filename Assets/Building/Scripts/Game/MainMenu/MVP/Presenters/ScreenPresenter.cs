@@ -1,12 +1,13 @@
 ﻿using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using R3;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace MainSpace.MainMenu.Presenters
 {
-    public sealed class ScreenPresenter
+    public sealed class ScreenPresenter : IDisposable
     {
         private readonly ScreenView _screenView;
         private readonly ScreenModel _screenModel;
@@ -18,24 +19,37 @@ namespace MainSpace.MainMenu.Presenters
 
             Shuffle(_screenModel.Questions);
 
-            _screenView.OnNextQuestionButtonClickEvent += ItarateQuestionsList;
+            EventSubscriptions();
+            ReactiveSubscriptions();
+        }
 
-            _screenModel.CurrentIdx.Subscribe((value) =>
+        private void EventSubscriptions()
+        {
+            _screenView.OnNextQuestionButtonClickEvent += ItarateQuestionsList;
+        }
+
+        private void ReactiveSubscriptions()
+        {
+            IDisposable subscription;
+
+            subscription = _screenModel.CurrentIdx.Subscribe((value) =>
             {
                 _screenView.ChangeQuestionText(_screenModel.Questions[value]);
             });
+            _screenModel.Subscriptions.Add(subscription);
         }
 
         private void ItarateQuestionsList()
         {
-            if (_screenModel.CurrentIdx.Value + 1 == _screenModel.Questions.Count)
-            {
+            Debug.Log(_screenModel.CurrentIdx.Value);
+
+            int currentIdx = _screenModel.CurrentIdx.Value;
+            int questionCount = _screenModel.Questions.Count;
+
+            if (currentIdx + 1 == questionCount)
                 _screenModel.CurrentIdx.Value = 0;
-            }
             else
-            {
                 _screenModel.CurrentIdx.Value++;
-            }
         }
 
         private void Shuffle(List<string> questions)
@@ -44,12 +58,23 @@ namespace MainSpace.MainMenu.Presenters
 
             for (int i = n - 1; i > 0; i--)
             {
-                int j = Random.Range(0, i + 1);
+                int j = UnityEngine.Random.Range(0, i + 1);
 
                 string temp = questions[i];
                 questions[i] = questions[j];
                 questions[j] = temp;
             }
+        }
+
+        public void Dispose()
+        {
+            Debug.Log("Disposing...");
+
+            _screenView.OnNextQuestionButtonClickEvent -= ItarateQuestionsList;
+
+            _screenModel.Subscriptions.Dispose();
+
+            Debug.Log("Disposed!");
         }
     }
 }

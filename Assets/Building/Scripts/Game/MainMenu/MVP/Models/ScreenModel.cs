@@ -9,10 +9,14 @@ namespace MainSpace.MainMenu.Models
         public readonly ReactiveProperty<int> CurrentIdx;
         public readonly List<string> Questions;
 
+        public readonly CompositeDisposable Subscriptions;
+
         public ScreenModel(QuestionsConfig config)
         {
             Questions = new List<string>(config.QuestionList);
-            CurrentIdx = new ReactiveProperty<int>();
+            CurrentIdx = new ReactiveProperty<int>(0);
+
+            Subscriptions = new CompositeDisposable();
         }
     }
 }

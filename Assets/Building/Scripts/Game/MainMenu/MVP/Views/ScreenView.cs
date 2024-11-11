@@ -14,10 +14,8 @@ namespace MainSpace.MainMenu.Views
 
         public event Action OnNextQuestionButtonClickEvent;
 
-        private void OnEnable()
+        private void Start()
         {
-            Debug.Log("OnEnable : ScreenView");
-
             _nextQuestionButton.onClick.AddListener(() =>
             {
                 OnNextQuestionButtonClickEvent?.Invoke();
@@ -28,13 +26,6 @@ namespace MainSpace.MainMenu.Views
                 _mainMenuScreen.SetActive(true);
                 this.gameObject.SetActive(false);
             });
-        }
-
-        private void OnDisable()
-        {
-            Debug.Log("Disable : ScreenView");
-
-            OnNextQuestionButtonClickEvent = null;
         }
 
         public void ChangeQuestionText(string questionText)
