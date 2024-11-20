@@ -22,6 +22,7 @@ namespace MainSpace.MainMenu.Presenters
             _screenView.SetQuestionTextColor(_screenModel.Config.QuestionTextColor);
 
             Shuffle(_screenModel.Questions);
+            SpawnList(_screenModel.Config.QuestionList);
             EventSubscriptions();
             ReactiveSubscriptions();
         }
@@ -29,6 +30,23 @@ namespace MainSpace.MainMenu.Presenters
         private void EventSubscriptions()
         {
             _screenView.OnNextQuestionButtonClickEvent += ItarateQuestionsList;
+            _screenView.OnOpenListButtonClickEvent += () =>
+            {
+                _screenView.SetActiveMainTab(false);
+                _screenView.SetActiveListTab(true);
+            };
+            _screenView.OnToMainTabButtonClickEvent += () =>
+            {
+                _screenView.SetActiveMainTab(true);
+                _screenView.SetActiveListTab(false);
+            };
+            _screenView.OnQuestionButtonClickEvent += (idx) =>
+            {
+                _screenView.SetActiveMainTab(true);
+                _screenView.SetActiveListTab(false);
+
+                _screenView.ChangeQuestionText(_screenModel.Config.QuestionList[idx]);
+            };
         }
 
         private void ReactiveSubscriptions()
@@ -66,6 +84,17 @@ namespace MainSpace.MainMenu.Presenters
                 string temp = questions[i];
                 questions[i] = questions[j];
                 questions[j] = temp;
+            }
+        }
+
+        private void SpawnList(List<string> questions)
+        {
+            int idx = 0;
+
+            foreach (var text in questions)
+            {
+                _screenView.AddButtonToContent(text, idx);
+                idx++;
             }
         }
     }

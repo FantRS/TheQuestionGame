@@ -44,6 +44,9 @@ namespace MainSpace.Root
 
         private void RunGame()
         {
+            UnityEngine.Device.Application.targetFrameRate = 
+                (int)UnityEngine.Device.Screen.currentResolution.refreshRateRatio.value;
+
             _coroutines.StartCoroutine(LoadMenuScene());
         }
 

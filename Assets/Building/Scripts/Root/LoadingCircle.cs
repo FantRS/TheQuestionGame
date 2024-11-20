@@ -2,11 +2,11 @@
 
 namespace Assets.Building.Scripts.Root
 {
-    public class SvastikaScript : MonoBehaviour
+    public class LoadingCircle : MonoBehaviour
     {
         private void Update()
         {
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(-Vector3.forward * 2);
         }
     }
 }
