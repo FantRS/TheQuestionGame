@@ -7,18 +7,21 @@ using UnityEngine;
 
 namespace MainSpace.MainMenu.Presenters
 {
-    public sealed class ScreenPresenter : IDisposable
+    public sealed class ScreenPresenter
     {
-        private readonly ScreenView _screenView;
-        private readonly ScreenModel _screenModel;
+        private ScreenView _screenView;
+        private ScreenModel _screenModel;
 
         public ScreenPresenter(ScreenView view, ScreenModel model)
         {
             _screenView = view;
             _screenModel = model;
 
-            Shuffle(_screenModel.Questions);
+            _screenView.SetScreenName(_screenModel.Config.ScreenName, _screenModel.Config.QuestionTextColor);
+            _screenView.SetBackground(_screenModel.Config.Background);
+            _screenView.SetQuestionTextColor(_screenModel.Config.QuestionTextColor);
 
+            Shuffle(_screenModel.Questions);
             EventSubscriptions();
             ReactiveSubscriptions();
         }
@@ -64,17 +67,6 @@ namespace MainSpace.MainMenu.Presenters
                 questions[i] = questions[j];
                 questions[j] = temp;
             }
-        }
-
-        public void Dispose()
-        {
-            Debug.Log("Disposing...");
-
-            _screenView.OnNextQuestionButtonClickEvent -= ItarateQuestionsList;
-
-            _screenModel.Subscriptions.Dispose();
-
-            Debug.Log("Disposed!");
         }
     }
 }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
   m_Name: ForLovers
   m_EditorClassIdentifier: 
+  _screenName: "\u0414\u043B\u044F \u043F\u0430\u0440\u043E\u0447\u0435\u043A"
+  _background: {fileID: 21300000, guid: 441f1cfbe8bff3c42847516393ad0fc7, type: 3}
+  _questionTextColor: {r: 0, g: 0, b: 0, a: 0}
   _questionList:
   - 1
   - 2

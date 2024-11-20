@@ -1,14 +1,10 @@
-﻿using BaCon;
-using MainSpace.Configs;
-using MainSpace.MainMenu.Root;
-using R3;
+﻿using MainSpace.Configs;
 
 namespace MainSpace.MainMenu.Models
 {
     public sealed class MainMenuModel
     {
-        public readonly QuestionVaultConfig QuestionsConfig;
-        public readonly ViewStorage ViewStorage;
+        public readonly ScreenVaultConfig QuestionsConfig;
 
         public int GirlsQuestions => QuestionsConfig.ForGirlsQuestionConfig.QuestionList.Count;
         public int BoysQuestions => QuestionsConfig.ForBoysQuestionConfig.QuestionList.Count;
@@ -19,10 +15,9 @@ namespace MainSpace.MainMenu.Models
         public int DreamQuestions => QuestionsConfig.DreamsQuestionConfig.QuestionList.Count;
         public int ChurchQuestions => QuestionsConfig.ChurchQuestionConfig.QuestionList.Count;
 
-        public MainMenuModel(DIContainer sceneContainer)
+        public MainMenuModel(ScreenVaultConfig vaultConfig)
         {
-            QuestionsConfig = sceneContainer.Resolve<QuestionVaultConfig>();
-            ViewStorage = sceneContainer.Resolve<ViewStorage>();
+            QuestionsConfig = vaultConfig;
         }
     }
 }

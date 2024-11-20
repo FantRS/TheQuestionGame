@@ -1,6 +1,9 @@
 using BaCon;
+using MainSpace.Configs;
 using MainSpace.MainMenu.Root;
+using MainSpace.Screen.Root;
 using MainSpace.Utils;
+using R3;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,11 +47,6 @@ namespace MainSpace.Root
             _coroutines.StartCoroutine(LoadMenuScene());
         }
 
-        private IEnumerator LoadGameplayScene()
-        {
-            yield return null;
-        }
-
         private IEnumerator LoadMenuScene()
         {
             _rootUI.ShowLoadingScreen();
@@ -61,7 +59,29 @@ namespace MainSpace.Root
 
             var mainMenuEntryPoint = Object.FindAnyObjectByType<MainMenuEntryPoint>();
             var sceneContainer = _cachedSceneContainer = new DIContainer(_rootContainer);
-            mainMenuEntryPoint.Run(sceneContainer);
+
+            mainMenuEntryPoint.Run(sceneContainer)
+                .Subscribe(config => _coroutines.StartCoroutine(LoadScreenScene(config)));
+
+            _rootUI.HideLoadingScreen();
+        }
+
+        private IEnumerator LoadScreenScene(ScreenConfig screenConfig)
+        {
+            _rootUI.ShowLoadingScreen();
+
+            _cachedSceneContainer?.Dispose();
+
+            yield return LoadScene(Scenes.BOOT);
+            yield return LoadScene(Scenes.SCREEN);
+            yield return new WaitForSeconds(1f);
+
+            var screenEntryPoint = Object.FindAnyObjectByType<ScreenEntryPoint>();
+            var sceneContainer = _cachedSceneContainer = new DIContainer(_rootContainer);
+            sceneContainer.RegisterInstance(screenConfig);
+
+            screenEntryPoint.Run(sceneContainer)
+                .Subscribe(_ => _coroutines.StartCoroutine(LoadMenuScene()));
 
             _rootUI.HideLoadingScreen();
         }

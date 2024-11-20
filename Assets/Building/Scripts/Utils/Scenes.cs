@@ -4,6 +4,6 @@
     {
         public static string BOOT = "Boot";
         public static string MAIN_MENU = "MainScene";
-        public static string GAMEPLAY = "Gameplay";
+        public static string SCREEN = "ScreenScene";
     }
 }

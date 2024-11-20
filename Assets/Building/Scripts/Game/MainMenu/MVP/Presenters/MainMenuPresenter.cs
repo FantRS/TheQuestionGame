@@ -9,8 +9,6 @@ namespace MainSpace.MainMenu.Presenters
         private readonly MainMenuView _mainMenuView;
         private readonly MainMenuModel _mainMenuModel;
 
-        private ScreenPresenter _cachedPresenter;
-
         public MainMenuPresenter(MainMenuView view, MainMenuModel model)
         {
             _mainMenuView = view;
@@ -22,69 +20,53 @@ namespace MainSpace.MainMenu.Presenters
 
         private void EventSubsctiptions()
         {
-            _mainMenuView.OnForGirlsQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnForGirlsQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenGirlsQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.ForGirlsQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.ForGirlsScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.ForGirlsQuestionConfig));
-            };
-
-            _mainMenuView.OnForBoysQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnForBoysQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenBoysQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.ForBoysQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.ForBoysScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.ForBoysQuestionConfig));
-            };
-
-            _mainMenuView.OnForLoversQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnForLoversQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenLoversQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.ForLoversQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.ForLoverScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.ForLoversQuestionConfig));
-            };
-
-            _mainMenuView.OnFunnyQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnFunnyQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenFunnyQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.FunnyQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.FunnyScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.FunnyQuestionConfig));
-            };
-
-            _mainMenuView.OnArtistQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnArtistQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenArtistQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.ArtistsQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.ArtistsScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.ArtistsQuestionConfig));
-            };
-
-            _mainMenuView.OnLifeQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnLifeQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenLifeQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.LifeQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.LifeScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.LifeQuestionConfig));
-            };
-
-            _mainMenuView.OnDreamQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnDreamQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenDreamQuestionsScreen();
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.DreamsQuestionConfig);
+            });
 
-                CreateNewPresenter(_mainMenuModel.ViewStorage.DreamScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.DreamsQuestionConfig));
-            };
-
-            _mainMenuView.OnChurchQuestionsButtonClickEvent += () =>
+            _mainMenuView.OnChurchQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.OpenChurchQuestionsScreen();
-
-                CreateNewPresenter(_mainMenuModel.ViewStorage.ChurchScreen,
-                    new ScreenModel(_mainMenuModel.QuestionsConfig.ChurchQuestionConfig));
-            };
+                _mainMenuView.SceneTransitionSignal
+                    .OnNext(_mainMenuModel.QuestionsConfig.ChurchQuestionConfig);
+            });
         }
 
         private void UpdateQuestionsCount()
@@ -97,12 +79,6 @@ namespace MainSpace.MainMenu.Presenters
             _mainMenuView.ShowLifeQuestionsCount(_mainMenuModel.LifeQuestions);
             _mainMenuView.ShowDreamQuestionsCount(_mainMenuModel.DreamQuestions);
             _mainMenuView.ShowChurchQuestionsCount(_mainMenuModel.ChurchQuestions);
-        }
-
-        private void CreateNewPresenter(ScreenView view, ScreenModel model)
-        {
-            _cachedPresenter?.Dispose();
-            _cachedPresenter = new ScreenPresenter(view, model);
         }
     }
 }

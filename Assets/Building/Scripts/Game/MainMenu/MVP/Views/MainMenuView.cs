@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainSpace.Configs;
+using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,16 +17,6 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _dreamQuestionsButton;
         [SerializeField] private Button _churchQuestionsButton;
 
-        [Header("SCREENS")]
-        [SerializeField] private GameObject _forGirlsQuestionsScreen;
-        [SerializeField] private GameObject _forBoysQuestionsScreen;
-        [SerializeField] private GameObject _forLoverQuestionsScreen;
-        [SerializeField] private GameObject _funnyQuestionsScreen;
-        [SerializeField] private GameObject _artistsQuestionsScreen;
-        [SerializeField] private GameObject _lifeQuestionsScreen;
-        [SerializeField] private GameObject _dreamQuestionsScreen;
-        [SerializeField] private GameObject _churchQuestionsScreen;
-
         [Header("Questions count texts")]
         [SerializeField] private Text _forGirlsQuestionsCount;
         [SerializeField] private Text _forBoysQuestionsCount;
@@ -37,101 +28,64 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _churchQuestionsCount;
 
         // events
-        public event Action OnForGirlsQuestionsButtonClickEvent;
-        public event Action OnForBoysQuestionsButtonClickEvent;
-        public event Action OnForLoversQuestionsButtonClickEvent;
-        public event Action OnFunnyQuestionsButtonClickEvent;
-        public event Action OnArtistQuestionsButtonClickEvent;
-        public event Action OnLifeQuestionsButtonClickEvent;
-        public event Action OnDreamQuestionsButtonClickEvent;
-        public event Action OnChurchQuestionsButtonClickEvent;
+        public Subject<Unit> OnForGirlsQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnForBoysQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnForLoversQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnFunnyQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
+        public Subject<Unit> OnChurchQuestionsButtonClickEvent = new();
+        public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
 
         private void Start()
         {
             _forGirlsQuestionsButton.onClick.AddListener(() =>
             {
-                OnForGirlsQuestionsButtonClickEvent?.Invoke();
+                OnForGirlsQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _forBoysQuestionsButton.onClick.AddListener(() =>
             {
-                OnForBoysQuestionsButtonClickEvent?.Invoke();
+                OnForBoysQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _forLoverQuestionsButton.onClick.AddListener(() =>
             {
-                OnForLoversQuestionsButtonClickEvent?.Invoke();
+                OnForLoversQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _funnyQuestionsButton.onClick.AddListener(() =>
             {
-                OnFunnyQuestionsButtonClickEvent?.Invoke();
+                OnFunnyQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _artistsQuestionsButton.onClick.AddListener(() =>
             {
-                OnArtistQuestionsButtonClickEvent?.Invoke();
+                OnArtistQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _lifeQuestionsButton.onClick.AddListener(() =>
             {
-                OnLifeQuestionsButtonClickEvent?.Invoke();
+                OnLifeQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _dreamQuestionsButton.onClick.AddListener(() =>
             {
-                OnDreamQuestionsButtonClickEvent?.Invoke();
+                OnDreamQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _churchQuestionsButton.onClick.AddListener(() =>
             {
-                OnChurchQuestionsButtonClickEvent?.Invoke();
+                OnChurchQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
         }
 
-        #region Open-screen methods
-
-        public void OpenGirlsQuestionsScreen()
+        public void BindSceneTransitionSignal(Subject<ScreenConfig> subject)
         {
-            _forGirlsQuestionsScreen.SetActive(true);
+            SceneTransitionSignal = subject;
         }
 
-        public void OpenBoysQuestionsScreen()
-        {
-            _forBoysQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenLoversQuestionsScreen()
-        {
-            _forLoverQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenFunnyQuestionsScreen()
-        {
-            _funnyQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenArtistQuestionsScreen()
-        {
-            _artistsQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenLifeQuestionsScreen()
-        {
-            _lifeQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenDreamQuestionsScreen()
-        {
-            _dreamQuestionsScreen.SetActive(true);
-        }
-
-        public void OpenChurchQuestionsScreen()
-        {
-            _churchQuestionsScreen.SetActive(true);
-        }
-
-        #endregion
 
         #region Change questions count
 
