@@ -7,7 +7,7 @@ using MainSpace.Root;
 using R3;
 using UnityEngine;
 
-namespace MainSpace.Screen.Root
+namespace MainSpace.ScreenScene.Root
 {
     public sealed class ScreenEntryPoint : MonoBehaviour
     {
@@ -18,6 +18,9 @@ namespace MainSpace.Screen.Root
             // resolving instances
             var rootUI = sceneContainer.Resolve<RootUIView>();
             var config = sceneContainer.Resolve<ScreenConfig>();
+
+            //// registration instances
+            //sceneContainer.RegisterInstance(config);
 
             // attaching UI
             var screenView = Instantiate(_screenViewUiPrefab);
@@ -31,7 +34,7 @@ namespace MainSpace.Screen.Root
 
             // creation presenters
             var screenPresenter =
-                new ScreenPresenter(screenView, new ScreenModel(config));
+                new ScreenPresenter(screenView, new ScreenModel(sceneContainer));
 
             return sceneTransitionSignal;
         }

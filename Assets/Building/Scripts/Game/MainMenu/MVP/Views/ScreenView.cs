@@ -15,6 +15,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _questionText;
 
         [SerializeField] private Button _nextQuestionButton;
+        [SerializeField] private Button _addToFavouriteButton;
         [SerializeField] private Button _openListButton;
         [SerializeField] private Button _backButton;
 
@@ -28,6 +29,7 @@ namespace MainSpace.MainMenu.Views
 
         // events
         public event Action OnNextQuestionButtonClickEvent;
+        public event Action OnAddToFavouriteButtonClickEvent;
         public event Action OnOpenListButtonClickEvent;
         public event Action OnToMainTabButtonClickEvent;
         public event Action<int> OnQuestionButtonClickEvent;
@@ -35,17 +37,17 @@ namespace MainSpace.MainMenu.Views
         // Subject (R3)
         public Subject<Unit> SceneTransitionSignal { get; private set; }
 
-        public void BindSceneTransitionSignal(Subject<Unit> sceneTransitionSignal)
-        {
-            SceneTransitionSignal = sceneTransitionSignal;
-        }
-
         private void Start()
         {
             // main tab elements
             _nextQuestionButton.onClick.AddListener(() =>
             {
                 OnNextQuestionButtonClickEvent?.Invoke();
+            });
+
+            _addToFavouriteButton.onClick.AddListener(() =>
+            {
+                OnAddToFavouriteButtonClickEvent?.Invoke();
             });
 
             _openListButton.onClick.AddListener(() =>
@@ -63,6 +65,11 @@ namespace MainSpace.MainMenu.Views
             {
                 OnToMainTabButtonClickEvent?.Invoke();
             });
+        }
+
+        public void BindSceneTransitionSignal(Subject<Unit> sceneTransitionSignal)
+        {
+            SceneTransitionSignal = sceneTransitionSignal;
         }
 
         public void SetScreenName(string screenName, Color color)
@@ -105,6 +112,16 @@ namespace MainSpace.MainMenu.Views
             {
                 OnQuestionButtonClickEvent?.Invoke(idx);
             });
+        }
+
+        public void DisableAddToFavouriteButton()
+        {
+            _addToFavouriteButton.gameObject.SetActive(false);
+        }
+
+        public void ChangeFavouriteButtonColor(Color color)
+        {
+            _addToFavouriteButton.GetComponent<Image>().color = color;
         }
     }
 }

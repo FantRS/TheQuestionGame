@@ -179,10 +179,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7862237025301516358, guid: becb5709b5cef4c4a8542bc41fbd6fa7, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 468172415962875074, guid: becb5709b5cef4c4a8542bc41fbd6fa7, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 4216172797844657623}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becb5709b5cef4c4a8542bc41fbd6fa7, type: 3}
@@ -264,6 +265,10 @@ PrefabInstance:
     - target: {fileID: 3834156169394728218, guid: 534633f83a2803b4e94878ab5c4c4012, type: 3}
       propertyPath: m_Name
       value: ScreenPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834156169394728218, guid: 534633f83a2803b4e94878ab5c4c4012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7900419525885540877, guid: 534633f83a2803b4e94878ab5c4c4012, type: 3}
       propertyPath: m_Pivot.x

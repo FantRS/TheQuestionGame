@@ -1,9 +1,9 @@
-﻿using MainSpace.MainMenu.Models;
+﻿using MainSpace.Configs;
+using MainSpace.DataStructures;
+using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using R3;
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -14,15 +14,19 @@ namespace MainSpace.MainMenu.Presenters
 
         public ScreenPresenter(ScreenView view, ScreenModel model)
         {
+            // init view and model
             _screenView = view;
             _screenModel = model;
 
-            _screenView.SetScreenName(_screenModel.Config.ScreenName, _screenModel.Config.QuestionTextColor);
-            _screenView.SetBackground(_screenModel.Config.Background);
-            _screenView.SetQuestionTextColor(_screenModel.Config.QuestionTextColor);
+            // setup screen UI
+            SetScreen(_screenModel.Config);
+            OnFavouriteCategory(_screenModel.Config);
 
-            Shuffle(_screenModel.Questions);
-            SpawnList(_screenModel.Config.QuestionList);
+            // some logic...
+            SpawnList();
+            Shuffle();
+
+            // subscriptions
             EventSubscriptions();
             ReactiveSubscriptions();
         }
@@ -30,6 +34,7 @@ namespace MainSpace.MainMenu.Presenters
         private void EventSubscriptions()
         {
             _screenView.OnNextQuestionButtonClickEvent += ItarateQuestionsList;
+            _screenView.OnAddToFavouriteButtonClickEvent += FavouriteListControl;
             _screenView.OnOpenListButtonClickEvent += () =>
             {
                 _screenView.SetActiveMainTab(false);
@@ -40,12 +45,14 @@ namespace MainSpace.MainMenu.Presenters
                 _screenView.SetActiveMainTab(true);
                 _screenView.SetActiveListTab(false);
             };
-            _screenView.OnQuestionButtonClickEvent += (idx) =>
+            _screenView.OnQuestionButtonClickEvent += (sortedIndex) =>
             {
                 _screenView.SetActiveMainTab(true);
                 _screenView.SetActiveListTab(false);
 
-                _screenView.ChangeQuestionText(_screenModel.Config.QuestionList[idx]);
+                string sortedQuestionString = _screenModel.Config.QuestionList[sortedIndex];
+                int newIndex = _screenModel.ShuffledStringsList.IndexOf(sortedQuestionString);
+                _screenModel.CurrentIndex.OnNext(newIndex);
             };
         }
 
@@ -53,49 +60,94 @@ namespace MainSpace.MainMenu.Presenters
         {
             IDisposable subscription;
 
-            subscription = _screenModel.CurrentIdx.Subscribe((value) =>
+            subscription = _screenModel.CurrentIndex.Subscribe((value) =>
             {
-                _screenView.ChangeQuestionText(_screenModel.Questions[value]);
+                string questionString = _screenModel.ShuffledStringsList[value];
+                _screenView.ChangeQuestionText(questionString);
             });
             _screenModel.Subscriptions.Add(subscription);
         }
 
-        private void ItarateQuestionsList()
+        private void OnFavouriteCategory(ScreenConfig config)
         {
-            Debug.Log(_screenModel.CurrentIdx.Value);
-
-            int currentIdx = _screenModel.CurrentIdx.Value;
-            int questionCount = _screenModel.Questions.Count;
-
-            if (currentIdx + 1 == questionCount)
-                _screenModel.CurrentIdx.Value = 0;
-            else
-                _screenModel.CurrentIdx.Value++;
+            if (config.Category == Category.Favourite)
+            {
+                _screenView.DisableAddToFavouriteButton();
+            }
         }
 
-        private void Shuffle(List<string> questions)
+        private void SetScreen(ScreenConfig config)
         {
-            int n = questions.Count;
+            _screenView.SetScreenName(config.ScreenName, config.QuestionTextColor);
+            _screenView.SetBackground(config.Background);
+            _screenView.SetQuestionTextColor(config.QuestionTextColor);
+        }
+
+        private void SpawnList()
+        {
+            // at the moment these lists are not shuffled!
+            var shuffledStrings = _screenModel.ShuffledStringsList;
+            var shuffledQuestions = _screenModel.ShuffledQuestionsList;
+            int idx = 0;
+
+            foreach (var text in shuffledStrings)
+            {
+                // spawn button
+                _screenView.AddButtonToContent(text, idx);
+
+                // add question to questions list in the model
+                shuffledQuestions.Add(new Question(idx, _screenModel.Config.Category));
+
+                idx++;
+            }
+        }
+
+        private void FavouriteListControl()
+        {
+            var favouriteList = _screenModel.FavouriteDataProxy.QuestionsList;
+
+            int currentIndex = _screenModel.CurrentIndex.CurrentValue;
+            var currentQuestion = _screenModel.ShuffledQuestionsList[currentIndex];
+
+            if (!favouriteList.Contains(currentQuestion))
+            {
+                _screenModel.FavouriteDataProxy.QuestionsList.Add(currentQuestion);
+            }
+            else
+            {
+                _screenModel.FavouriteDataProxy.QuestionsList.Remove(currentQuestion);
+            }
+        }
+
+        private void Shuffle()
+        {
+            // creating links to shuffled lists
+            var shuffledQuestions = _screenModel.ShuffledStringsList;
+            var questionsList = _screenModel.ShuffledQuestionsList;
+
+            int n = shuffledQuestions.Count;
 
             for (int i = n - 1; i > 0; i--)
             {
                 int j = UnityEngine.Random.Range(0, i + 1);
 
-                string temp = questions[i];
-                questions[i] = questions[j];
-                questions[j] = temp;
+                // swap values in shuffled shuffledStrings
+                (shuffledQuestions[i], shuffledQuestions[j]) = (shuffledQuestions[j], shuffledQuestions[i]);
+
+                // swap values in shuffles shuffledStrings list
+                (questionsList[i], questionsList[j]) = (questionsList[j], questionsList[i]);
             }
         }
 
-        private void SpawnList(List<string> questions)
+        private void ItarateQuestionsList()
         {
-            int idx = 0;
+            int currentIdx = _screenModel.CurrentIndex.Value;
+            int questionCount = _screenModel.ShuffledStringsList.Count;
 
-            foreach (var text in questions)
-            {
-                _screenView.AddButtonToContent(text, idx);
-                idx++;
-            }
+            if (currentIdx + 1 == questionCount)
+                _screenModel.CurrentIndex.Value = 0;
+            else
+                _screenModel.CurrentIndex.Value++;
         }
     }
 }

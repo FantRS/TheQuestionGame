@@ -1,23 +1,31 @@
-﻿using MainSpace.Configs;
+﻿using BaCon;
+using MainSpace.Configs;
+using MainSpace.Data;
+using MainSpace.Data.Root;
 
 namespace MainSpace.MainMenu.Models
 {
     public sealed class MainMenuModel
     {
-        public readonly ScreenVaultConfig QuestionsConfig;
+        public readonly ScreenVaultConfig QuestionsVaultConfig;
+        public readonly FavouriteQuestionsDataProxy FavouriteQuestionsProxy;
 
-        public int GirlsQuestions => QuestionsConfig.ForGirlsQuestionConfig.QuestionList.Count;
-        public int BoysQuestions => QuestionsConfig.ForBoysQuestionConfig.QuestionList.Count;
-        public int LoverQuestions => QuestionsConfig.ForLoversQuestionConfig.QuestionList.Count;
-        public int FunnyQuestions => QuestionsConfig.FunnyQuestionConfig.QuestionList.Count;
-        public int ArtQuestions => QuestionsConfig.ArtistsQuestionConfig.QuestionList.Count;
-        public int LifeQuestions => QuestionsConfig.LifeQuestionConfig.QuestionList.Count;
-        public int DreamQuestions => QuestionsConfig.DreamsQuestionConfig.QuestionList.Count;
-        public int ChurchQuestions => QuestionsConfig.ChurchQuestionConfig.QuestionList.Count;
+        public int FavouriteCount => FavouriteQuestionsProxy.QuestionsList.Count;
+        public int GirlsCount => QuestionsVaultConfig.ForGirlsQuestionConfig.QuestionList.Count;
+        public int BoysCount => QuestionsVaultConfig.ForBoysQuestionConfig.QuestionList.Count;
+        public int LoverCount => QuestionsVaultConfig.ForLoversQuestionConfig.QuestionList.Count;
+        public int FunnyCount => QuestionsVaultConfig.FunnyQuestionConfig.QuestionList.Count;
+        public int ArtCount => QuestionsVaultConfig.ArtistsQuestionConfig.QuestionList.Count;
+        public int LifeCount => QuestionsVaultConfig.LifeQuestionConfig.QuestionList.Count;
+        public int DreamCount => QuestionsVaultConfig.DreamsQuestionConfig.QuestionList.Count;
+        public int WhoCount => QuestionsVaultConfig.ChurchQuestionConfig.QuestionList.Count;
 
-        public MainMenuModel(ScreenVaultConfig vaultConfig)
+        public MainMenuModel(DIContainer sceneContainer)
         {
-            QuestionsConfig = vaultConfig;
+            var dataProvider = sceneContainer.Resolve<DataProvider>();
+
+            QuestionsVaultConfig = sceneContainer.Resolve<ScreenVaultConfig>();
+            FavouriteQuestionsProxy = dataProvider.FavouriteQuestionsDataProxy;
         }
     }
 }

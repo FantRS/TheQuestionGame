@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
-  m_Name: Church
+  m_Name: Who
   m_EditorClassIdentifier: 
-  _screenName: "\u0426\u0435\u0440\u043A\u043E\u0432\u043D\u044B\u0435"
-  _background: {fileID: 21300000, guid: 12a93615b6204fe488fcf17e26713e47, type: 3}
+  _screenName: "\u041A\u0442\u043E \u0438\u0437..."
+  _background: {fileID: 21300000, guid: a073f0018e26c0f459796cc574b967a1, type: 3}
   _questionTextColor: {r: 0, g: 0, b: 0, a: 1}
+  _category: 8
   _questionList:
   - 1
   - 2

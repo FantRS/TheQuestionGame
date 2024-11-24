@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _screenName: "\u0414\u043B\u044F \u043F\u0430\u0440\u043D\u0435\u0439"
   _background: {fileID: 21300000, guid: a5e2d3a4de8c0da469c444472f339237, type: 3}
-  _questionTextColor: {r: 0, g: 0, b: 0, a: 0}
+  _questionTextColor: {r: 0, g: 0, b: 0, a: 1}
+  _category: 1
   _questionList:
   - 1
   - 2

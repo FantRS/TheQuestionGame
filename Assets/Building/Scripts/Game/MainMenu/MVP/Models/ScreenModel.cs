@@ -1,4 +1,8 @@
-﻿using MainSpace.Configs;
+﻿using BaCon;
+using MainSpace.Configs;
+using MainSpace.Data;
+using MainSpace.Data.Root;
+using MainSpace.DataStructures;
 using R3;
 using System.Collections.Generic;
 
@@ -7,18 +11,25 @@ namespace MainSpace.MainMenu.Models
     public sealed class ScreenModel
     {
         public readonly ScreenConfig Config;
+        public readonly FavouriteQuestionsDataProxy FavouriteDataProxy;
 
-        public readonly ReactiveProperty<int> CurrentIdx;
-        public readonly List<string> Questions;
+        public readonly List<string> ShuffledStringsList;
+        public readonly List<Question> ShuffledQuestionsList;
+        public readonly ReactiveProperty<int> CurrentIndex;
 
         public readonly CompositeDisposable Subscriptions;
 
-        public ScreenModel(ScreenConfig config)
+        public ScreenModel(DIContainer sceneContainer)
         {
-            Config = config;
+            var dataProvider = sceneContainer.Resolve<DataProvider>();
 
-            Questions = new List<string>(config.QuestionList);
-            CurrentIdx = new ReactiveProperty<int>(0);
+            Config = sceneContainer.Resolve<ScreenConfig>();
+            FavouriteDataProxy = dataProvider.FavouriteQuestionsDataProxy;
+
+
+            ShuffledStringsList = new List<string>(Config.QuestionList);
+            ShuffledQuestionsList = new List<Question>();
+            CurrentIndex = new ReactiveProperty<int>(0);
 
             Subscriptions = new CompositeDisposable();
         }

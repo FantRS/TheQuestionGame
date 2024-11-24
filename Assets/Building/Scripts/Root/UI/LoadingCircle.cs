@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Assets.Building.Scripts.Root
+namespace MainSpace.Root.UI
 {
-    public class LoadingCircle : MonoBehaviour
+    public sealed class LoadingCircle : MonoBehaviour
     {
         private void Update()
         {

@@ -19,6 +19,9 @@ namespace MainSpace.MainMenu.Root
             // resolving intances
             var rootUI = sceneContainer.Resolve<RootUIView>();
 
+            // registrated instances
+            sceneContainer.RegisterInstance(_questionVaultConfig);
+
             // attaching UI
             var mainMenuView = Instantiate(_mainMenuUIPrefab);
             rootUI.AttachSceneUI(mainMenuView.gameObject);
@@ -29,7 +32,7 @@ namespace MainSpace.MainMenu.Root
 
             // creating presenters
             var mainMenuPresenter = 
-                new MainMenuPresenter(mainMenuView, new MainMenuModel(_questionVaultConfig));
+                new MainMenuPresenter(mainMenuView, new MainMenuModel(sceneContainer));
 
             return sceneTransitionSignal;
         }

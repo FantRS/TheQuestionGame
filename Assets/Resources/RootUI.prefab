@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2599731045971139956}
   - component: {fileID: 5588090149786918958}
   m_Layer: 5
-  m_Name: svast
+  m_Name: LoadingCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41500002, y: 0.29738888}
   m_AnchorMax: {x: 0.583, y: 0.379}
-  m_AnchoredPosition: {x: 0.32120132, y: 0.3400116}
+  m_AnchoredPosition: {x: 0.3211975, y: 0.34002686}
   m_SizeDelta: {x: -0.77000046, y: -0.6800003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6746138415912780845
@@ -335,7 +335,7 @@ MonoBehaviour:
     m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 164
     m_Alignment: 4
     m_AlignByGeometry: 0

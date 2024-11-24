@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MainSpace.DataStructures;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MainSpace.Configs
 {
@@ -10,11 +10,13 @@ namespace MainSpace.Configs
         [SerializeField] private string _screenName;
         [SerializeField] private Sprite _background;
         [SerializeField] private Color _questionTextColor;
+        [SerializeField] private Category _category;
         [SerializeField, TextArea(2, 2)] private List<string> _questionList;
 
         public string ScreenName => _screenName;
         public Sprite Background => _background;
         public Color QuestionTextColor => _questionTextColor;
+        public Category Category => _category;
         public List<string> QuestionList => _questionList;
     }
 }

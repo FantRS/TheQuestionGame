@@ -5,6 +5,8 @@ namespace MainSpace.Configs
     [CreateAssetMenu(fileName ="QuestionVault", menuName ="Configs/QuestionVault")]
     public sealed class ScreenVaultConfig : ScriptableObject
     {
+        [SerializeField] private ScreenConfig _favouriteConfig;
+
         [SerializeField] private ScreenConfig _forGirlsQuestionConfig;
         [SerializeField] private ScreenConfig _forBoysQuestionConfig;
         [SerializeField] private ScreenConfig _forLoversQuestionConfig;
@@ -13,6 +15,9 @@ namespace MainSpace.Configs
         [SerializeField] private ScreenConfig _lifeQuestionsConfig;
         [SerializeField] private ScreenConfig _dreamsQuestionsConfig;
         [SerializeField] private ScreenConfig _churchQuestionsConfig;
+
+
+        public ScreenConfig FavouriteConfig => _favouriteConfig;
 
         public ScreenConfig ForGirlsQuestionConfig => _forGirlsQuestionConfig;
         public ScreenConfig ForBoysQuestionConfig => _forBoysQuestionConfig;

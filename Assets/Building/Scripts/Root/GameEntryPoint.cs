@@ -1,7 +1,8 @@
 using BaCon;
 using MainSpace.Configs;
+using MainSpace.Data.Root;
 using MainSpace.MainMenu.Root;
-using MainSpace.Screen.Root;
+using MainSpace.ScreenScene.Root;
 using MainSpace.Utils;
 using R3;
 using System.Collections;
@@ -37,9 +38,14 @@ namespace MainSpace.Root
             _rootUI = Object.Instantiate(rootUIResources);
             Object.DontDestroyOnLoad(_rootUI.gameObject);
 
+            // loading datas
+            var dataProvider = new DataProvider();
+            dataProvider.LoadFavouriteQuestionData();
+
             // creating DIContainer and register instances
             _rootContainer = new DIContainer();
             _rootContainer.RegisterInstance(_rootUI);
+            _rootContainer.RegisterInstance(dataProvider);
         }
 
         private void RunGame()

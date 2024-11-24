@@ -8,6 +8,7 @@ namespace MainSpace.MainMenu.Views
     public sealed class MainMenuView : MonoBehaviour
     {
         [Header("BUTTONS")]
+        [SerializeField] private Button _favouriteQuestionsButton;
         [SerializeField] private Button _forGirlsQuestionsButton;
         [SerializeField] private Button _forBoysQuestionsButton;
         [SerializeField] private Button _forLoverQuestionsButton;
@@ -18,6 +19,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _churchQuestionsButton;
 
         [Header("Questions count texts")]
+        [SerializeField] private Text _favouriteQuestionsCount;
         [SerializeField] private Text _forGirlsQuestionsCount;
         [SerializeField] private Text _forBoysQuestionsCount;
         [SerializeField] private Text _forLoverQuestionsCount;
@@ -28,6 +30,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _churchQuestionsCount;
 
         // events
+        public Subject<Unit> FavouriteQuestionsButtonClickEvent = new();
         public Subject<Unit> OnForGirlsQuestionsButtonClickEvent = new();
         public Subject<Unit> OnForBoysQuestionsButtonClickEvent = new();
         public Subject<Unit> OnForLoversQuestionsButtonClickEvent = new();
@@ -40,6 +43,11 @@ namespace MainSpace.MainMenu.Views
 
         private void Start()
         {
+            _favouriteQuestionsButton.onClick.AddListener(() =>
+            {
+                FavouriteQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
             _forGirlsQuestionsButton.onClick.AddListener(() =>
             {
                 OnForGirlsQuestionsButtonClickEvent?.OnNext(Unit.Default);
@@ -86,8 +94,10 @@ namespace MainSpace.MainMenu.Views
             SceneTransitionSignal = subject;
         }
 
-
-        #region Change questions count
+        public void DisableButton()
+        {
+            _favouriteQuestionsButton.interactable = false;
+        }
 
         public void ShowGirlsQuestionsCount(int count)
         {
@@ -129,6 +139,9 @@ namespace MainSpace.MainMenu.Views
             _churchQuestionsCount.text = count.ToString();
         }
 
-        #endregion
+        public void ShowFavouriteQuestionsCount(int count)
+        {
+            _favouriteQuestionsCount.text = count.ToString();
+        }
     }
 }

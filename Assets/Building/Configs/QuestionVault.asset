@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a6a7c0ee0411e47a5a7fcefbe7c649, type: 3}
   m_Name: QuestionVault
   m_EditorClassIdentifier: 
+  _favouriteConfig: {fileID: 11400000, guid: c03e1ec9dc9f623448049b504c1c40ae, type: 2}
   _forGirlsQuestionConfig: {fileID: 11400000, guid: ad447dcef259eb84fa5a670550a2caf3, type: 2}
   _forBoysQuestionConfig: {fileID: 11400000, guid: f5b1b940a686eaa4c8524763b70d4b27, type: 2}
   _forLoversQuestionConfig: {fileID: 11400000, guid: 15bb5a95dd2d0b242a6680ccb03ca0d8, type: 2}

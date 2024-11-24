@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
   m_Name: Dreams
   m_EditorClassIdentifier: 
-  _screenName: "\u0424\u0430\u043D\u0442\u0430\u0437\u0438\u0438 \u0438 \u043C\u0435\u0447\u0442\u044B"
+  _screenName: "\u0424\u0430\u043D\u0442\u0430\u0437\u0438\u0438"
   _background: {fileID: 21300000, guid: 1e0500b87d23aad4ab817d89d3e8bfb6, type: 3}
   _questionTextColor: {r: 1, g: 1, b: 1, a: 1}
+  _category: 7
   _questionList:
   - "1.\t\u0415\u0441\u043B\u0438 \u0431\u044B \u0442\u044B \u043C\u043E\u0433 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F
     \u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u0435, \u0447\u0442\u043E\u0431\u044B
