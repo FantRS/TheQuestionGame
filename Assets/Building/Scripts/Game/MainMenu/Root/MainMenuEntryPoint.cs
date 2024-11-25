@@ -6,6 +6,7 @@ using MainSpace.MainMenu.Views;
 using MainSpace.Root;
 using UnityEngine;
 using R3;
+using MainSpace.Data.Root;
 
 namespace MainSpace.MainMenu.Root
 {
@@ -18,6 +19,7 @@ namespace MainSpace.MainMenu.Root
         {
             // resolving intances
             var rootUI = sceneContainer.Resolve<RootUIView>();
+            var dataProvider = sceneContainer.Resolve<DataProvider>();
 
             // registrated instances
             sceneContainer.RegisterInstance(_questionVaultConfig);

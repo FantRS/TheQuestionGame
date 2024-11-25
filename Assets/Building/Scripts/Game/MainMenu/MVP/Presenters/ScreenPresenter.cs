@@ -4,6 +4,7 @@ using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using R3;
 using System;
+using System.Collections.Generic;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -20,10 +21,10 @@ namespace MainSpace.MainMenu.Presenters
 
             // setup screen UI
             SetScreen(_screenModel.Config);
-            OnFavouriteCategory(_screenModel.Config);
 
             // some logic...
-            SpawnList();
+            InitializeShuffledQuestionList(_screenModel.Config);
+            SpawnList(_screenModel.ShuffledStringsList);
             Shuffle();
 
             // subscriptions
@@ -64,16 +65,11 @@ namespace MainSpace.MainMenu.Presenters
             {
                 string questionString = _screenModel.ShuffledStringsList[value];
                 _screenView.ChangeQuestionText(questionString);
-            });
-            _screenModel.Subscriptions.Add(subscription);
-        }
+                CheckFavouriteQuestionState();
 
-        private void OnFavouriteCategory(ScreenConfig config)
-        {
-            if (config.Category == Category.Favourite)
-            {
-                _screenView.DisableAddToFavouriteButton();
-            }
+            });
+
+            _screenModel.Subscriptions.Add(subscription);
         }
 
         private void SetScreen(ScreenConfig config)
@@ -83,21 +79,31 @@ namespace MainSpace.MainMenu.Presenters
             _screenView.SetQuestionTextColor(config.QuestionTextColor);
         }
 
-        private void SpawnList()
+        private void InitializeShuffledQuestionList(ScreenConfig config)
         {
-            // at the moment these lists are not shuffled!
-            var shuffledStrings = _screenModel.ShuffledStringsList;
-            var shuffledQuestions = _screenModel.ShuffledQuestionsList;
+            if (config.Category == Category.Favourite)
+            {
+                _screenModel.ShuffledQuestionsList = 
+                    new List<Question>(_screenModel.FavouriteDataProxy.QuestionsList);
+            }
+            else
+            {
+                for (int i = 0; i < config.QuestionList.Count; i++)
+                {
+                    _screenModel.ShuffledQuestionsList
+                        .Add(new Question(i, config.Category));
+                }
+            }
+        }
+
+        private void SpawnList(List<string> shuffledStrings)
+        {
             int idx = 0;
 
             foreach (var text in shuffledStrings)
             {
                 // spawn button
                 _screenView.AddButtonToContent(text, idx);
-
-                // add question to questions list in the model
-                shuffledQuestions.Add(new Question(idx, _screenModel.Config.Category));
-
                 idx++;
             }
         }
@@ -111,11 +117,13 @@ namespace MainSpace.MainMenu.Presenters
 
             if (!favouriteList.Contains(currentQuestion))
             {
-                _screenModel.FavouriteDataProxy.QuestionsList.Add(currentQuestion);
+                favouriteList.Add(currentQuestion);
+                _screenView.EnableFilledStar();
             }
             else
             {
-                _screenModel.FavouriteDataProxy.QuestionsList.Remove(currentQuestion);
+                favouriteList.Remove(currentQuestion);
+                _screenView.DisableFilledStar();
             }
         }
 
@@ -147,7 +155,22 @@ namespace MainSpace.MainMenu.Presenters
             if (currentIdx + 1 == questionCount)
                 _screenModel.CurrentIndex.Value = 0;
             else
-                _screenModel.CurrentIndex.Value++;
+                _screenModel.CurrentIndex.Value += 1;
+        }
+
+        private void CheckFavouriteQuestionState()
+        {
+            var questionListProxy = _screenModel.FavouriteDataProxy.QuestionsList;
+            int currentIndex = _screenModel.CurrentIndex.CurrentValue;
+
+            if (questionListProxy.Contains(_screenModel.ShuffledQuestionsList[currentIndex]))
+            {
+                _screenView.EnableFilledStar();
+            }
+            else
+            {
+                _screenView.DisableFilledStar();
+            }
         }
     }
 }

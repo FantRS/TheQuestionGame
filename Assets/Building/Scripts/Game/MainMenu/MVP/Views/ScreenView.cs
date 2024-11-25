@@ -24,8 +24,11 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private GameObject _listTab;
         [SerializeField] private Transform _contentListTransform;
         [SerializeField] private Button _buttonPrefab;
-
         [SerializeField] private Button _toMainTabButton;
+
+        [SerializeField] private Image _starImage;
+        [SerializeField] private Sprite _starNotFilledSprite;
+        [SerializeField] private Sprite _starFilledSprite;
 
         // events
         public event Action OnNextQuestionButtonClickEvent;
@@ -114,14 +117,19 @@ namespace MainSpace.MainMenu.Views
             });
         }
 
-        public void DisableAddToFavouriteButton()
-        {
-            _addToFavouriteButton.gameObject.SetActive(false);
-        }
-
         public void ChangeFavouriteButtonColor(Color color)
         {
             _addToFavouriteButton.GetComponent<Image>().color = color;
+        }
+
+        public void EnableFilledStar()
+        {
+            _starImage.sprite = _starFilledSprite;
+        }
+
+        public void DisableFilledStar()
+        {
+            _starImage.sprite = _starNotFilledSprite;
         }
     }
 }

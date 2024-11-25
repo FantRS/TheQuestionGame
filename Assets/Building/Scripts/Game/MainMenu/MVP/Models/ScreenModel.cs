@@ -14,7 +14,7 @@ namespace MainSpace.MainMenu.Models
         public readonly FavouriteQuestionsDataProxy FavouriteDataProxy;
 
         public readonly List<string> ShuffledStringsList;
-        public readonly List<Question> ShuffledQuestionsList;
+        public List<Question> ShuffledQuestionsList;
         public readonly ReactiveProperty<int> CurrentIndex;
 
         public readonly CompositeDisposable Subscriptions;
@@ -25,7 +25,6 @@ namespace MainSpace.MainMenu.Models
 
             Config = sceneContainer.Resolve<ScreenConfig>();
             FavouriteDataProxy = dataProvider.FavouriteQuestionsDataProxy;
-
 
             ShuffledStringsList = new List<string>(Config.QuestionList);
             ShuffledQuestionsList = new List<Question>();

@@ -1,6 +1,5 @@
 ﻿using MainSpace.DataStructures;
 using System.Collections.Generic;
-using ObservableCollections;
 
 namespace MainSpace.Data
 {
@@ -14,7 +13,7 @@ namespace MainSpace.Data
         {
             _originData = originData;
 
-            QuestionsList = new List<Question>(_originData.QuestionList);
+            QuestionsList = _originData.QuestionList;
         }
     }
 }

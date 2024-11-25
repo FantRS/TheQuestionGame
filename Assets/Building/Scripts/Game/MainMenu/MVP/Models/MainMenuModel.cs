@@ -10,7 +10,7 @@ namespace MainSpace.MainMenu.Models
         public readonly ScreenVaultConfig QuestionsVaultConfig;
         public readonly FavouriteQuestionsDataProxy FavouriteQuestionsProxy;
 
-        public int FavouriteCount => FavouriteQuestionsProxy.QuestionsList.Count;
+        public int FavouriteCount => QuestionsVaultConfig.FavouriteConfig.QuestionList.Count;
         public int GirlsCount => QuestionsVaultConfig.ForGirlsQuestionConfig.QuestionList.Count;
         public int BoysCount => QuestionsVaultConfig.ForBoysQuestionConfig.QuestionList.Count;
         public int LoverCount => QuestionsVaultConfig.ForLoversQuestionConfig.QuestionList.Count;

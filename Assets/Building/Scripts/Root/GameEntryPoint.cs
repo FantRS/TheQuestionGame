@@ -18,6 +18,7 @@ namespace MainSpace.Root
         private readonly RootUIView _rootUI;
         private readonly DIContainer _rootContainer;
         private readonly Coroutines _coroutines;
+        private readonly GameManager _gameManager;
         private DIContainer _cachedSceneContainer;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -41,6 +42,11 @@ namespace MainSpace.Root
             // loading datas
             var dataProvider = new DataProvider();
             dataProvider.LoadFavouriteQuestionData();
+
+            // creating game manager
+            _gameManager = new GameObject("GameManager").AddComponent<GameManager>();
+            Object.DontDestroyOnLoad(_gameManager);
+            _gameManager.SetDataProvider(dataProvider);
 
             // creating DIContainer and register instances
             _rootContainer = new DIContainer();

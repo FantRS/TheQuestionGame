@@ -3,6 +3,7 @@ using MainSpace.DataStructures;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using R3;
+using UnityEngine;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -95,41 +96,26 @@ namespace MainSpace.MainMenu.Presenters
         {
             _mainMenuModel.QuestionsVaultConfig.FavouriteConfig.QuestionList.Clear();
 
+            var questionVaultConfig = _mainMenuModel.QuestionsVaultConfig;
             var favouriteQuestions = _mainMenuModel.FavouriteQuestionsProxy.QuestionsList;
 
             foreach (var question in favouriteQuestions)
             {
-                ScreenConfig categoryConfig;
-
-                switch (question.Category)
+                ScreenConfig categoryConfig = question.Category switch
                 {
-                    case Category.Boys:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.ForBoysQuestionConfig;
-                        break;
-                    case Category.Girls:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.ForGirlsQuestionConfig;
-                        break;
-                    case Category.Lovers:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.ForLoversQuestionConfig;
-                        break;
-                    case Category.Funny:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.FunnyQuestionConfig;
-                        break;
-                    case Category.Art:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.ArtistsQuestionConfig;
-                        break;
-                    case Category.Life:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.LifeQuestionConfig;
-                        break;
-                    case Category.Dream:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.DreamsQuestionConfig;
-                        break;
-                    case Category.Who:
-                        categoryConfig = _mainMenuModel.QuestionsVaultConfig.ChurchQuestionConfig;
-                        break;
-                    default:
-                        throw new System.Exception($"{this} : Not found any question");
-                }
+                    Category.Boys => questionVaultConfig.ForBoysQuestionConfig,
+                    Category.Girls => questionVaultConfig.ForGirlsQuestionConfig,
+                    Category.Lovers => questionVaultConfig.ForLoversQuestionConfig,
+                    Category.Funny => questionVaultConfig.ArtistsQuestionConfig,
+                    Category.Life => questionVaultConfig.LifeQuestionConfig,
+                    Category.Dream => questionVaultConfig.DreamsQuestionConfig,
+                    Category.Who => questionVaultConfig.ChurchQuestionConfig,
+                    _ => throw new System.Exception($"{this} : Not found any question")
+                };
+
+                // in case of missing questions from the category
+                if (question.Index >= categoryConfig.QuestionList.Count)
+                    continue;
 
                 string questionString = categoryConfig.QuestionList[question.Index];
 
