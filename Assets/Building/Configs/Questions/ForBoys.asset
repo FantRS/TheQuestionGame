@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: ForBoys
   m_EditorClassIdentifier: 
   _screenName: "\u0414\u043B\u044F \u043F\u0430\u0440\u043D\u0435\u0439"
-  _background: {fileID: 21300000, guid: a5e2d3a4de8c0da469c444472f339237, type: 3}
-  _questionTextColor: {r: 0, g: 0, b: 0, a: 1}
+  _background: {fileID: 21300000, guid: e5ef5fc8a1fa62745a90e5cc1b417386, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 4f986ecd886cc5e488adcc2d0e6d3438, type: 3}
+  _questionTextColor: {r: 0.07450981, g: 0.2509804, b: 0.38039216, a: 1}
+  _buttonColor: {r: 1, g: 1, b: 1, a: 1}
   _category: 1
   _questionList:
   - 1

@@ -9,13 +9,17 @@ namespace MainSpace.Configs
     {
         [SerializeField] private string _screenName;
         [SerializeField] private Sprite _background;
+        [SerializeField] private Sprite _cardSprite;
         [SerializeField] private Color _questionTextColor;
+        [SerializeField] private Color _buttonColor;
         [SerializeField] private Category _category;
         [SerializeField, TextArea(2, 2)] private List<string> _questionList;
 
         public string ScreenName => _screenName;
         public Sprite Background => _background;
-        public Color QuestionTextColor => _questionTextColor;
+        public Sprite CardSprite => _cardSprite;
+        public Color ContrastColor => _questionTextColor;
+        public Color ButtonColor => _buttonColor;
         public Category Category => _category;
         public List<string> QuestionList => _questionList;
     }

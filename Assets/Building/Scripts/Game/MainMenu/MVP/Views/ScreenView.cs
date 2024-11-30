@@ -7,20 +7,22 @@ namespace MainSpace.MainMenu.Views
 {
     public sealed class ScreenView : MonoBehaviour
     {
-        [Header("MainTab")]
+        [Header("\tMainTab")]
         [SerializeField] private GameObject _mainTab;
 
-        [SerializeField] private Text _screenName;
         [SerializeField] private Image _background;
+        [SerializeField] private Image _cardImage;
+        [SerializeField] private Text _categoryTitle;
         [SerializeField] private Text _questionText;
 
+        [Header("Buttons")]
         [SerializeField] private Button _nextQuestionButton;
         [SerializeField] private Button _addToFavouriteButton;
         [SerializeField] private Button _openListButton;
         [SerializeField] private Button _backButton;
 
 
-        [Header("ListTab")]
+        [Space, Header("\tListTab")]
         [SerializeField] private GameObject _listTab;
         [SerializeField] private Transform _contentListTransform;
         [SerializeField] private Button _buttonPrefab;
@@ -75,20 +77,32 @@ namespace MainSpace.MainMenu.Views
             SceneTransitionSignal = sceneTransitionSignal;
         }
 
-        public void SetScreenName(string screenName, Color color)
-        {
-            _screenName.text = screenName;
-            _screenName.color = color;
-        }
-
         public void SetBackground(Sprite image)
         {
             _background.sprite = image;
         }
 
-        public void SetQuestionTextColor(Color color)
+        public void SetCardSprite(Sprite image)
         {
+            _cardImage.sprite = image;
+        }
+
+        public void SetScreenName(string screenName)
+        {
+            _categoryTitle.text = screenName;
+        }
+
+        public void SetTextColor(Color color)
+        {
+            _categoryTitle.color = color;
             _questionText.color = color;
+        }
+
+        public void SetButtonsColor(Color color)
+        {
+            _openListButton.GetComponent<Image>().color = color;
+            _backButton.GetComponent<Image>().color = color;
+            _toMainTabButton.GetComponent<Image>().color = color;
         }
 
         public void SetActiveMainTab(bool active)
@@ -109,7 +123,10 @@ namespace MainSpace.MainMenu.Views
         public void AddButtonToContent(string text, int idx)
         {
             var btn = Instantiate(_buttonPrefab, _contentListTransform);
-            btn.gameObject.GetComponentInChildren<Text>().text = text;
+            var buttonText = btn.gameObject.GetComponentInChildren<Text>();
+            
+            buttonText.text = text;
+            buttonText.color = Color.white;
 
             btn.onClick.AddListener(() =>
             {

@@ -20,11 +20,11 @@ namespace MainSpace.MainMenu.Presenters
             _screenModel = model;
 
             // setup screen UI
-            SetScreen(_screenModel.Config);
+            SetupScreen(_screenModel.Config);
 
             // some logic...
             InitializeShuffledQuestionList(_screenModel.Config);
-            SpawnList(_screenModel.ShuffledStringsList);
+            SpawnButtonList(_screenModel.ShuffledStringsList);
             Shuffle();
 
             // subscriptions
@@ -64,19 +64,23 @@ namespace MainSpace.MainMenu.Presenters
             subscription = _screenModel.CurrentIndex.Subscribe((value) =>
             {
                 string questionString = _screenModel.ShuffledStringsList[value];
+                int questionIndex = _screenModel.ShuffledQuestionsList[value].Index + 1;
+                questionIndex.ConsoleWrite();
+
                 _screenView.ChangeQuestionText(questionString);
                 CheckFavouriteQuestionState();
-
             });
 
             _screenModel.Subscriptions.Add(subscription);
         }
 
-        private void SetScreen(ScreenConfig config)
+        private void SetupScreen(ScreenConfig config)
         {
-            _screenView.SetScreenName(config.ScreenName, config.QuestionTextColor);
             _screenView.SetBackground(config.Background);
-            _screenView.SetQuestionTextColor(config.QuestionTextColor);
+            _screenView.SetCardSprite(config.CardSprite);
+            _screenView.SetScreenName(config.ScreenName);
+            _screenView.SetTextColor(config.ContrastColor);
+            _screenView.SetButtonsColor(config.ButtonColor);
         }
 
         private void InitializeShuffledQuestionList(ScreenConfig config)
@@ -96,14 +100,15 @@ namespace MainSpace.MainMenu.Presenters
             }
         }
 
-        private void SpawnList(List<string> shuffledStrings)
+        private void SpawnButtonList(List<string> shuffledStrings)
         {
             int idx = 0;
 
             foreach (var text in shuffledStrings)
             {
                 // spawn button
-                _screenView.AddButtonToContent(text, idx);
+                string buttonText = $"{idx + 1}. {text}";
+                _screenView.AddButtonToContent(buttonText, idx);
                 idx++;
             }
         }
