@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4207c3d20e6094383a898ec825d9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuUIPrefab: {fileID: 1660704083862843320, guid: cc78512d15f14534d897351da8155610, type: 3}
+  _mainMenuViewStoragePrefab: {fileID: 7752912154121507356, guid: cc78512d15f14534d897351da8155610, type: 3}
   _questionVaultConfig: {fileID: 11400000, guid: 430a19c9051e4e5468b5e4c49b844c40, type: 2}
 --- !u!4 &1459899136
 Transform:

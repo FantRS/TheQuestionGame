@@ -8,95 +8,100 @@ namespace MainSpace.MainMenu.Presenters
 {
     public sealed class MainMenuPresenter
     {
-        private readonly MainMenuView _mainMenuView;
-        private readonly MainMenuModel _mainMenuModel;
+        private readonly MainMenuView _menuView;
+        private readonly MainMenuModel _menuModel;
 
         public MainMenuPresenter(MainMenuView view, MainMenuModel model)
         {
-            _mainMenuView = view;
-            _mainMenuModel = model;
+            // init view and model
+            _menuView = view;
+            _menuModel = model;
 
+            // some logic...
             InitializeFavoriteConfig();
+
+            // subscriptions
             EventSubsctiptions();
-            UpdateQuestionsCount();
+            ReactiveSubscriptions();
         }
 
         private void EventSubsctiptions()
         {
-            _mainMenuView.FavouriteQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.FavouriteQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.FavouriteConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.FavouriteConfig);
             });
 
-            _mainMenuView.OnForGirlsQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnForGirlsQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.ForGirlsQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.ForGirlsQuestionConfig);
             });
 
-            _mainMenuView.OnForBoysQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnForBoysQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.ForBoysQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.ForBoysQuestionConfig);
             });
 
-            _mainMenuView.OnForLoversQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnForLoversQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.ForLoversQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.ForLoversQuestionConfig);
             });
 
-            _mainMenuView.OnFunnyQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnFunnyQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.FunnyQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.FunnyQuestionConfig);
             });
 
-            _mainMenuView.OnArtistQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnArtistQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.ArtistsQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.ArtistsQuestionConfig);
             });
 
-            _mainMenuView.OnLifeQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnLifeQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.LifeQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.LifeQuestionConfig);
             });
 
-            _mainMenuView.OnDreamQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnDreamQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.DreamsQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.DreamsQuestionConfig);
             });
 
-            _mainMenuView.OnChurchQuestionsButtonClickEvent.Subscribe(_ =>
+            _menuView.OnChurchQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _mainMenuView.SceneTransitionSignal
-                    .OnNext(_mainMenuModel.QuestionsVaultConfig.ChurchQuestionConfig);
+                _menuView.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.ChurchQuestionConfig);
             });
         }
 
-        private void UpdateQuestionsCount()
+        private void ReactiveSubscriptions()
         {
-            _mainMenuView.ShowFavouriteQuestionsCount(_mainMenuModel.FavouriteCount);
-            _mainMenuView.ShowGirlsQuestionsCount(_mainMenuModel.GirlsCount);
-            _mainMenuView.ShowBoysQuestionsCount(_mainMenuModel.BoysCount);
-            _mainMenuView.ShowLoversQuestionsCount(_mainMenuModel.LoverCount);
-            _mainMenuView.ShowFunnyQuestionsCount(_mainMenuModel.FunnyCount);
-            _mainMenuView.ShowArtistQuestionsCount(_mainMenuModel.ArtCount);
-            _mainMenuView.ShowLifeQuestionsCount(_mainMenuModel.LifeCount);
-            _mainMenuView.ShowDreamQuestionsCount(_mainMenuModel.DreamCount);
-            _mainMenuView.ShowChurchQuestionsCount(_mainMenuModel.WhoCount);
+            var view = _menuView;
+
+            _menuModel.FavouriteCount.Subscribe((value) => view.ShowFavouriteQuestionsCount(value));
+            _menuModel.GirlsCount.Subscribe((value) => view.ShowGirlsQuestionsCount(value));
+            _menuModel.BoysCount.Subscribe((value) => view.ShowBoysQuestionsCount(value));
+            _menuModel.LoverCount.Subscribe((value) => view.ShowLoversQuestionsCount(value));
+            _menuModel.FunnyCount.Subscribe((value) => view.ShowFunnyQuestionsCount(value));
+            _menuModel.ArtCount.Subscribe((value) => view.ShowArtistQuestionsCount(value));
+            _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
+            _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
         }
 
         private void InitializeFavoriteConfig()
         {
-            _mainMenuModel.QuestionsVaultConfig.FavouriteConfig.QuestionList.Clear();
+            _menuModel.VaultConfig.FavouriteConfig.QuestionList.Clear();
 
-            var questionVaultConfig = _mainMenuModel.QuestionsVaultConfig;
-            var favouriteQuestions = _mainMenuModel.FavouriteQuestionsProxy.QuestionsList;
+            var questionVaultConfig = _menuModel.VaultConfig;
+            var favouriteQuestions = _menuModel.FavouriteQuestionsProxy.QuestionsList;
 
             foreach (var question in favouriteQuestions)
             {
@@ -118,7 +123,7 @@ namespace MainSpace.MainMenu.Presenters
 
                 string questionString = categoryConfig.QuestionList[question.Index];
 
-                _mainMenuModel.QuestionsVaultConfig.FavouriteConfig.QuestionList
+                _menuModel.VaultConfig.FavouriteConfig.QuestionList
                     .Add(questionString);
             }
 
@@ -127,9 +132,9 @@ namespace MainSpace.MainMenu.Presenters
 
         private void CheckFavouriteButton()
         {
-            if (_mainMenuModel.FavouriteCount == 0)
+            if (_menuModel.FavouriteCount.CurrentValue == 0)
             {
-                _mainMenuView.DisableButton();
+                _menuView.DisableButton();
             }
         }
     }

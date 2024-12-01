@@ -1,18 +1,17 @@
 ﻿using BaCon;
 using MainSpace.Configs;
+using MainSpace.Data.Root;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Presenters;
-using MainSpace.MainMenu.Views;
 using MainSpace.Root;
-using UnityEngine;
 using R3;
-using MainSpace.Data.Root;
+using UnityEngine;
 
 namespace MainSpace.MainMenu.Root
 {
     public sealed class MainMenuEntryPoint : MonoBehaviour
     {
-        [SerializeField] private MainMenuView _mainMenuUIPrefab;
+        [SerializeField] private MainMenuViewStorage _mainMenuViewStoragePrefab;
         [SerializeField] private ScreenVaultConfig _questionVaultConfig;
 
         public Observable<ScreenConfig> Run(DIContainer sceneContainer)
@@ -25,17 +24,22 @@ namespace MainSpace.MainMenu.Root
             sceneContainer.RegisterInstance(_questionVaultConfig);
 
             // attaching UI
-            var mainMenuView = Instantiate(_mainMenuUIPrefab);
-            rootUI.AttachSceneUI(mainMenuView.gameObject);
+            var mainMenuViewStorage = Instantiate(_mainMenuViewStoragePrefab);
+            rootUI.AttachSceneUI(mainMenuViewStorage.gameObject);
+
+            // getting views from view storage
+            var mainMenuView = mainMenuViewStorage.MainMenuView;
+            var settingsView = mainMenuViewStorage.SettingsView;
+
+            // creating presenters
+            var mainMenuModel = new MainMenuModel(sceneContainer);
+
+            var mainMenuPresenter = new MainMenuPresenter(mainMenuView, mainMenuModel);
+            //var settingsPresenter = new SettingsPresenter(settingsView, mainMenuModel);
 
             // binding transition signal
             var sceneTransitionSignal = new Subject<ScreenConfig>();
             mainMenuView.BindSceneTransitionSignal(sceneTransitionSignal);
-
-            // creating presenters
-            var mainMenuPresenter = 
-                new MainMenuPresenter(mainMenuView, new MainMenuModel(sceneContainer));
-
             return sceneTransitionSignal;
         }
     }

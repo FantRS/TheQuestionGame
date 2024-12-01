@@ -19,9 +19,6 @@ namespace MainSpace.ScreenScene.Root
             var rootUI = sceneContainer.Resolve<RootUIView>();
             var config = sceneContainer.Resolve<ScreenConfig>();
 
-            //// registration instances
-            //sceneContainer.RegisterInstance(config);
-
             // attaching UI
             var viewStorage = Instantiate(_viewStorageUiPrefab);
             rootUI.AttachSceneUI(viewStorage.gameObject);
@@ -30,16 +27,15 @@ namespace MainSpace.ScreenScene.Root
             var screenView = viewStorage.ScreenView;
             var questionListView = viewStorage.QuestionListView;
 
-            // binding transition signal
-            var sceneTransitionSignal = new Subject<Unit>();
-            screenView.BindSceneTransitionSignal(sceneTransitionSignal);
-
             // creation presenters
             var screenModel = new ScreenModel(sceneContainer);
 
             var screenPresenter = new ScreenPresenter(screenView, screenModel);
             var questionListPresenter = new QuestionListPresenter(questionListView, screenModel);
 
+            // binding transition signal
+            var sceneTransitionSignal = new Subject<Unit>();
+            screenView.BindSceneTransitionSignal(sceneTransitionSignal);
             return sceneTransitionSignal;
         }
     }

@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3926406526339868112}
-  - component: {fileID: 1660704083862843320}
+  - component: {fileID: 7752912154121507356}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -422,7 +422,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1660704083862843320
+--- !u!114 &7752912154121507356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,27 +431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1768000310265879362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fca81ad9b2db7445bef35a7e57a76aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 677c0b13fa323664ebad22c4f13e234f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _favouriteQuestionsButton: {fileID: 4452531087805843796}
-  _forGirlsQuestionsButton: {fileID: 4804346651106383536}
-  _forBoysQuestionsButton: {fileID: 1996244627433834350}
-  _forLoverQuestionsButton: {fileID: 9020512973498107939}
-  _funnyQuestionsButton: {fileID: 5939676386392558087}
-  _artistsQuestionsButton: {fileID: 5671214884135692851}
-  _lifeQuestionsButton: {fileID: 6330579495290773625}
-  _dreamQuestionsButton: {fileID: 6238021301947149138}
-  _churchQuestionsButton: {fileID: 2933103652325890356}
-  _favouriteQuestionsCount: {fileID: 244708824071826649}
-  _forGirlsQuestionsCount: {fileID: 3336277085468557214}
-  _forBoysQuestionsCount: {fileID: 3293237592458636794}
-  _forLoverQuestionsCount: {fileID: 2602705362422319611}
-  _funnyQuestionsCount: {fileID: 1435071146546008013}
-  _artistsQuestionsCount: {fileID: 5786943268347539419}
-  _lifeQuestionsCount: {fileID: 8308106753802874953}
-  _dreamQuestionsCount: {fileID: 6510598598442337727}
-  _churchQuestionsCount: {fileID: 6198344740089141913}
+  _mainMenuView: {fileID: 2491208083801877985}
+  _settingsView: {fileID: 0}
 --- !u!1 &2164514366822302583
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3776024902693116223}
+  - component: {fileID: 2491208083801877985}
   m_Layer: 5
   m_Name: MainMenuScreen
   m_TagString: Untagged
@@ -584,6 +569,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2491208083801877985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170788032159988679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fca81ad9b2db7445bef35a7e57a76aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _favouriteQuestionsButton: {fileID: 4452531087805843796}
+  _forGirlsQuestionsButton: {fileID: 4804346651106383536}
+  _forBoysQuestionsButton: {fileID: 1996244627433834350}
+  _forLoverQuestionsButton: {fileID: 9020512973498107939}
+  _funnyQuestionsButton: {fileID: 5939676386392558087}
+  _artistsQuestionsButton: {fileID: 5671214884135692851}
+  _lifeQuestionsButton: {fileID: 6330579495290773625}
+  _dreamQuestionsButton: {fileID: 6238021301947149138}
+  _churchQuestionsButton: {fileID: 2933103652325890356}
+  _favouriteQuestionsCount: {fileID: 244708824071826649}
+  _forGirlsQuestionsCount: {fileID: 3336277085468557214}
+  _forBoysQuestionsCount: {fileID: 3293237592458636794}
+  _forLoverQuestionsCount: {fileID: 2602705362422319611}
+  _funnyQuestionsCount: {fileID: 1435071146546008013}
+  _artistsQuestionsCount: {fileID: 5786943268347539419}
+  _lifeQuestionsCount: {fileID: 8308106753802874953}
+  _dreamQuestionsCount: {fileID: 6510598598442337727}
+  _churchQuestionsCount: {fileID: 6198344740089141913}
 --- !u!1 &2413697384203572913
 GameObject:
   m_ObjectHideFlags: 0

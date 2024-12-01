@@ -10,8 +10,8 @@ namespace MainSpace.MainMenu.Presenters
 {
     public sealed class ScreenPresenter
     {
-        private ScreenView _screenView;
-        private ScreenModel _screenModel;
+        private readonly ScreenView _screenView;
+        private readonly ScreenModel _screenModel;
 
         public ScreenPresenter(ScreenView view, ScreenModel model)
         {
@@ -33,13 +33,10 @@ namespace MainSpace.MainMenu.Presenters
 
         private void EventSubscriptions()
         {
-            _screenView.OnNextQuestionButtonClickEvent += ItarateQuestionsList;
+            _screenView.OnNextQuestionButtonClickEvent += MoveToNextQuestion;
+            _screenView.OnPrevQuestionButtonClickEvent += MoveToPreviousQuestion;
             _screenView.OnAddToFavouriteButtonClickEvent += FavouriteListControl;
-            _screenView.OnOpenListButtonClickEvent += () =>
-            {
-                _screenView.SetActiveMainTab(false);
-                _screenView.SetActiveListTab(true);
-            };
+            _screenView.OnOpenListButtonClickEvent += OnOpenListButtonClick;
         }
 
         private void ReactiveSubscriptions()
@@ -84,6 +81,12 @@ namespace MainSpace.MainMenu.Presenters
             }
         }
 
+        private void OnOpenListButtonClick()
+        {
+            _screenView.SetActiveMainTab(false);
+            _screenView.SetActiveListTab(true);
+        }
+
         private void FavouriteListControl()
         {
             var favouriteList = _screenModel.FavouriteDataProxy.QuestionsList;
@@ -123,15 +126,26 @@ namespace MainSpace.MainMenu.Presenters
             }
         }
 
-        private void ItarateQuestionsList()
+        private void MoveToNextQuestion()
         {
             int currentIdx = _screenModel.CurrentIndex.Value;
-            int questionCount = _screenModel.ShuffledStringsList.Count;
+            int questionsCount = _screenModel.ShuffledQuestionsList.Count;
 
-            if (currentIdx + 1 == questionCount)
+            if (currentIdx + 1 == questionsCount)
                 _screenModel.CurrentIndex.Value = 0;
             else
                 _screenModel.CurrentIndex.Value += 1;
+        }
+
+        private void MoveToPreviousQuestion()
+        {
+            int currentIdx = _screenModel.CurrentIndex.Value;
+            int questionsCount = _screenModel.ShuffledQuestionsList.Count;
+
+            if (currentIdx == 0)
+                _screenModel.CurrentIndex.Value = questionsCount - 1;
+            else
+                _screenModel.CurrentIndex.Value -= 1;
         }
 
         private void CheckFavouriteQuestionState()

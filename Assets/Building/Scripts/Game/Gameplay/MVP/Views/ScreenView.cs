@@ -18,6 +18,7 @@ namespace MainSpace.MainMenu.Views
 
         [Header("Buttons")]
         [SerializeField] private Button _nextQuestionButton;
+        [SerializeField] private Button _prevQuestionButton;
         [SerializeField] private Button _addToFavouriteButton;
         [SerializeField] private Button _openListButton;
         [SerializeField] private Button _backButton;
@@ -28,6 +29,7 @@ namespace MainSpace.MainMenu.Views
 
         // events
         public event Action OnNextQuestionButtonClickEvent;
+        public event Action OnPrevQuestionButtonClickEvent;
         public event Action OnAddToFavouriteButtonClickEvent;
         public event Action OnOpenListButtonClickEvent;
 
@@ -40,6 +42,11 @@ namespace MainSpace.MainMenu.Views
             _nextQuestionButton.onClick.AddListener(() =>
             {
                 OnNextQuestionButtonClickEvent?.Invoke();
+            });
+
+            _prevQuestionButton.onClick.AddListener(() =>
+            {
+                OnPrevQuestionButtonClickEvent?.Invoke();
             });
 
             _addToFavouriteButton.onClick.AddListener(() =>

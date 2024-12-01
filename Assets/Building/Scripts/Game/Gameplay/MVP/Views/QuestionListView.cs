@@ -10,7 +10,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private GameObject _questionTab;
 
         [SerializeField] private Transform _contentListTransform;
-        [SerializeField] private Button _buttonPrefab;
+        [SerializeField] private ButtonView _buttonPrefab;
         [SerializeField] private Button _toMainTabButton;
         [SerializeField] private Image _handleImage;
 
@@ -38,14 +38,15 @@ namespace MainSpace.MainMenu.Views
         public void AddButtonToContent(string text, int idx, Color color)
         {
             // creating button
-            var button = Instantiate(_buttonPrefab, _contentListTransform);
-            var buttonText = button.gameObject.GetComponentInChildren<Text>();
+            var buttonView = Instantiate(_buttonPrefab, _contentListTransform);
 
-            // setup button
-            buttonText.text = text;
-            buttonText.color = color;
+            var currentText = buttonView.CurrentText;
+            var currentButton = buttonView.CurrentButton;
 
-            button.onClick.AddListener(() =>
+            currentText.text = text;
+            currentText.color = color;
+
+            currentButton.onClick.AddListener(() =>
             {
                 OnQuestionButtonClickEvent?.Invoke(idx);
             });
