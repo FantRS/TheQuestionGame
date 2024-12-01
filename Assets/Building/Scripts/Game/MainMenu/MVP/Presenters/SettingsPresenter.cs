@@ -1,5 +1,6 @@
 ﻿using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
+using R3;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -18,7 +19,15 @@ namespace MainSpace.MainMenu.Presenters
 
         private void ReactiveSubscriptions()
         {
+            _settingsView.OnOpenMainMenuScreenButtonClickEvent.Subscribe(_ =>
+            {
+                OnOpenMainMenuScreenButtonClick();
+            });
+        }
 
+        private void OnOpenMainMenuScreenButtonClick()
+        {
+            _settingsView.OpenMainMenuScreen();
         }
     }
 }

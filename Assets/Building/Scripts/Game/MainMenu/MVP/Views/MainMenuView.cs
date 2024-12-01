@@ -7,7 +7,13 @@ namespace MainSpace.MainMenu.Views
 {
     public sealed class MainMenuView : MonoBehaviour
     {
-        [Header("BUTTONS")]
+        [Header("Screens")]
+        [SerializeField] private GameObject _mainMenuScreen;
+        [SerializeField] private GameObject _settingsScreen;
+
+        [Header("Buttons")]
+        [SerializeField] private Button _settingsButton;
+
         [SerializeField] private Button _favouriteQuestionsButton;
         [SerializeField] private Button _forGirlsQuestionsButton;
         [SerializeField] private Button _forBoysQuestionsButton;
@@ -30,19 +36,27 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _churchQuestionsCount;
 
         // events
-        public Subject<Unit> FavouriteQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnForGirlsQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnForBoysQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnForLoversQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnFunnyQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
-        public Subject<Unit> OnChurchQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnSettingsButtonClickEvent = new();
+
+        public readonly Subject<Unit> FavouriteQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnForGirlsQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnForBoysQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnForLoversQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnFunnyQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnChurchQuestionsButtonClickEvent = new();
+
         public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
 
         private void Start()
         {
+            _settingsButton.onClick.AddListener(() =>
+            {
+                OnSettingsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
             _favouriteQuestionsButton.onClick.AddListener(() =>
             {
                 FavouriteQuestionsButtonClickEvent?.OnNext(Unit.Default);
@@ -94,9 +108,15 @@ namespace MainSpace.MainMenu.Views
             SceneTransitionSignal = subject;
         }
 
-        public void DisableButton()
+        public void DisableFavouriteButton()
         {
             _favouriteQuestionsButton.interactable = false;
+        }
+
+        public void OpenSettingsScreen()
+        {
+            _mainMenuScreen.SetActive(false);
+            _settingsScreen.SetActive(true);
         }
 
         public void ShowGirlsQuestionsCount(int count)

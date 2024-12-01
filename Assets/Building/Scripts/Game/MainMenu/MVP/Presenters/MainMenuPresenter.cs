@@ -27,6 +27,11 @@ namespace MainSpace.MainMenu.Presenters
 
         private void EventSubsctiptions()
         {
+            _menuView.OnSettingsButtonClickEvent.Subscribe(_ =>
+            {
+                OnSettingsButtonClick();
+            });
+
             _menuView.FavouriteQuestionsButtonClickEvent.Subscribe(_ =>
             {
                 _menuView.SceneTransitionSignal
@@ -134,8 +139,13 @@ namespace MainSpace.MainMenu.Presenters
         {
             if (_menuModel.FavouriteCount.CurrentValue == 0)
             {
-                _menuView.DisableButton();
+                _menuView.DisableFavouriteButton();
             }
+        }
+
+        private void OnSettingsButtonClick()
+        {
+            _menuView.OpenSettingsScreen();
         }
     }
 }

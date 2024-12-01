@@ -35,7 +35,7 @@ namespace MainSpace.MainMenu.Root
             var mainMenuModel = new MainMenuModel(sceneContainer);
 
             var mainMenuPresenter = new MainMenuPresenter(mainMenuView, mainMenuModel);
-            //var settingsPresenter = new SettingsPresenter(settingsView, mainMenuModel);
+            var settingsPresenter = new SettingsPresenter(settingsView, mainMenuModel);
 
             // binding transition signal
             var sceneTransitionSignal = new Subject<ScreenConfig>();
