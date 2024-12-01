@@ -269,10 +269,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 135.20972
       objectReference: {fileID: 0}
-    - target: {fileID: 694459799604045608, guid: 534633f83a2803b4e94878ab5c4c4012, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3834156169394728218, guid: 534633f83a2803b4e94878ab5c4c4012, type: 3}
       propertyPath: m_Name
       value: ScreenPrefab

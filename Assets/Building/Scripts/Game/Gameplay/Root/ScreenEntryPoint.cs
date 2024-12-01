@@ -2,7 +2,7 @@
 using MainSpace.Configs;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Presenters;
-using MainSpace.MainMenu.Views;
+using MainSpace.MainMenu.Root;
 using MainSpace.Root;
 using R3;
 using UnityEngine;
@@ -11,7 +11,7 @@ namespace MainSpace.ScreenScene.Root
 {
     public sealed class ScreenEntryPoint : MonoBehaviour
     {
-        [SerializeField] private ScreenView _screenViewUiPrefab;
+        [SerializeField] private ScreenViewStorage _viewStorageUiPrefab;
 
         public Observable<Unit> Run(DIContainer sceneContainer)
         {
@@ -23,18 +23,22 @@ namespace MainSpace.ScreenScene.Root
             //sceneContainer.RegisterInstance(config);
 
             // attaching UI
-            var screenView = Instantiate(_screenViewUiPrefab);
-            rootUI.AttachSceneUI(screenView.gameObject);
+            var viewStorage = Instantiate(_viewStorageUiPrefab);
+            rootUI.AttachSceneUI(viewStorage.gameObject);
 
-            // registration instances
+            // getting views from view storage
+            var screenView = viewStorage.ScreenView;
+            var questionListView = viewStorage.QuestionListView;
 
             // binding transition signal
             var sceneTransitionSignal = new Subject<Unit>();
             screenView.BindSceneTransitionSignal(sceneTransitionSignal);
 
             // creation presenters
-            var screenPresenter =
-                new ScreenPresenter(screenView, new ScreenModel(sceneContainer));
+            var screenModel = new ScreenModel(sceneContainer);
+
+            var screenPresenter = new ScreenPresenter(screenView, screenModel);
+            var questionListPresenter = new QuestionListPresenter(questionListView, screenModel);
 
             return sceneTransitionSignal;
         }

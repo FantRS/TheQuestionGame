@@ -9,6 +9,7 @@ namespace MainSpace.MainMenu.Views
     {
         [Header("\tMainTab")]
         [SerializeField] private GameObject _mainTab;
+        [SerializeField] private GameObject _listTab;
 
         [SerializeField] private Image _background;
         [SerializeField] private Image _cardImage;
@@ -21,13 +22,6 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _openListButton;
         [SerializeField] private Button _backButton;
 
-
-        [Space, Header("\tListTab")]
-        [SerializeField] private GameObject _listTab;
-        [SerializeField] private Transform _contentListTransform;
-        [SerializeField] private Button _buttonPrefab;
-        [SerializeField] private Button _toMainTabButton;
-
         [SerializeField] private Image _starImage;
         [SerializeField] private Sprite _starNotFilledSprite;
         [SerializeField] private Sprite _starFilledSprite;
@@ -36,8 +30,6 @@ namespace MainSpace.MainMenu.Views
         public event Action OnNextQuestionButtonClickEvent;
         public event Action OnAddToFavouriteButtonClickEvent;
         public event Action OnOpenListButtonClickEvent;
-        public event Action OnToMainTabButtonClickEvent;
-        public event Action<int> OnQuestionButtonClickEvent;
 
         // Subject (R3)
         public Subject<Unit> SceneTransitionSignal { get; private set; }
@@ -63,12 +55,6 @@ namespace MainSpace.MainMenu.Views
             _backButton.onClick.AddListener(() =>
             {
                 SceneTransitionSignal?.OnNext(Unit.Default);
-            });
-
-            // list tab elements
-            _toMainTabButton.onClick.AddListener(() =>
-            {
-                OnToMainTabButtonClickEvent?.Invoke();
             });
         }
 
@@ -102,7 +88,6 @@ namespace MainSpace.MainMenu.Views
         {
             _openListButton.GetComponent<Image>().color = color;
             _backButton.GetComponent<Image>().color = color;
-            _toMainTabButton.GetComponent<Image>().color = color;
         }
 
         public void SetActiveMainTab(bool active)
@@ -118,25 +103,6 @@ namespace MainSpace.MainMenu.Views
         public void ChangeQuestionText(string questionText)
         {
             _questionText.text = questionText;
-        }
-
-        public void AddButtonToContent(string text, int idx)
-        {
-            var btn = Instantiate(_buttonPrefab, _contentListTransform);
-            var buttonText = btn.gameObject.GetComponentInChildren<Text>();
-            
-            buttonText.text = text;
-            buttonText.color = Color.white;
-
-            btn.onClick.AddListener(() =>
-            {
-                OnQuestionButtonClickEvent?.Invoke(idx);
-            });
-        }
-
-        public void ChangeFavouriteButtonColor(Color color)
-        {
-            _addToFavouriteButton.GetComponent<Image>().color = color;
         }
 
         public void EnableFilledStar()

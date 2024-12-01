@@ -24,7 +24,6 @@ namespace MainSpace.MainMenu.Presenters
 
             // some logic...
             InitializeShuffledQuestionList(_screenModel.Config);
-            SpawnButtonList(_screenModel.ShuffledStringsList);
             Shuffle();
 
             // subscriptions
@@ -41,20 +40,6 @@ namespace MainSpace.MainMenu.Presenters
                 _screenView.SetActiveMainTab(false);
                 _screenView.SetActiveListTab(true);
             };
-            _screenView.OnToMainTabButtonClickEvent += () =>
-            {
-                _screenView.SetActiveMainTab(true);
-                _screenView.SetActiveListTab(false);
-            };
-            _screenView.OnQuestionButtonClickEvent += (sortedIndex) =>
-            {
-                _screenView.SetActiveMainTab(true);
-                _screenView.SetActiveListTab(false);
-
-                string sortedQuestionString = _screenModel.Config.QuestionList[sortedIndex];
-                int newIndex = _screenModel.ShuffledStringsList.IndexOf(sortedQuestionString);
-                _screenModel.CurrentIndex.OnNext(newIndex);
-            };
         }
 
         private void ReactiveSubscriptions()
@@ -65,7 +50,6 @@ namespace MainSpace.MainMenu.Presenters
             {
                 string questionString = _screenModel.ShuffledStringsList[value];
                 int questionIndex = _screenModel.ShuffledQuestionsList[value].Index + 1;
-                questionIndex.ConsoleWrite();
 
                 _screenView.ChangeQuestionText(questionString);
                 CheckFavouriteQuestionState();
@@ -97,19 +81,6 @@ namespace MainSpace.MainMenu.Presenters
                     _screenModel.ShuffledQuestionsList
                         .Add(new Question(i, config.Category));
                 }
-            }
-        }
-
-        private void SpawnButtonList(List<string> shuffledStrings)
-        {
-            int idx = 0;
-
-            foreach (var text in shuffledStrings)
-            {
-                // spawn button
-                string buttonText = $"{idx + 1}. {text}";
-                _screenView.AddButtonToContent(buttonText, idx);
-                idx++;
             }
         }
 
