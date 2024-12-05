@@ -14,7 +14,6 @@ namespace MainSpace.Configs
         [SerializeField] private ScreenConfig _artistsQuestionsConfig;
         [SerializeField] private ScreenConfig _lifeQuestionsConfig;
         [SerializeField] private ScreenConfig _dreamsQuestionsConfig;
-        [SerializeField] private ScreenConfig _churchQuestionsConfig;
 
 
         public ScreenConfig FavouriteConfig => _favouriteConfig;
@@ -26,6 +25,5 @@ namespace MainSpace.Configs
         public ScreenConfig ArtistsQuestionConfig => _artistsQuestionsConfig;
         public ScreenConfig LifeQuestionConfig => _lifeQuestionsConfig;
         public ScreenConfig DreamsQuestionConfig => _dreamsQuestionsConfig;
-        public ScreenConfig ChurchQuestionConfig => _churchQuestionsConfig;
     }
 }

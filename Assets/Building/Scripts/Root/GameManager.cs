@@ -15,6 +15,7 @@ namespace MainSpace.Root
         private void SaveGameStates()
         {
             _dataProvider.SaveFavouriteQuestionData();
+            _dataProvider.SaveSettingsData();
         }
 
 #if UNITY_EDITOR

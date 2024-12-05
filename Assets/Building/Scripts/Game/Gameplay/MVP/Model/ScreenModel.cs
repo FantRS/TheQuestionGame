@@ -12,6 +12,7 @@ namespace MainSpace.MainMenu.Models
     {
         public readonly ScreenConfig Config;
         public readonly FavouriteQuestionsDataProxy FavouriteDataProxy;
+        public readonly SettingsDataProxy SettingsDataProxy;
 
         public readonly List<string> ShuffledStringsList;
         public List<Question> ShuffledQuestionsList;
@@ -25,6 +26,7 @@ namespace MainSpace.MainMenu.Models
 
             Config = sceneContainer.Resolve<ScreenConfig>();
             FavouriteDataProxy = dataProvider.FavouriteQuestionsDataProxy;
+            SettingsDataProxy = dataProvider.SettingsDataProxy;
 
             ShuffledStringsList = new List<string>(Config.QuestionList);
             ShuffledQuestionsList = new List<Question>();

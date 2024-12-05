@@ -24,7 +24,7 @@ namespace MainSpace.MainMenu.Presenters
 
             // some logic...
             InitializeShuffledQuestionList(_screenModel.Config);
-            Shuffle();
+            Shuffle(_screenModel.SettingsDataProxy.IsShuffeMode.CurrentValue);
 
             // subscriptions
             EventSubscriptions();
@@ -106,23 +106,26 @@ namespace MainSpace.MainMenu.Presenters
             }
         }
 
-        private void Shuffle()
+        private void Shuffle(bool isShuffled)
         {
-            // creating links to shuffled lists
-            var shuffledQuestions = _screenModel.ShuffledStringsList;
-            var questionsList = _screenModel.ShuffledQuestionsList;
-
-            int n = shuffledQuestions.Count;
-
-            for (int i = n - 1; i > 0; i--)
+            if (isShuffled)
             {
-                int j = UnityEngine.Random.Range(0, i + 1);
+                // creating links to shuffled lists
+                var shuffledQuestions = _screenModel.ShuffledStringsList;
+                var questionsList = _screenModel.ShuffledQuestionsList;
 
-                // swap values in shuffled shuffledStrings
-                (shuffledQuestions[i], shuffledQuestions[j]) = (shuffledQuestions[j], shuffledQuestions[i]);
+                int n = shuffledQuestions.Count;
 
-                // swap values in shuffles shuffledStrings list
-                (questionsList[i], questionsList[j]) = (questionsList[j], questionsList[i]);
+                for (int i = n - 1; i > 0; i--)
+                {
+                    int j = UnityEngine.Random.Range(0, i + 1);
+
+                    // swap values in shuffled shuffledStrings
+                    (shuffledQuestions[i], shuffledQuestions[j]) = (shuffledQuestions[j], shuffledQuestions[i]);
+
+                    // swap values in shuffles shuffledStrings list
+                    (questionsList[i], questionsList[j]) = (questionsList[j], questionsList[i]);
+                }
             }
         }
 
@@ -150,10 +153,11 @@ namespace MainSpace.MainMenu.Presenters
 
         private void CheckFavouriteQuestionState()
         {
-            var questionListProxy = _screenModel.FavouriteDataProxy.QuestionsList;
             int currentIndex = _screenModel.CurrentIndex.CurrentValue;
+            var questionListProxy = _screenModel.FavouriteDataProxy.QuestionsList;
+            var shuffledQuestionList = _screenModel.ShuffledQuestionsList;
 
-            if (questionListProxy.Contains(_screenModel.ShuffledQuestionsList[currentIndex]))
+            if (questionListProxy.Contains(shuffledQuestionList[currentIndex]))
             {
                 _screenView.EnableFilledStar();
             }

@@ -9,7 +9,6 @@
         Funny,
         Art,
         Life,
-        Dream,
-        Who
+        Dream
     }
 }

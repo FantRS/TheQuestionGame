@@ -42,6 +42,7 @@ namespace MainSpace.Root
             // loading datas
             var dataProvider = new DataProvider();
             dataProvider.LoadFavouriteQuestionData();
+            dataProvider.LoadSettingsData();
 
             // creating game manager
             _gameManager = new GameObject("GameManager").AddComponent<GameManager>();

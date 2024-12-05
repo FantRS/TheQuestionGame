@@ -1,5 +1,4 @@
-﻿using MainSpace.MainMenu.Models;
-using MainSpace.MainMenu.Views;
+﻿using MainSpace.MainMenu.Views;
 using R3;
 
 namespace MainSpace.MainMenu.Presenters
@@ -7,27 +6,45 @@ namespace MainSpace.MainMenu.Presenters
     public sealed class SettingsPresenter
     {
         private readonly SettingsView _settingsView;
-        private readonly MainMenuModel _menuModel;
+        private readonly SettingsModel _settingsModel;
 
-        public SettingsPresenter(SettingsView view, MainMenuModel model)
+        public SettingsPresenter(SettingsView view, SettingsModel model)
         {
             _settingsView = view;
-            _menuModel = model;
+            _settingsModel = model;
 
-            ReactiveSubscriptions();
+            EventSubscriptions();
+            ReactSubscriptions();
         }
 
-        private void ReactiveSubscriptions()
+        private void EventSubscriptions()
         {
-            _settingsView.OnOpenMainMenuScreenButtonClickEvent.Subscribe(_ =>
+            var model = _settingsModel;
+            
+            _settingsView.OnClearFavouriteListButtonClickEvent.Subscribe(_ =>
             {
-                OnOpenMainMenuScreenButtonClick();
+                ClearFavouriteList();
+            });
+
+            _settingsView.OnShuffleModeToggleClick.Subscribe((value) =>
+            {
+                model.SettingsData.IsShuffeMode.Value = value;
             });
         }
 
-        private void OnOpenMainMenuScreenButtonClick()
+        private void ReactSubscriptions()
         {
-            _settingsView.OpenMainMenuScreen();
+            var view = _settingsView;
+
+            _settingsModel.SettingsData.IsShuffeMode.Subscribe((value) =>
+            {
+                view.ChangeShuffleModeToggleValue(value);
+            });
+        }
+        
+        private void ClearFavouriteList()
+        {
+            _settingsModel.FafouriteListData.QuestionsList.Clear();
         }
     }
 }

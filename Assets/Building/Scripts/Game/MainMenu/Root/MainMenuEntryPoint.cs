@@ -18,7 +18,6 @@ namespace MainSpace.MainMenu.Root
         {
             // resolving intances
             var rootUI = sceneContainer.Resolve<RootUIView>();
-            var dataProvider = sceneContainer.Resolve<DataProvider>();
 
             // registrated instances
             sceneContainer.RegisterInstance(_questionVaultConfig);
@@ -33,9 +32,10 @@ namespace MainSpace.MainMenu.Root
 
             // creating presenters
             var mainMenuModel = new MainMenuModel(sceneContainer);
+            var settingsModel = new SettingsModel(sceneContainer);
 
             var mainMenuPresenter = new MainMenuPresenter(mainMenuView, mainMenuModel);
-            var settingsPresenter = new SettingsPresenter(settingsView, mainMenuModel);
+            var settingsPresenter = new SettingsPresenter(settingsView, settingsModel);
 
             // binding transition signal
             var sceneTransitionSignal = new Subject<ScreenConfig>();

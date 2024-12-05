@@ -6,25 +6,28 @@ namespace MainSpace.MainMenu.Views
 {
     public sealed class SettingsView : MonoBehaviour
     {
-        [SerializeField] private GameObject _mainMenuScreen;
-        [SerializeField] private GameObject _settingsScreen;
+        [SerializeField] private Button _clearFavouriteListButton;
+        [SerializeField] private Toggle _isShuffledModeToggle;
 
-        [SerializeField] private Button _openMainMenuScreenButton;
-
-        public readonly Subject<Unit> OnOpenMainMenuScreenButtonClickEvent = new();
+        public readonly Subject<Unit> OnClearFavouriteListButtonClickEvent = new();
+        public readonly Subject<bool> OnShuffleModeToggleClick = new();
 
         private void Start()
         {
-            _openMainMenuScreenButton.onClick.AddListener(() =>
+            _clearFavouriteListButton.onClick.AddListener(() =>
             {
-                OnOpenMainMenuScreenButtonClickEvent?.OnNext(Unit.Default);
+                OnClearFavouriteListButtonClickEvent.OnNext(Unit.Default);
+            });
+
+            _isShuffledModeToggle.onValueChanged.AddListener((value) =>
+            {
+                OnShuffleModeToggleClick?.OnNext(value);
             });
         }
 
-        public void OpenMainMenuScreen()
+        public void ChangeShuffleModeToggleValue(bool value)
         {
-            _mainMenuScreen.SetActive(true);
-            _settingsScreen.SetActive(false);
+            _isShuffledModeToggle.isOn = value;
         }
     }
 }

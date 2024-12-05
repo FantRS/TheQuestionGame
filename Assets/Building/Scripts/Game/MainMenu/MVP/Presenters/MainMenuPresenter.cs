@@ -2,6 +2,7 @@
 using MainSpace.DataStructures;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
+using ObservableCollections;
 using R3;
 
 namespace MainSpace.MainMenu.Presenters
@@ -18,7 +19,7 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel = model;
 
             // some logic...
-            InitializeFavoriteConfig();
+            CheckFavouriteButton();
 
             // subscriptions
             EventSubsctiptions();
@@ -27,69 +28,63 @@ namespace MainSpace.MainMenu.Presenters
 
         private void EventSubsctiptions()
         {
-            _menuView.OnSettingsButtonClickEvent.Subscribe(_ =>
-            {
-                OnSettingsButtonClick();
-            });
+            var view = _menuView;
 
             _menuView.FavouriteQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                InitializeFavoriteConfig();
+
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.FavouriteConfig);
             });
 
             _menuView.OnForGirlsQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.ForGirlsQuestionConfig);
             });
 
             _menuView.OnForBoysQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.ForBoysQuestionConfig);
             });
 
             _menuView.OnForLoversQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.ForLoversQuestionConfig);
             });
 
             _menuView.OnFunnyQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.FunnyQuestionConfig);
             });
 
             _menuView.OnArtistQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.ArtistsQuestionConfig);
             });
 
             _menuView.OnLifeQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.LifeQuestionConfig);
             });
 
             _menuView.OnDreamQuestionsButtonClickEvent.Subscribe(_ =>
             {
-                _menuView.SceneTransitionSignal
+                view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.DreamsQuestionConfig);
-            });
-
-            _menuView.OnChurchQuestionsButtonClickEvent.Subscribe(_ =>
-            {
-                _menuView.SceneTransitionSignal
-                    .OnNext(_menuModel.VaultConfig.ChurchQuestionConfig);
             });
         }
 
         private void ReactiveSubscriptions()
         {
             var view = _menuView;
+            var model = _menuModel;
 
             _menuModel.FavouriteCount.Subscribe((value) => view.ShowFavouriteQuestionsCount(value));
             _menuModel.GirlsCount.Subscribe((value) => view.ShowGirlsQuestionsCount(value));
@@ -99,14 +94,22 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.ArtCount.Subscribe((value) => view.ShowArtistQuestionsCount(value));
             _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
+
+            _menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
+            {
+                int count = model.FavouriteQuestionsProxy.QuestionsList.Count;
+
+                model.FavouriteCount.OnNext(count);
+                view.DisableFavouriteButton();
+            });
         }
 
         private void InitializeFavoriteConfig()
         {
-            _menuModel.VaultConfig.FavouriteConfig.QuestionList.Clear();
-
             var questionVaultConfig = _menuModel.VaultConfig;
             var favouriteQuestions = _menuModel.FavouriteQuestionsProxy.QuestionsList;
+
+            questionVaultConfig.FavouriteConfig.QuestionList.Clear();
 
             foreach (var question in favouriteQuestions)
             {
@@ -115,10 +118,10 @@ namespace MainSpace.MainMenu.Presenters
                     Category.Boys => questionVaultConfig.ForBoysQuestionConfig,
                     Category.Girls => questionVaultConfig.ForGirlsQuestionConfig,
                     Category.Lovers => questionVaultConfig.ForLoversQuestionConfig,
-                    Category.Funny => questionVaultConfig.ArtistsQuestionConfig,
+                    Category.Funny => questionVaultConfig.FunnyQuestionConfig,
+                    Category.Art => questionVaultConfig.ArtistsQuestionConfig,
                     Category.Life => questionVaultConfig.LifeQuestionConfig,
                     Category.Dream => questionVaultConfig.DreamsQuestionConfig,
-                    Category.Who => questionVaultConfig.ChurchQuestionConfig,
                     _ => throw new System.Exception($"{this} : Not found any question")
                 };
 
@@ -131,8 +134,6 @@ namespace MainSpace.MainMenu.Presenters
                 _menuModel.VaultConfig.FavouriteConfig.QuestionList
                     .Add(questionString);
             }
-
-            CheckFavouriteButton();
         }
 
         private void CheckFavouriteButton()
@@ -141,11 +142,6 @@ namespace MainSpace.MainMenu.Presenters
             {
                 _menuView.DisableFavouriteButton();
             }
-        }
-
-        private void OnSettingsButtonClick()
-        {
-            _menuView.OpenSettingsScreen();
         }
     }
 }

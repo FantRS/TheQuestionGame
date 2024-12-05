@@ -1,5 +1,6 @@
 ﻿using MainSpace.DataStructures;
-using System.Collections.Generic;
+using ObservableCollections;
+using R3;
 
 namespace MainSpace.Data
 {
@@ -7,13 +8,18 @@ namespace MainSpace.Data
     {
         private readonly FavouriteQuestionsData _originData;
 
-        public readonly List<Question> QuestionsList;
+        public readonly ObservableList<Question> QuestionsList;
 
         public FavouriteQuestionsDataProxy(FavouriteQuestionsData originData)
         {
             _originData = originData;
 
-            QuestionsList = _originData.QuestionList;
+            QuestionsList = new ObservableList<Question>(_originData.QuestionList);
+
+            QuestionsList.ObserveAdd().Subscribe((collectionValue) => _originData.QuestionList.Add(collectionValue.Value));
+            QuestionsList.ObserveRemove().Subscribe((collectionValue) => _originData.QuestionList.Remove(collectionValue.Value));
+
+            QuestionsList.ObserveClear().Subscribe(_ => _originData.QuestionList.Clear());
         }
     }
 }
