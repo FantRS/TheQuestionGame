@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using R3;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace MainSpace.MainMenu.Views
     public sealed class CardView : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
         [Header("UI Elements")]
-        [SerializeField] private Text _questionText;
+        [SerializeField] private TMP_Text _questionText;
         [SerializeField] private Text _categoryText;
         [SerializeField] private Text _cardIndex;
         [SerializeField] private Image _cardImage;
@@ -29,7 +30,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Sprite _starFilledSprite;
 
         // getters
-        public Text QuestionText => _questionText;
+        public TMP_Text QuestionText => _questionText;
         public Text CategoryText => _categoryText;
         public Text CardIndex => _cardIndex;
         public Image CardImage => _cardImage;
