@@ -25,12 +25,14 @@ namespace MainSpace.ScreenScene.Root
 
             // getting views from view storage
             var screenView = viewStorage.ScreenView;
+            var swipeCardView = viewStorage.SwipeCardView;
             var questionListView = viewStorage.QuestionListView;
 
             // creation presenters
             var screenModel = new ScreenModel(sceneContainer);
 
             var screenPresenter = new ScreenPresenter(screenView, screenModel);
+            var swipeCardPresenter = new SwipeCardPresenter(swipeCardView, screenModel);
             var questionListPresenter = new QuestionListPresenter(questionListView, screenModel);
 
             // binding transition signal

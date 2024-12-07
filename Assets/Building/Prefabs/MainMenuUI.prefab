@@ -1419,9 +1419,9 @@ RectTransform:
   m_Father: {fileID: 5664825534404866859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 538.8137}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7210554241644330565
 CanvasRenderer:
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.25
+  m_fontSize: 39
   m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4870,7 +4870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8142894610015476976
@@ -5102,6 +5102,7 @@ GameObject:
   - component: {fileID: 8761583996664738704}
   - component: {fileID: 4956574235694285058}
   - component: {fileID: 6885258602255899690}
+  - component: {fileID: 8544595700848403961}
   m_Layer: 0
   m_Name: ShuffleCardButton
   m_TagString: Untagged
@@ -5183,6 +5184,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8544595700848403961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988848588884437616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814bd8400f50572438d9df595cba8679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentButton: {fileID: 6885258602255899690}
+  _currentText: {fileID: 7110099640316863483}
+  _currentImage: {fileID: 0}
 --- !u!1 &5114294000335780715
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,7 +7127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1543575023815475139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8567,7 +8583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clearFavouriteListButton: {fileID: 923602872102308317}
-  _isShuffledModeToggle: {fileID: 4305269082795951022}
+  _shuffleModeButton: {fileID: 6885258602255899690}
+  _shuffleModeButtonText: {fileID: 7110099640316863483}
 --- !u!1 &8566729566521365979
 GameObject:
   m_ObjectHideFlags: 0
@@ -8976,7 +8993,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 653.37}
+  m_SizeDelta: {x: 0, y: 538.8137}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2239471386193502732
 CanvasRenderer:

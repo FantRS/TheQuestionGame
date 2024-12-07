@@ -2,8 +2,6 @@
 using MainSpace.DataStructures;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
-using R3;
-using System;
 using System.Collections.Generic;
 
 namespace MainSpace.MainMenu.Presenters
@@ -28,39 +26,16 @@ namespace MainSpace.MainMenu.Presenters
 
             // subscriptions
             EventSubscriptions();
-            ReactiveSubscriptions();
         }
 
         private void EventSubscriptions()
         {
-            _screenView.OnNextQuestionButtonClickEvent += MoveToNextQuestion;
-            _screenView.OnPrevQuestionButtonClickEvent += MoveToPreviousQuestion;
-            _screenView.OnAddToFavouriteButtonClickEvent += FavouriteListControl;
             _screenView.OnOpenListButtonClickEvent += OnOpenListButtonClick;
-        }
-
-        private void ReactiveSubscriptions()
-        {
-            IDisposable subscription;
-
-            subscription = _screenModel.CurrentIndex.Subscribe((value) =>
-            {
-                string questionString = _screenModel.ShuffledStringsList[value];
-                int questionIndex = _screenModel.ShuffledQuestionsList[value].Index + 1;
-
-                _screenView.ChangeQuestionText(questionString);
-                CheckFavouriteQuestionState();
-            });
-
-            _screenModel.Subscriptions.Add(subscription);
         }
 
         private void SetupScreen(ScreenConfig config)
         {
             _screenView.SetBackground(config.Background);
-            _screenView.SetCardSprite(config.CardSprite);
-            _screenView.SetScreenName(config.ScreenName);
-            _screenView.SetTextColor(config.ContrastColor);
             _screenView.SetButtonsColor(config.ButtonColor);
         }
 
@@ -87,25 +62,6 @@ namespace MainSpace.MainMenu.Presenters
             _screenView.SetActiveListTab(true);
         }
 
-        private void FavouriteListControl()
-        {
-            var favouriteList = _screenModel.FavouriteDataProxy.QuestionsList;
-
-            int currentIndex = _screenModel.CurrentIndex.CurrentValue;
-            var currentQuestion = _screenModel.ShuffledQuestionsList[currentIndex];
-
-            if (!favouriteList.Contains(currentQuestion))
-            {
-                favouriteList.Add(currentQuestion);
-                _screenView.EnableFilledStar();
-            }
-            else
-            {
-                favouriteList.Remove(currentQuestion);
-                _screenView.DisableFilledStar();
-            }
-        }
-
         private void Shuffle(bool isShuffled)
         {
             if (isShuffled)
@@ -126,44 +82,6 @@ namespace MainSpace.MainMenu.Presenters
                     // swap values in shuffles shuffledStrings list
                     (questionsList[i], questionsList[j]) = (questionsList[j], questionsList[i]);
                 }
-            }
-        }
-
-        private void MoveToNextQuestion()
-        {
-            int currentIdx = _screenModel.CurrentIndex.Value;
-            int questionsCount = _screenModel.ShuffledQuestionsList.Count;
-
-            if (currentIdx + 1 == questionsCount)
-                _screenModel.CurrentIndex.Value = 0;
-            else
-                _screenModel.CurrentIndex.Value += 1;
-        }
-
-        private void MoveToPreviousQuestion()
-        {
-            int currentIdx = _screenModel.CurrentIndex.Value;
-            int questionsCount = _screenModel.ShuffledQuestionsList.Count;
-
-            if (currentIdx == 0)
-                _screenModel.CurrentIndex.Value = questionsCount - 1;
-            else
-                _screenModel.CurrentIndex.Value -= 1;
-        }
-
-        private void CheckFavouriteQuestionState()
-        {
-            int currentIndex = _screenModel.CurrentIndex.CurrentValue;
-            var questionListProxy = _screenModel.FavouriteDataProxy.QuestionsList;
-            var shuffledQuestionList = _screenModel.ShuffledQuestionsList;
-
-            if (questionListProxy.Contains(shuffledQuestionList[currentIndex]))
-            {
-                _screenView.EnableFilledStar();
-            }
-            else
-            {
-                _screenView.DisableFilledStar();
             }
         }
     }

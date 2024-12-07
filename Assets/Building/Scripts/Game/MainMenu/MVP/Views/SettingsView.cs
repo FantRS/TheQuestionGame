@@ -7,10 +7,12 @@ namespace MainSpace.MainMenu.Views
     public sealed class SettingsView : MonoBehaviour
     {
         [SerializeField] private Button _clearFavouriteListButton;
-        [SerializeField] private Toggle _isShuffledModeToggle;
+        [SerializeField] private Button _shuffleModeButton;
+
+        [SerializeField] private Text _shuffleModeButtonText;
 
         public readonly Subject<Unit> OnClearFavouriteListButtonClickEvent = new();
-        public readonly Subject<bool> OnShuffleModeToggleClick = new();
+        public readonly Subject<Unit> OnShuffleModeButtonClickEvent = new();
 
         private void Start()
         {
@@ -19,15 +21,15 @@ namespace MainSpace.MainMenu.Views
                 OnClearFavouriteListButtonClickEvent.OnNext(Unit.Default);
             });
 
-            _isShuffledModeToggle.onValueChanged.AddListener((value) =>
+            _shuffleModeButton.onClick.AddListener(() =>
             {
-                OnShuffleModeToggleClick?.OnNext(value);
+                OnShuffleModeButtonClickEvent.OnNext(Unit.Default);
             });
         }
 
-        public void ChangeShuffleModeToggleValue(bool value)
+        public void ChangeShuffleButtonState(string state)
         {
-            _isShuffledModeToggle.isOn = value;
+            _shuffleModeButtonText.text = state;
         }
     }
 }

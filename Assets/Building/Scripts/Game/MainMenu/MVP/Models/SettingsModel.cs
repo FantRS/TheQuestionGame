@@ -6,6 +6,9 @@ namespace MainSpace.MainMenu.Presenters
 {
     public sealed class SettingsModel
     {
+        public readonly string SHUFFLE_BUTTON_STATE_TRUE = "Тасовать карты";
+        public readonly string SHUFFLE_BUTTON_STATE_FALSE = "Не тасовать карты";
+
         public readonly FavouriteQuestionsDataProxy FafouriteListData;
         public readonly SettingsDataProxy SettingsData;
 

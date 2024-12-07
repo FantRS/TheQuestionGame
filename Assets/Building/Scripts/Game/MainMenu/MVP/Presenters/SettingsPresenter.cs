@@ -1,4 +1,6 @@
-﻿using MainSpace.MainMenu.Views;
+﻿using MainSpace.DataStructures;
+using MainSpace.MainMenu.Views;
+using ObservableCollections;
 using R3;
 
 namespace MainSpace.MainMenu.Presenters
@@ -23,28 +25,39 @@ namespace MainSpace.MainMenu.Presenters
             
             _settingsView.OnClearFavouriteListButtonClickEvent.Subscribe(_ =>
             {
-                ClearFavouriteList();
+                var questionList = model.FafouriteListData.QuestionsList;
+                ClearFavouriteList(questionList);
             });
 
-            _settingsView.OnShuffleModeToggleClick.Subscribe((value) =>
+            _settingsView.OnShuffleModeButtonClickEvent.Subscribe(_ =>
             {
-                model.SettingsData.IsShuffeMode.Value = value;
+                var isShuffleMode = model.SettingsData.IsShuffeMode;
+                OnShuffleModeButtonClick(isShuffleMode);
             });
         }
 
         private void ReactSubscriptions()
         {
             var view = _settingsView;
+            var model = _settingsModel;
 
             _settingsModel.SettingsData.IsShuffeMode.Subscribe((value) =>
             {
-                view.ChangeShuffleModeToggleValue(value);
+                if (value)
+                    view.ChangeShuffleButtonState(model.SHUFFLE_BUTTON_STATE_TRUE);
+                else
+                    view.ChangeShuffleButtonState(model.SHUFFLE_BUTTON_STATE_FALSE);
             });
         }
         
-        private void ClearFavouriteList()
+        private void ClearFavouriteList(ObservableList<Question> questionList)
         {
-            _settingsModel.FafouriteListData.QuestionsList.Clear();
+            questionList.Clear();
+        }
+
+        private void OnShuffleModeButtonClick(ReactiveProperty<bool> shuffleMode)
+        {
+            shuffleMode.Value = !shuffleMode.CurrentValue;
         }
     }
 }
