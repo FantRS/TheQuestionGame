@@ -1,5 +1,4 @@
 ﻿using R3;
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,7 +30,7 @@ namespace MainSpace.MainMenu.Views
 
         public void InstantiateCard()
         {
-            _cardView = Instantiate(_cardView, _parent);
+            _cardView = Instantiate(_cardViewPrefab, _parent);
             _cardView.transform.SetSiblingIndex(0);
             _cardView.CanvasGroup.blocksRaycasts = true;
 

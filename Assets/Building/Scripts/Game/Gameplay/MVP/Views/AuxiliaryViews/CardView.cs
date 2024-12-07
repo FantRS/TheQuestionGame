@@ -15,7 +15,9 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Image _cardImage;
         [SerializeField] private Button _starButton;
 
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private CanvasGroup _cardSelection;
+        [SerializeField] private CanvasGroup _insideSelection;
 
         [Header("Animation properties")]
         [SerializeField] private float AnimationSpeed;
@@ -32,27 +34,45 @@ namespace MainSpace.MainMenu.Views
         public Text CardIndex => _cardIndex;
         public Image CardImage => _cardImage;
         public Button StarButton => _starButton;
-        public CanvasGroup CanvasGroup => _canvasGroup;
+        public CanvasGroup CanvasGroup => _cardSelection;
 
         // private variables
         private Vector2 _startPosition;
         private Vector2 _endPosition;
+        private Canvas _canvas;
         
         // events
         public readonly Subject<bool> OnEndDragEvent = new();
 
+        private void Start()
+        {
+            _insideSelection.DOFade(1, AnimationDuration / 4);
+        }
+
         public void OnBeginDrag(PointerEventData eventData)
         {
             _startPosition = eventData.position;
+            _canvas = GetComponentInParent<Canvas>();
         }
 
-        public void OnDrag(PointerEventData eventData) { }
+        public void OnDrag(PointerEventData eventData)
+        {
+            _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _canvasGroup.blocksRaycasts = false;
-
             _endPosition = eventData.position;
+            var delta = _endPosition - _startPosition;
+
+            if (Mathf.Abs(delta.x) < 90 && Mathf.Abs(delta.y) < 90)
+            {
+                transform.localPosition = Vector2.zero;
+                return;
+            }
+
+            _cardSelection.blocksRaycasts = false;
+
             Vector2 direction;
             bool isNextDirection;
 
@@ -73,7 +93,7 @@ namespace MainSpace.MainMenu.Views
 
             OnEndDragEvent.OnNext(isNextDirection);
 
-            _canvasGroup.DOFade(0, AnimationDuration);
+            _cardSelection.DOFade(0, AnimationDuration);
             transform
                 .DOLocalMove(direction, AnimationDuration)
                 .SetEase(Ease.OutQuart)

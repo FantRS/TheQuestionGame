@@ -1,7 +1,6 @@
 ﻿using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using R3;
-using System;
 
 namespace MainSpace.MainMenu.Presenters
 {

@@ -12,6 +12,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private GameObject _listTab;
 
         [SerializeField] private Image _background;
+        [SerializeField] private Image _cardFormImage;
 
         [Header("Buttons")]
         [SerializeField] private Button _openListButton;
@@ -44,6 +45,11 @@ namespace MainSpace.MainMenu.Views
         public void SetBackground(Sprite image)
         {
             _background.sprite = image;
+        }
+
+        public void SetCardFormImage(Sprite cardFormImage)
+        {
+            _cardFormImage.sprite = cardFormImage;
         }
 
         public void SetButtonsColor(Color color)

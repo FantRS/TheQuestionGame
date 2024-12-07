@@ -36,6 +36,7 @@ namespace MainSpace.MainMenu.Presenters
         private void SetupScreen(ScreenConfig config)
         {
             _screenView.SetBackground(config.Background);
+            _screenView.SetCardFormImage(config.CardSprite);
             _screenView.SetButtonsColor(config.ButtonColor);
         }
 
