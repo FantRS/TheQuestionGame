@@ -151,6 +151,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3280804500782477280, guid: becb5709b5cef4c4a8542bc41fbd6fa7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280804500782477280, guid: becb5709b5cef4c4a8542bc41fbd6fa7, type: 3}
       propertyPath: m_Name
       value: ConstructorUI
       objectReference: {fileID: 0}
