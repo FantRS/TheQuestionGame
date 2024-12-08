@@ -524,7 +524,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2107286379968379633}
   m_OnClick:
     m_PersistentCalls:
@@ -755,7 +755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041F\u041E\u0414\u0414\u0415\u0420\u0416\u0410\u0422\u042C"
+  m_Text: "\u0421\u041A\u041E\u0420\u041E"
 --- !u!114 &5868384083135155582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3509,7 +3509,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 34096345210834671}
   m_OnClick:
     m_PersistentCalls:
@@ -4004,7 +4004,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.17254902, g: 0.047058824, b: 0.43137255, a: 1}
     m_PressedColor: {r: 0.36853594, g: 0.16073336, b: 0.7924528, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.17254902, g: 0.04705883, b: 0.43137258, a: 0.7137255}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4018,7 +4018,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 3354335979374012966}
   m_OnClick:
     m_PersistentCalls:
@@ -7083,7 +7083,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 9213358207378701523}
   m_OnClick:
     m_PersistentCalls:
@@ -7434,7 +7434,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8613576870117477044}
   m_OnClick:
     m_PersistentCalls:
