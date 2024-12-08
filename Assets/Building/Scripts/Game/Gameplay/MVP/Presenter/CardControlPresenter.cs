@@ -4,12 +4,12 @@ using R3;
 
 namespace MainSpace.MainMenu.Presenters
 {
-    public sealed class SwipeCardPresenter
+    public sealed class CardControlPresenter
     {
-        private readonly SwipeCardView _swipeCardView;
+        private readonly CardControlView _swipeCardView;
         private readonly ScreenModel _screenModel;
 
-        public SwipeCardPresenter(SwipeCardView view, ScreenModel model)
+        public CardControlPresenter(CardControlView view, ScreenModel model)
         {
             _swipeCardView = view;
             _screenModel = model;
@@ -56,9 +56,9 @@ namespace MainSpace.MainMenu.Presenters
             ScreenModel model = _screenModel;
 
             _swipeCardView.SetText(
-                model.ShuffledStringsList[index], 
+                model.ShuffledStringsList[index],
                 model.Config.ScreenName,
-                model.ShuffledQuestionsList[index].Index + 1);
+                model.Config.QuestionList.IndexOf(model.ShuffledStringsList[index]) + 1);
 
             _swipeCardView.SetColorText(model.Config.ContrastColor);
             _swipeCardView.SetCardImage(model.Config.CardSprite);
@@ -66,7 +66,7 @@ namespace MainSpace.MainMenu.Presenters
             CheckFavouriteButton(index);
 
             _swipeCardView.AddListenerInStarButton(() => OnStarButtonClick());
-;        }
+        }
 
         private void CheckFavouriteButton(int index)
         {
@@ -110,9 +110,9 @@ namespace MainSpace.MainMenu.Presenters
             int questionsCount = _screenModel.ShuffledQuestionsList.Count;
 
             if (currentIdx + 1 == questionsCount)
-                _screenModel.CurrentIndex.Value = 0;
+                _screenModel.CurrentIndex.OnNext(0);
             else
-                _screenModel.CurrentIndex.Value += 1;
+                _screenModel.CurrentIndex.OnNext(currentIdx + 1);
         }
 
         private void MoveToPreviousQuestion()
@@ -121,9 +121,9 @@ namespace MainSpace.MainMenu.Presenters
             int questionsCount = _screenModel.ShuffledQuestionsList.Count;
 
             if (currentIdx == 0)
-                _screenModel.CurrentIndex.Value = questionsCount - 1;
+                _screenModel.CurrentIndex.OnNext(questionsCount - 1);
             else
-                _screenModel.CurrentIndex.Value -= 1;
+                _screenModel.CurrentIndex.OnNext(currentIdx - 1);
         }
     }
 }

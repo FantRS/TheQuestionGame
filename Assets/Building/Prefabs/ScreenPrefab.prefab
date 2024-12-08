@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2379759733340175011}
-  - component: {fileID: 9132678593424226361}
+  - component: {fileID: 858348026291716958}
   m_Layer: 5
   m_Name: CardStorage
   m_TagString: Untagged
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.067993164, y: -0.080078125}
   m_SizeDelta: {x: -1.1900024, y: -0.5499878}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9132678593424226361
+--- !u!114 &858348026291716958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 402967738392720206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7091a3025fd3a9c41a36fde04e70363e, type: 3}
+  m_Script: {fileID: 11500000, guid: 37e849c1aaa030f42b1758c178a9cef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _cardViewPrefab: {fileID: 1330351892397582869, guid: 269b160ebd529ac4ca26f59321565273, type: 3}
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screenView: {fileID: 8758394243767518466}
-  _swipeCardView: {fileID: 9132678593424226361}
+  _swipeCardView: {fileID: 858348026291716958}
   _questionListView: {fileID: 3716651039579869661}
 --- !u!1 &4182589203567424065
 GameObject:

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace MainSpace.MainMenu.Views
 {
-    public sealed class SwipeCardView : MonoBehaviour
+    public sealed class CardControlView : MonoBehaviour
     {
         [SerializeField] private CardView _cardViewPrefab;
 

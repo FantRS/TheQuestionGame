@@ -41,13 +41,13 @@ namespace MainSpace.MainMenu.Views
         private Vector2 _startPosition;
         private Vector2 _endPosition;
         private Canvas _canvas;
-        
+
         // events
         public readonly Subject<bool> OnEndDragEvent = new();
 
         private void Start()
         {
-            _insideSelection.DOFade(1, AnimationDuration / 4);
+            _insideSelection.DOFade(1, AnimationDuration / 4).SetLink(this.gameObject);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -94,10 +94,12 @@ namespace MainSpace.MainMenu.Views
 
             OnEndDragEvent.OnNext(isNextDirection);
 
-            _cardSelection.DOFade(0, AnimationDuration);
+            _cardSelection.DOFade(0, AnimationDuration).SetLink(this.gameObject);
+
             transform
                 .DOLocalMove(direction, AnimationDuration)
                 .SetEase(Ease.OutQuart)
+                .SetLink(this.gameObject)
                 .OnComplete(() =>
                 {
                     Destroy(this.gameObject);

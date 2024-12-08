@@ -32,7 +32,7 @@ namespace MainSpace.ScreenScene.Root
             var screenModel = new ScreenModel(sceneContainer);
 
             var screenPresenter = new ScreenPresenter(screenView, screenModel);
-            var swipeCardPresenter = new SwipeCardPresenter(swipeCardView, screenModel);
+            var swipeCardPresenter = new CardControlPresenter(swipeCardView, screenModel);
             var questionListPresenter = new QuestionListPresenter(questionListView, screenModel);
 
             // binding transition signal
