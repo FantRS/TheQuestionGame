@@ -18,4 +18,5 @@ MonoBehaviour:
   _questionTextColor: {r: 1, g: 0, b: 0.3647059, a: 1}
   _buttonColor: {r: 0, g: 0, b: 0, a: 1}
   _category: 2
-  _questionList: []
+  _questionList:
+  - 

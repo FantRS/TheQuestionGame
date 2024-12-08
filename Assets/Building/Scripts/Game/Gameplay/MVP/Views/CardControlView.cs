@@ -32,7 +32,6 @@ namespace MainSpace.MainMenu.Views
         {
             _cardView = Instantiate(_cardViewPrefab, _parent);
             _cardView.transform.SetSiblingIndex(0);
-            _cardView.CanvasGroup.blocksRaycasts = true;
 
             _cardView.OnEndDragEvent.Subscribe(value =>
             {
@@ -52,6 +51,10 @@ namespace MainSpace.MainMenu.Views
             _cardView.QuestionText.color = color;
             _cardView.CategoryText.color = color;
             _cardView.CardIndex.color = color;
+
+            color.a = 0;
+            _cardView.ToNextText.color = color;
+            _cardView.ToPrevText.color = color;
         }
 
         public void SetCardImage(Sprite sprite)
