@@ -4,10 +4,11 @@ using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
 using ObservableCollections;
 using R3;
+using System;
 
 namespace MainSpace.MainMenu.Presenters
 {
-    public sealed class MainMenuPresenter
+    public sealed class MainMenuPresenter : IDisposable
     {
         private readonly MainMenuView _menuView;
         private readonly MainMenuModel _menuModel;
@@ -29,6 +30,11 @@ namespace MainSpace.MainMenu.Presenters
         private void EventSubsctiptions()
         {
             var view = _menuView;
+
+            _menuView.DisposeEvent.Subscribe(_ =>
+            {
+                Dispose();
+            });
 
             _menuView.FavouriteQuestionsButtonClickEvent.Subscribe(_ =>
             {
@@ -95,13 +101,13 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
 
-            _menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
+            model.CompositeDisposable.Add(_menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
             {
                 int count = model.FavouriteQuestionsProxy.QuestionsList.Count;
 
                 model.FavouriteCount.OnNext(count);
                 view.DisableFavouriteButton();
-            });
+            }));
         }
 
         private void InitializeFavoriteConfig()
@@ -142,6 +148,11 @@ namespace MainSpace.MainMenu.Presenters
             {
                 _menuView.DisableFavouriteButton();
             }
+        }
+
+        public void Dispose()
+        {
+            _menuModel.CompositeDisposable.Dispose();
         }
     }
 }

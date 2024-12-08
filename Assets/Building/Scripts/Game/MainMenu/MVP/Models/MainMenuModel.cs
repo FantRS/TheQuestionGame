@@ -20,6 +20,8 @@ namespace MainSpace.MainMenu.Models
         public readonly ReactiveProperty<int> LifeCount;
         public readonly ReactiveProperty<int> DreamCount;
 
+        public readonly CompositeDisposable CompositeDisposable;
+
         public MainMenuModel(DIContainer sceneContainer)
         {
             var dataProvider = sceneContainer.Resolve<DataProvider>();
@@ -35,6 +37,8 @@ namespace MainSpace.MainMenu.Models
             ArtCount = new ReactiveProperty<int>(VaultConfig.ArtistsQuestionConfig.QuestionList.Count);
             LifeCount = new ReactiveProperty<int>(VaultConfig.LifeQuestionConfig.QuestionList.Count);
             DreamCount = new ReactiveProperty<int>(VaultConfig.DreamsQuestionConfig.QuestionList.Count);
+
+            CompositeDisposable = new CompositeDisposable();
         }
     }
 }

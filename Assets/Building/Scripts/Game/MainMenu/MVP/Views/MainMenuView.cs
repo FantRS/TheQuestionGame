@@ -39,6 +39,8 @@ namespace MainSpace.MainMenu.Views
 
         public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
 
+        public Subject<Unit> DisposeEvent = new();
+
         private void Start()
         {
             _favouriteQuestionsButton.onClick.AddListener(() =>
@@ -80,6 +82,11 @@ namespace MainSpace.MainMenu.Views
             {
                 OnDreamQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
+        }
+
+        private void OnDestroy()
+        {
+            DisposeEvent.OnNext(Unit.Default);
         }
 
         public void BindSceneTransitionSignal(Subject<ScreenConfig> subject)

@@ -497,6 +497,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2823721207537596628, guid: cc78512d15f14534d897351da8155610, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2823721207537596628, guid: cc78512d15f14534d897351da8155610, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2823721207537596628, guid: cc78512d15f14534d897351da8155610, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 653.37
+      objectReference: {fileID: 0}
     - target: {fileID: 3926406526339868112, guid: cc78512d15f14534d897351da8155610, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

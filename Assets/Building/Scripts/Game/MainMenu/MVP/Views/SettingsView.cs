@@ -13,6 +13,7 @@ namespace MainSpace.MainMenu.Views
 
         public readonly Subject<Unit> OnShuffleModeButtonClickEvent = new();
         public readonly Subject<Unit> OnClearFavouriteListButtonClickEvent = new();
+
         public readonly Subject<Unit> DisposeEvent = new();
 
         private void Start()
@@ -26,6 +27,8 @@ namespace MainSpace.MainMenu.Views
             {
                 OnClearFavouriteListButtonClickEvent.OnNext(Unit.Default);
             });
+
+            this.gameObject.SetActive(false);
         }
 
         private void OnDestroy()

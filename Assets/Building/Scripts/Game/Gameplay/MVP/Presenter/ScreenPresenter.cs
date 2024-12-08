@@ -44,7 +44,7 @@ namespace MainSpace.MainMenu.Presenters
         {
             if (config.Category == Category.Favourite)
             {
-                _screenModel.ShuffledQuestionsList = 
+                _screenModel.ShuffledQuestionsList =
                     new List<Question>(_screenModel.FavouriteDataProxy.QuestionsList);
             }
             else
