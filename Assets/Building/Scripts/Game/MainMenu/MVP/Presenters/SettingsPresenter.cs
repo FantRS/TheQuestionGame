@@ -1,8 +1,10 @@
 ﻿using MainSpace.DataStructures;
 using MainSpace.MainMenu.Views;
+using MainSpace.Utils;
 using ObservableCollections;
 using R3;
 using System;
+using UnityEngine.Localization.Settings;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -27,6 +29,15 @@ namespace MainSpace.MainMenu.Presenters
             _settingsView.OnShuffleModeButtonClickEvent.Subscribe(_ =>
             {
                 OnShuffleModeButtonClick(model.SettingsData.IsShuffeMode);
+            });
+
+            _settingsView.OnChangeLanguageButtonClick.Subscribe(_ =>
+            {
+                var languageID = _settingsModel.SettingsData.LanguageID;
+                var availableLocales = LocalizationSettings.AvailableLocales.Locales;
+
+                languageID.Value = languageID.CurrentValue + 1 == availableLocales.Count ?
+                    0 : languageID.CurrentValue + 1;
             });
 
             _settingsView.OnClearFavouriteListButtonClickEvent.Subscribe(_ =>
@@ -54,16 +65,27 @@ namespace MainSpace.MainMenu.Presenters
 
                 view.ChangeShuffleButtonState(state);
             }));
-        }
-        
-        private void ClearFavouriteList(ObservableList<Question> questionList)
-        {
-            questionList.Clear();
-        }
 
+            model.CompositeDisposables.Add(model.SettingsData.LanguageID.Subscribe((languageId) =>
+            {
+                OnChangeLanguageButtonClick();
+            }));
+        }
+       
         private void OnShuffleModeButtonClick(ReactiveProperty<bool> shuffleMode)
         {
             shuffleMode.Value = !shuffleMode.CurrentValue;
+        }
+
+        private void OnChangeLanguageButtonClick()
+        {
+            var languageID = _settingsModel.SettingsData.LanguageID.CurrentValue;
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
+        }
+
+        private void ClearFavouriteList(ObservableList<Question> questionList)
+        {
+            questionList.Clear();
         }
 
         public void Dispose()

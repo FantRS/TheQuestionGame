@@ -7,11 +7,13 @@ namespace MainSpace.MainMenu.Views
     public sealed class SettingsView : MonoBehaviour
     {
         [SerializeField] private Button _shuffleModeButton;
+        [SerializeField] private Button _changeLanguageButton;
         [SerializeField] private Button _clearFavouriteListButton;
 
         [SerializeField] private Text _shuffleButtonText;
 
         public readonly Subject<Unit> OnShuffleModeButtonClickEvent = new();
+        public readonly Subject<Unit> OnChangeLanguageButtonClick = new();
         public readonly Subject<Unit> OnClearFavouriteListButtonClickEvent = new();
 
         public readonly Subject<Unit> DisposeEvent = new();
@@ -23,6 +25,11 @@ namespace MainSpace.MainMenu.Views
                 OnShuffleModeButtonClickEvent.OnNext(Unit.Default);
             });
 
+            _changeLanguageButton.onClick.AddListener(() =>
+            {
+                OnChangeLanguageButtonClick.OnNext(Unit.Default);
+            });
+
             _clearFavouriteListButton.onClick.AddListener(() =>
             {
                 OnClearFavouriteListButtonClickEvent.OnNext(Unit.Default);
@@ -31,6 +38,7 @@ namespace MainSpace.MainMenu.Views
             this.gameObject.SetActive(false);
         }
 
+        // disposing events
         private void OnDestroy()
         {
             DisposeEvent.OnNext(Unit.Default);

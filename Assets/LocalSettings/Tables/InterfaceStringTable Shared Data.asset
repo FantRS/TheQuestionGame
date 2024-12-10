@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: InterfaceStringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: InterfaceStringTable
+  m_TableCollectionNameGuidString: b8876d9de0be365488b345f052186b28
+  m_Entries:
+  - m_Id: 14483562496
+    m_Key: main_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758150438912
+    m_Key: main_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 820326801408
+    m_Key: main_aboutGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 852878794752
+    m_Key: main_donate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 904586174464
+    m_Key: play_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058475188224
+    m_Key: play_favourite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1104448954368
+    m_Key: play_girls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1131728707584
+    m_Key: play_boys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1153639751680
+    m_Key: play_lovers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1190386049024
+    m_Key: play_funny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1220048166912
+    m_Key: play_art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1283403128832
+    m_Key: play_life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362998435840
+    m_Key: play_dream
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1554569076736
+    m_Key: settings_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1585070055424
+    m_Key: settings_lang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1615206129664
+    m_Key: settings_clearList
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1666678628352
+    m_Key: aboutGame_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1709498277888
+    m_Key: aboutGame_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22690640011264
+    m_Key: donate_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22789457813504
+    m_Key: donate_text
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8612376960815595544
+  references:
+    version: 2
+    RefIds:
+    - rid: 8612376960815595544
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1733829376538

@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: InterfaceStringTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b8876d9de0be365488b345f052186b28, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 14483562496
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758150438912
+    m_Localized: SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 820326801408
+    m_Localized: CREDITS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 852878794752
+    m_Localized: SUPPORT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 904586174464
+    m_Localized: CATEGORY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058475188224
+    m_Localized: Favourite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1104448954368
+    m_Localized: For girls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1131728707584
+    m_Localized: For boys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1153639751680
+    m_Localized: For lovers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1190386049024
+    m_Localized: Funny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1220048166912
+    m_Localized: Art ?=
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1283403128832
+    m_Localized: Life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362998435840
+    m_Localized: Dream
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1554569076736
+    m_Localized: SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1585070055424
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1615206129664
+    m_Localized: Clear list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1666678628352
+    m_Localized: CREDITS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1709498277888
+    m_Localized: English text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22690640011264
+    m_Localized: SUPPORT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22789457813504
+    m_Localized: If you liked the game, you can support the developers and contribute
+      to the development of the game.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -7,6 +7,7 @@ using MainSpace.Utils;
 using R3;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
 namespace MainSpace.Root
@@ -71,7 +72,6 @@ namespace MainSpace.Root
 
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.MAIN_MENU);
-            //yield return new WaitForSeconds(1f);
 
             var mainMenuEntryPoint = Object.FindAnyObjectByType<MainMenuEntryPoint>();
             var sceneContainer = _cachedSceneContainer = new DIContainer(_rootContainer);
@@ -90,7 +90,6 @@ namespace MainSpace.Root
 
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.SCREEN);
-            //yield return new WaitForSeconds(1f);
 
             var screenEntryPoint = Object.FindAnyObjectByType<ScreenEntryPoint>();
             var sceneContainer = _cachedSceneContainer = new DIContainer(_rootContainer);

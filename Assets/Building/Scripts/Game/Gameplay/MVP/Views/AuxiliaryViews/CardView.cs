@@ -45,7 +45,7 @@ namespace MainSpace.MainMenu.Views
         public Text ToPrevText => _toPrevText;
 
         // private variables
-        private float _dropRadius = 75;
+        private readonly float _dropRadius = 75;
         private Vector2 _startPosition;
         private Vector2 _endPosition;
         private Canvas _canvas;

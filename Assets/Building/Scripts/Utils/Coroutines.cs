@@ -1,13 +1,20 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MainSpace.Utils
 {
     public sealed class Coroutines : MonoBehaviour
     {
-        internal void StartCoroutine(Action value)
+        public static Coroutines Instance { get; private set; }
+
+        private void Awake()
         {
-            throw new NotImplementedException();
+            if (Instance == null)
+            {
+                Instance = this;
+                return;
+            }
+
+            Destroy(this.gameObject);
         }
     }
 }
