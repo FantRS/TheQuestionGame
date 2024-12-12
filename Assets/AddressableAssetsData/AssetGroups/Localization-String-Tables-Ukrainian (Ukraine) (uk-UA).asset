@@ -24,6 +24,12 @@ MonoBehaviour:
     - Locale-uk-UA
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38ccac7f797bcfb4785593fa2cd672ba
+    m_Address: GameplayTable_uk-UA
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-uk-UA
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 147e13593e66fa44f816b77402bfe4d6, type: 2}
   m_SchemaSet:

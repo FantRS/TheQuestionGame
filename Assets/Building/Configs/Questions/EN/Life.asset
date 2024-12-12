@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
+  m_Name: Life
+  m_EditorClassIdentifier: 
+  _screenName: Life
+  _background: {fileID: 21300000, guid: acf84185dc2024e42918a86a9f9dee31, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 490c53a05683d594593c90438c00b0ac, type: 3}
+  _questionTextColor: {r: 0.27058825, g: 0.078431375, b: 0.07450981, a: 1}
+  _buttonColor: {r: 1, g: 1, b: 1, a: 1}
+  _category: 6
+  _questionList:
+  - What are you most proud of?
+  - "What\u2019s your most ridiculous fear?"
+  - "What was the strangest job you\u2019ve ever had?"
+  - What irritates you most about people?
+  - What are your hidden talents?
+  - "What\u2019s the most unusual sport you\u2019ve tried?"
+  - What did you collect as a child?
+  - "What\u2019s your favorite video game or movie of all time?"
+  - Which book or movie has influenced your life the most?
+  - Do you have a hobby that no one knows about?
+  - What song always cheers you up?
+  - Would you rather travel the world or build your dream house?
+  - What trait do you like most in people?
+  - Which of your friends inspires you the most?
+  - "What\u2019s the most important advice about friendship?"
+  - What does true friendship mean to you?
+  - "What\u2019s the most memorable thing a friend has done for you?"
+  - How do you handle conflicts in relationships?
+  - What prank or joke did you pull off, and how did it turn out?
+  - What movie could you rewatch endlessly?
+  - How do you and your friends like to spend time together?
+  - What would you do if a friend found themselves in trouble?
+  - "What\u2019s the toughest situation you\u2019ve ever faced?"
+  - "What does \u201Cbeing strong\u201D mean to you?"
+  - "What\u2019s a goal you want to achieve in the next year?"
+  - How do you deal with challenges?
+  - Do you think leadership is an innate talent or a skill?
+  - "What does \u201Ctrue responsibility\u201D mean to you?"
+  - What life advice have you received from your elders?
+  - "What\u2019s more important to you: freedom or stability?"
+  - How do you see yourself in 10 years?
+  - "What\u2019s the most important decision you\u2019ve ever made?"
+  - "What\u2019s the most valuable lesson you\u2019ve learned from your mistakes?"
+  - "What does \u201Cliving life to the fullest\u201D mean to you?"
+  - "What\u2019s the hardest problem you\u2019ve ever solved?"
+  - "What\u2019s the most memorable moment from your childhood?"
+  - What skill has helped you overcome difficulties?
+  - How do you cope with failures?
+  - What trip or journey left the biggest impression on you?
+  - "What\u2019s the most unexpected adventure you\u2019ve experienced?"
+  - Is there someone in your life who inspires you?
+  - "What\u2019s the most important advice you\u2019ve ever received?"
+  - What period of your life do you remember most fondly?
+  - What risk have you taken that paid off?
+  - "Is there an event in your life that you\u2019d call a miracle?"
+  - "What\u2019s the biggest dream you\u2019ve already achieved?"
+  - What lesson have you learned from interacting with people?
+  - What work or project do you consider your most significant?
+  - If you could thank one person for their influence on your life, who would it
+    be?
+  - "What\u2019s the bravest decision or choice you\u2019ve made in life?"
+  - What was your most important moment of independence?
+  - How do you balance work and personal life?
+  - What tradition or habit have you took from your family?
+  - What event in your life do you consider a true challenge?
+  - "What\u2019s the most unexpected support you\u2019ve ever received?"
+  - What does success mean to you?
+  - "What\u2019s the most interesting story from your life that you enjoy telling?"
+  - "What\u2019s your most memorable victory?"
+  - What do you consider the most important thing in life?
+  - What moment in your life taught you patience?
+  - What changes in your life do you see as the most positive?
+  - What was your most memorable conversation?
+  - "What\u2019s the most valuable advice you\u2019ve given to others?"
+  - What was the hardest part of your studies or career?
+  - "What place you\u2019ve visited impressed you the most?"
+  - What do you consider your greatest achievement?
+  - What dream or goal still motivates you?
+  - "What\u2019s the most important thing in each day for you?"

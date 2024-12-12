@@ -1,6 +1,6 @@
 ﻿using MainSpace.DataStructures;
+using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Views;
-using MainSpace.Utils;
 using ObservableCollections;
 using R3;
 using System;
@@ -12,11 +12,13 @@ namespace MainSpace.MainMenu.Presenters
     {
         private readonly SettingsView _settingsView;
         private readonly SettingsModel _settingsModel;
+        private readonly MainMenuModel _mainMenuModel;
 
-        public SettingsPresenter(SettingsView view, SettingsModel model)
+        public SettingsPresenter(SettingsView view, SettingsModel setitngsModel, MainMenuModel mainModel)
         {
             _settingsView = view;
-            _settingsModel = model;
+            _settingsModel = setitngsModel;
+            _mainMenuModel = mainModel;
 
             EventSubscriptions();
             ReactSubscriptions();
@@ -55,23 +57,25 @@ namespace MainSpace.MainMenu.Presenters
         private void ReactSubscriptions()
         {
             var view = _settingsView;
-            var model = _settingsModel;
+            var settModel = _settingsModel;
+            var mainModel = _mainMenuModel;
 
-            model.CompositeDisposables.Add(model.SettingsData.IsShuffeMode.Subscribe((isShuffle) =>
+            settModel.CompositeDisposables.Add(settModel.SettingsData.IsShuffeMode.Subscribe((isShuffle) =>
             {
                 string state = isShuffle ?
-                    model.SHUFFLE_BUTTON_STATE_TRUE :
-                    model.SHUFFLE_BUTTON_STATE_FALSE;
+                    settModel.SHUFFLE_BUTTON_STATE_TRUE :
+                    settModel.SHUFFLE_BUTTON_STATE_FALSE;
 
                 view.ChangeShuffleButtonState(state);
             }));
 
-            model.CompositeDisposables.Add(model.SettingsData.LanguageID.Subscribe((languageId) =>
+            settModel.CompositeDisposables.Add(settModel.SettingsData.LanguageID.Subscribe((languageId) =>
             {
+                mainModel.ChangeLocaleVaultByLanguage(languageId);
                 OnChangeLanguageButtonClick();
             }));
         }
-       
+        
         private void OnShuffleModeButtonClick(ReactiveProperty<bool> shuffleMode)
         {
             shuffleMode.Value = !shuffleMode.CurrentValue;

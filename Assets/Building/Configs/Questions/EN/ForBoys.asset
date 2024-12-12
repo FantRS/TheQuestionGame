@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
+  m_Name: ForBoys
+  m_EditorClassIdentifier: 
+  _screenName: For boys
+  _background: {fileID: 21300000, guid: e5ef5fc8a1fa62745a90e5cc1b417386, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 4f986ecd886cc5e488adcc2d0e6d3438, type: 3}
+  _questionTextColor: {r: 0.07450981, g: 0.2509804, b: 0.38039216, a: 1}
+  _buttonColor: {r: 1, g: 1, b: 1, a: 1}
+  _category: 1
+  _questionList:
+  - "What\u2019s your dream car?"
+  - "Video games or sports \u2013 what would you choose?"
+  - Could you build a computer by yourself?
+  - If you became a race car driver, what car would you want to drive?
+  - "Who\u2019s your favorite superhero?"
+  - "Who\u2019s your favorite Which military vehicle do you find the most impressive?"
+  - What action of a friend impressed you the most?
+  - Which friend would you take on a trip around the world?
+  - How do you choose gifts for your friends?
+  - Have you ever competed with a friend in something serious?
+  - If you were to organize a bachelor party, what would definitely be included in
+    the plan?
+  - "What\u2019s your all-time favorite meme for guys?"
+  - If you could visit any bar in the world, where would it be?
+  - What game or activity definitely livens up a group of men?
+  - Would you rather try a racing car or a tank?
+  - "What\u2019s the most absurd but awesome dream you\u2019d like to achieve?"
+  - What movie could you rewatch endlessly?
+  - "What\u2019s your favorite clothing brand?"
+  - "What\u2019s the funniest thing you\u2019ve ever done with friends?"
+  - "What\u2019s your most valuable life rule?"
+  - Blondes or brunettes?
+  - Would you ever consider taking steroids?
+  - Would you date a woman 20 years older than you?
+  - Have you ever lied about your age to seem cooler?
+  - Do you believe in love at first sight?
+  - What would you do if you found out your friend was in love with your girlfriend?
+  - What are you really good at?
+  - "What\u2019s the best and worst thing about being a man?"
+  - How well can you explain how a car works?
+  - Android or iOS?
+  - What are the pros and cons of marriage?
+  - Is it better to try and fail or never try at all?
+  - Why are most famous artists, writers, and directors are men?
+  - How is the male brain different from the female brain?
+  - Should vaping or hookah smoking be banned?
+  - Top 5 reasons not to start your own business?
+  - Should prostitution be legalized?
+  - Top 3 best anime.
+  - Do you believe in flat Earth theories?
+  - "A woman works while a man takes care of the home \u2013 is this normal?"
+  - Should a guy start working at 16?
+  - What sport do you love to watch?
+  - Is sex on the first date okay?
+  - Is male infidelity acceptable?
+  - What risks are worth taking?
+  - What easily makes you angry?
+  - What would you do for your girlfriend?
+  - What sport interests you the most?
+  - "What role does family play in a man\u2019s life?"
+  - "What\u2019s more important for a man: intelligence or strength?"

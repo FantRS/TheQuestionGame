@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c001866b9a46a9e4c8cd3f1461efeb6c, type: 3}
+  m_Name: LocaleMap
+  m_EditorClassIdentifier: 
+  _enVaultConfig: {fileID: 11400000, guid: de08ca0f03917584ab6e70829ffdc908, type: 2}
+  _ruVaultConfig: {fileID: 11400000, guid: 430a19c9051e4e5468b5e4c49b844c40, type: 2}
+  _uaVaultConfig: {fileID: 11400000, guid: 71b8a8df2aaae01408f6782e0c93a3ef, type: 2}

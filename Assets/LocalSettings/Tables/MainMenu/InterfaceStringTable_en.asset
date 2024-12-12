@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 820326801408
-    m_Localized: CREDITS
+    m_Localized: ABOUT GAME
     m_Metadata:
       m_Items: []
   - m_Id: 852878794752
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 904586174464
-    m_Localized: CATEGORY
+    m_Localized: CATEGORIES
     m_Metadata:
       m_Items: []
   - m_Id: 1058475188224
@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1666678628352
-    m_Localized: CREDITS
+    m_Localized: ABOUT GAME
     m_Metadata:
       m_Items: []
   - m_Id: 1709498277888
@@ -97,6 +97,10 @@ MonoBehaviour:
   - m_Id: 22789457813504
     m_Localized: If you liked the game, you can support the developers and contribute
       to the development of the game.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 829010540601344
+    m_Localized: LOADING...
     m_Metadata:
       m_Items: []
   references:

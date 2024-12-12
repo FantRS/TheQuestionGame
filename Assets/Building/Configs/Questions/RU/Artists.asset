@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
+  m_Name: Artists
+  m_EditorClassIdentifier: 
+  _screenName: "\u0422\u0432\u043E\u0440\u0447\u0435\u0441\u0442\u0432\u043E"
+  _background: {fileID: 21300000, guid: 1f07845856af51b449921f92068401c3, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 0f4192702a4850b47b6544bbabfde809, type: 3}
+  _questionTextColor: {r: 0.14117648, g: 0.53333336, b: 0.003921569, a: 1}
+  _buttonColor: {r: 0, g: 0, b: 0, a: 1}
+  _category: 5
+  _questionList: []

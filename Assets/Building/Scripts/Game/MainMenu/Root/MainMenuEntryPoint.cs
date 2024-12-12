@@ -1,5 +1,6 @@
 ﻿using BaCon;
 using MainSpace.Configs;
+using MainSpace.Data.Root;
 using MainSpace.MainMenu.Models;
 using MainSpace.MainMenu.Presenters;
 using MainSpace.Root;
@@ -11,15 +12,16 @@ namespace MainSpace.MainMenu.Root
     public sealed class MainMenuEntryPoint : MonoBehaviour
     {
         [SerializeField] private MainMenuViewStorage _mainMenuViewStoragePrefab;
-        [SerializeField] private ScreenVaultConfig _questionVaultConfig;
+        [SerializeField] private LocaleMap _localeMap;
 
         public Observable<ScreenConfig> Run(DIContainer sceneContainer)
         {
             // resolving intances
             var rootUI = sceneContainer.Resolve<RootUIView>();
+            var dataProvider = sceneContainer.Resolve<DataProvider>();
 
             // registrated instances
-            sceneContainer.RegisterInstance(_questionVaultConfig);
+            sceneContainer.RegisterInstance(_localeMap);
 
             // attaching UI
             var mainMenuViewStorage = Instantiate(_mainMenuViewStoragePrefab);
@@ -34,7 +36,7 @@ namespace MainSpace.MainMenu.Root
             var settingsModel = new SettingsModel(sceneContainer);
 
             var mainMenuPresenter = new MainMenuPresenter(mainMenuView, mainMenuModel);
-            var settingsPresenter = new SettingsPresenter(settingsView, settingsModel);
+            var settingsPresenter = new SettingsPresenter(settingsView, settingsModel, mainMenuModel);
 
             // binding transition signal
             var sceneTransitionSignal = new Subject<ScreenConfig>();

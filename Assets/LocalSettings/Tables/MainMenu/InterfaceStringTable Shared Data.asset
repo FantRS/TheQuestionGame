@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: donate_text
     m_Metadata:
       m_Items: []
+  - m_Id: 829010540601344
+    m_Key: rootUi_loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

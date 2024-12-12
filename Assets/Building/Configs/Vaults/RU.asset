@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51a6a7c0ee0411e47a5a7fcefbe7c649, type: 3}
-  m_Name: QuestionVault
+  m_Name: RU
   m_EditorClassIdentifier: 
   _favouriteConfig: {fileID: 11400000, guid: c03e1ec9dc9f623448049b504c1c40ae, type: 2}
   _forGirlsQuestionConfig: {fileID: 11400000, guid: ad447dcef259eb84fa5a670550a2caf3, type: 2}

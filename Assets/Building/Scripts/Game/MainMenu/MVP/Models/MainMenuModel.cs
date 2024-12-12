@@ -8,8 +8,11 @@ namespace MainSpace.MainMenu.Models
 {
     public sealed class MainMenuModel
     {
-        public readonly ScreenVaultConfig VaultConfig;
+        private readonly LocaleMap _localeMap;
+
+        public ScreenVaultConfig VaultConfig;
         public readonly FavouriteQuestionsDataProxy FavouriteQuestionsProxy;
+        public readonly SettingsDataProxy SettingsData;
 
         public readonly ReactiveProperty<int> FavouriteCount;
         public readonly ReactiveProperty<int> GirlsCount;
@@ -25,8 +28,10 @@ namespace MainSpace.MainMenu.Models
         public MainMenuModel(DIContainer sceneContainer)
         {
             var dataProvider = sceneContainer.Resolve<DataProvider>();
+            SettingsData = dataProvider.SettingsDataProxy;
+            _localeMap = sceneContainer.Resolve<LocaleMap>();
 
-            VaultConfig = sceneContainer.Resolve<ScreenVaultConfig>();
+            VaultConfig = _localeMap.GetVaultConfigByLanguage(SettingsData.LanguageID.CurrentValue);
             FavouriteQuestionsProxy = dataProvider.FavouriteQuestionsDataProxy;
 
             FavouriteCount = new ReactiveProperty<int>(FavouriteQuestionsProxy.QuestionsList.Count);
@@ -39,6 +44,11 @@ namespace MainSpace.MainMenu.Models
             DreamCount = new ReactiveProperty<int>(VaultConfig.DreamsQuestionConfig.QuestionList.Count);
 
             CompositeDisposable = new CompositeDisposable();
+        }
+
+        public void ChangeLocaleVaultByLanguage(int localeId)
+        {
+            VaultConfig = _localeMap.GetVaultConfigByLanguage(localeId);
         }
     }
 }

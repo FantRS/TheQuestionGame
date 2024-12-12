@@ -647,7 +647,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2107286379968379633}
   m_OnClick:
     m_PersistentCalls:
@@ -3919,7 +3919,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 34096345210834671}
   m_OnClick:
     m_PersistentCalls:
@@ -7619,7 +7619,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 9213358207378701523}
   m_OnClick:
     m_PersistentCalls:
@@ -7970,7 +7970,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8613576870117477044}
   m_OnClick:
     m_PersistentCalls:
@@ -8310,10 +8310,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1505348999751700784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.09, y: 0}
-  m_AnchorMax: {x: 0.91200006, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: 2.899994, y: 0}
+  m_AnchorMin: {x: 0.042855226, y: 0}
+  m_AnchorMax: {x: 0.9591448, y: 1}
+  m_AnchoredPosition: {x: -0.45941162, y: 0.00016403198}
+  m_SizeDelta: {x: -0.9779997, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2181072255599136923
 CanvasRenderer:
@@ -8370,7 +8370,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.8
+  m_fontSize: 45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

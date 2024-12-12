@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
+  m_Name: Dreams
+  m_EditorClassIdentifier: 
+  _screenName: Dream
+  _background: {fileID: 21300000, guid: d3d86f0a9cb119843bac4abb564f5a08, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 82b55239d793b024a80c34ac23fe2a46, type: 3}
+  _questionTextColor: {r: 0.17254902, g: 0.047058824, b: 0.43137255, a: 1}
+  _buttonColor: {r: 1, g: 1, b: 1, a: 1}
+  _category: 7
+  _questionList:
+  - If you could go back in time to change one decision, what would it be?
+  - Which fictional character do you associate yourself with?
+  - What advice would you give yourself from five years ago?
+  - If you could instantly master one skill, what would it be?
+  - If you could spend a day with your favorite athlete, who would it be?
+  - What skills would you like to learn in the future?
+  - Would you try skydiving or another extreme sport?
+  - If you were the hero of an action movie, who would be your sidekick?
+  - If you became a superhero, what would your power be?
+  - What would the movie about your life be called?
+  - If you could eat only one food for the rest of your life, what would it be?
+  - "What\u2019s the strangest dream you\u2019ve ever had?"
+  - If you won a million dollars, what would you do first?
+  - What did you dream of becoming as a child?
+  - What joke always makes you laugh?
+  - If you had three wishes, what would they be?
+  - What mythical or fictional world would you like to visit?
+  - If you had to spend a month on an uninhabited island, what would you bring?
+  - Could you live without your phone for a week?
+  - If you could only use one type of transport, what would it be?
+  - If you could be invisible for a day, what would you do?
+  - "What\u2019s the most unusual gadget you\u2019d like to own?"
+  - "What\u2019s better \u2013 a quiet evening with friends or a loud party?"
+  - If you could become the best in any profession, what would it be?
+  - Could you survive in a real-life survival quest?
+  - What superpower would you choose?
+  - If you found yourself in the past, what would you change?
+  - Would you go to space if given the chance?
+  - What invention would you like to create?
+  - If you were in a survival game, how would you act?
+  - "Which future would you prefer \u2013 post-apocalypse or a technological future?"
+  - What animal would you want to be?
+  - If you were offered a role in an action movie, what type of hero would you play?
+  - What country do you dream of visiting?
+  - If you could live one day as a king, what would you do?
+  - If you had your own island, what would you build on it?
+  - Would you choose to live in the future or the past? Why?
+  - If you could have dinner with any historical figure, who would it be?
+  - Would you want to be immortal? Why or why not?
+  - Would you like to know what will happen in next 50 years?
+  - "What\u2019s your strangest dream or wish?"
+  - If you had a personal robot, what would you ask it to do?
+  - If you were president for a week, what would you change?
+  - If you could revisit any moment in your life, what would you do differently?
+  - If you could write a book, what would it be about?
+  - Would you like to meet a version of yourself from a parallel reality?
+  - What does your dream day look like?
+  - If you could travel to another planet, which one would you choose?
+  - Would you like to create your own video game? What would it be about?
+  - Would you rather visit the top of Mount Everest or the deepest point in the ocean?
+  - Imagine you could stop time. What would you do?
+  - Would you prefer to live one life in eternal happiness or 10 different lives
+    with varied experiences?
+  - Would you spend a year in complete solitude to fulfill your greatest dream?
+  - What new wonder of the world would you add to our world?

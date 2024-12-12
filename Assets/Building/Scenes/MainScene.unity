@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenuViewStoragePrefab: {fileID: 7752912154121507356, guid: cc78512d15f14534d897351da8155610, type: 3}
-  _questionVaultConfig: {fileID: 11400000, guid: 430a19c9051e4e5468b5e4c49b844c40, type: 2}
+  _localeMap: {fileID: 11400000, guid: cc1b90fccf8ba264bb780000f5bf9b2e, type: 2}
 --- !u!4 &1459899136
 Transform:
   m_ObjectHideFlags: 0
