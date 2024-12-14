@@ -128,7 +128,7 @@ namespace MainSpace.MainMenu.Presenters
                     Category.Art => questionVaultConfig.ArtistsQuestionConfig,
                     Category.Life => questionVaultConfig.LifeQuestionConfig,
                     Category.Dream => questionVaultConfig.DreamsQuestionConfig,
-                    _ => throw new System.Exception($"{this} : Not found any question")
+                    _ => throw new Exception($"{this} : Not found any question")
                 };
 
                 // in case of missing questions from the category

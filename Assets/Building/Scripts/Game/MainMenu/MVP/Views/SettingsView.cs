@@ -44,9 +44,9 @@ namespace MainSpace.MainMenu.Views
             DisposeEvent.OnNext(Unit.Default);
         }
 
-        public void ChangeShuffleButtonState(string state)
+        public void ChangeShuffleTextColor(Color color)
         {
-            _shuffleButtonText.text = state;
+            _shuffleButtonText.color = color;
         }
     }
 }

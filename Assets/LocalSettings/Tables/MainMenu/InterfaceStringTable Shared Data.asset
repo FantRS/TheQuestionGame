@@ -99,6 +99,10 @@ MonoBehaviour:
     m_Key: rootUi_loading
     m_Metadata:
       m_Items: []
+  - m_Id: 1612115442507776
+    m_Key: settings_shuffle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

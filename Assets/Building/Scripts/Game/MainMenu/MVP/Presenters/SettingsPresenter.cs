@@ -5,6 +5,7 @@ using ObservableCollections;
 using R3;
 using System;
 using UnityEngine.Localization.Settings;
+using UnityEngine;
 
 namespace MainSpace.MainMenu.Presenters
 {
@@ -62,11 +63,9 @@ namespace MainSpace.MainMenu.Presenters
 
             settModel.CompositeDisposables.Add(settModel.SettingsData.IsShuffeMode.Subscribe((isShuffle) =>
             {
-                string state = isShuffle ?
-                    settModel.SHUFFLE_BUTTON_STATE_TRUE :
-                    settModel.SHUFFLE_BUTTON_STATE_FALSE;
-
-                view.ChangeShuffleButtonState(state);
+                Color color = isShuffle ? Color.green : Color.red;
+                
+                view.ChangeShuffleTextColor(color);
             }));
 
             settModel.CompositeDisposables.Add(settModel.SettingsData.LanguageID.Subscribe((languageId) =>
