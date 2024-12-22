@@ -17,14 +17,6 @@ namespace MainSpace.MainMenu.Views
         public event Action OnToMainTabButtonClickEvent;
         public event Action<int> OnQuestionButtonClickEvent;
 
-        private void Start()
-        {
-            _toMainTabButton.onClick.AddListener(() =>
-            {
-                OnToMainTabButtonClickEvent?.Invoke();
-            });
-        }
-
         public void SetButtonsColor(Color color)
         {
             _toMainTabButton.GetComponent<Image>().color = color;
@@ -50,16 +42,6 @@ namespace MainSpace.MainMenu.Views
             {
                 OnQuestionButtonClickEvent?.Invoke(idx);
             });
-        }
-
-        public void SetActiveMainTab(bool active)
-        {
-            _mainTab.SetActive(active);
-        }
-
-        public void SetActiveListTab(bool active)
-        {
-            _questionTab.SetActive(active);
         }
     }
 }

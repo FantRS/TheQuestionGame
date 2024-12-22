@@ -31,6 +31,7 @@ namespace MainSpace.MainMenu.Presenters
         private void EventSubscriptions()
         {
             _screenView.OnOpenListButtonClickEvent += OnOpenListButtonClick;
+            _screenView.OnCloseListButtonClickEvent += OnCloseListButtonClick;
         }
 
         private void SetupScreen(ScreenConfig config)
@@ -59,8 +60,12 @@ namespace MainSpace.MainMenu.Presenters
 
         private void OnOpenListButtonClick()
         {
-            _screenView.SetActiveMainTab(false);
-            _screenView.SetActiveListTab(true);
+            _screenView.OpenList();
+        }
+
+        private void OnCloseListButtonClick()
+        {
+            _screenView.CloseList();
         }
 
         private void Shuffle(bool isShuffled)

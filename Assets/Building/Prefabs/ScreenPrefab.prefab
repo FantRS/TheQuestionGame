@@ -250,7 +250,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6502446523340020101
 MonoBehaviour:
@@ -420,6 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2598592653352299895}
   - component: {fileID: 5622575436538977176}
+  - component: {fileID: 1838182704798704257}
   m_Layer: 5
   m_Name: SafeArea
   m_TagString: Untagged
@@ -460,6 +461,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71685afdcd5fa44da35a925535d8859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1838182704798704257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183898376226131457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa3568967c035a4585d719c6ca4e4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeTime: 0.15
+  _mainGroup: {fileID: 7700376161896710095}
+  _listGroup: {fileID: 6751819726911378789}
+  _background: {fileID: 752863871117563334}
+  _cardFormImage: {fileID: 6564256396845398373}
+  _openListButton: {fileID: 3932666611584258869}
+  _closeListButton: {fileID: 591013916083008574}
+  _backButton: {fileID: 7129467193949517235}
 --- !u!1 &3834156169394728218
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a93c3d0867d2b41b25041d04ee2575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenView: {fileID: 8758394243767518466}
+  _screenView: {fileID: 1838182704798704257}
   _swipeCardView: {fileID: 858348026291716958}
   _questionListView: {fileID: 3716651039579869661}
 --- !u!1 &4182589203567424065
@@ -682,13 +703,14 @@ GameObject:
   m_Component:
   - component: {fileID: 106613310116215166}
   - component: {fileID: 3716651039579869661}
+  - component: {fileID: 6751819726911378789}
   m_Layer: 5
   m_Name: ListTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &106613310116215166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -728,6 +750,18 @@ MonoBehaviour:
   _buttonPrefab: {fileID: 8705834606703216121, guid: 273d382e6bad9344498a01c4cc0e529e, type: 3}
   _toMainTabButton: {fileID: 591013916083008574}
   _handleImage: {fileID: 882480329989870160}
+--- !u!225 &6751819726911378789
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365912654466537255}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &4793249574870398356
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -888,7 +922,7 @@ RectTransform:
   m_Father: {fileID: 4711517314953333712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1164,7 +1198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300795251661020601}
-  - component: {fileID: 8758394243767518466}
+  - component: {fileID: 7700376161896710095}
   m_Layer: 5
   m_Name: MainTab
   m_TagString: Untagged
@@ -1194,24 +1228,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8758394243767518466
-MonoBehaviour:
+--- !u!225 &7700376161896710095
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7416820327860212161}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa3568967c035a4585d719c6ca4e4b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainTab: {fileID: 7416820327860212161}
-  _listTab: {fileID: 4365912654466537255}
-  _background: {fileID: 752863871117563334}
-  _cardFormImage: {fileID: 6564256396845398373}
-  _openListButton: {fileID: 3932666611584258869}
-  _backButton: {fileID: 7129467193949517235}
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7706971676551003571
 GameObject:
   m_ObjectHideFlags: 0

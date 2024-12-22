@@ -23,21 +23,11 @@ namespace MainSpace.MainMenu.Presenters
 
         private void EventSubscriptions()
         {
-            _listView.OnToMainTabButtonClickEvent += OnToMainTabButtonClick;
             _listView.OnQuestionButtonClickEvent += OnQuestionButtonClick;
-        }
-
-        private void OnToMainTabButtonClick()
-        {
-            _listView.SetActiveMainTab(true);
-            _listView.SetActiveListTab(false);
         }
 
         private void OnQuestionButtonClick(int sortedIndex)
         {
-            _listView.SetActiveMainTab(true);
-            _listView.SetActiveListTab(false);
-
             string sortedQuestionString = _screenModel.Config.QuestionList[sortedIndex];
             int newIndex = _screenModel.ShuffledStringsList.IndexOf(sortedQuestionString);
             _screenModel.CurrentIndex.OnNext(newIndex);

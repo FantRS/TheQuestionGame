@@ -34,8 +34,6 @@ namespace MainSpace.MainMenu.Views
             {
                 OnClearFavouriteListButtonClickEvent.OnNext(Unit.Default);
             });
-
-            this.gameObject.SetActive(false);
         }
 
         // disposing events
