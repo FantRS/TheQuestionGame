@@ -64,12 +64,6 @@ namespace MainSpace.MainMenu.Presenters
                     .OnNext(_menuModel.VaultConfig.ForLoversQuestionConfig);
             });
 
-            _menuView.OnFunnyQuestionsButtonClickEvent.Subscribe(_ =>
-            {
-                view.SceneTransitionSignal
-                    .OnNext(_menuModel.VaultConfig.FunnyQuestionConfig);
-            });
-
             _menuView.OnArtistQuestionsButtonClickEvent.Subscribe(_ =>
             {
                 view.SceneTransitionSignal
@@ -93,6 +87,12 @@ namespace MainSpace.MainMenu.Presenters
                 view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.FamilyQuestionConfig);
             });
+
+            _menuView.OnWhichOfQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.WhichOfQuestionConfig);
+            });
         }
 
         private void ReactiveSubscriptions()
@@ -104,11 +104,11 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.GirlsCount.Subscribe((value) => view.ShowGirlsQuestionsCount(value));
             _menuModel.BoysCount.Subscribe((value) => view.ShowBoysQuestionsCount(value));
             _menuModel.LoverCount.Subscribe((value) => view.ShowLoversQuestionsCount(value));
-            _menuModel.FunnyCount.Subscribe((value) => view.ShowFunnyQuestionsCount(value));
             _menuModel.ArtCount.Subscribe((value) => view.ShowArtistQuestionsCount(value));
             _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
             _menuModel.FamilyCount.Subscribe((value) => view.ShowFamilyQuestionsCount(value));
+            _menuModel.WhichOfCount.Subscribe((value) => view.ShowWhichOfQuestionsCount(value));
 
             model.CompositeDisposable.Add(_menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
             {
@@ -133,10 +133,10 @@ namespace MainSpace.MainMenu.Presenters
                     Category.Boys => questionVaultConfig.ForBoysQuestionConfig,
                     Category.Girls => questionVaultConfig.ForGirlsQuestionConfig,
                     Category.Lovers => questionVaultConfig.ForLoversQuestionConfig,
-                    Category.Funny => questionVaultConfig.FunnyQuestionConfig,
                     Category.Art => questionVaultConfig.ArtistsQuestionConfig,
                     Category.Life => questionVaultConfig.LifeQuestionConfig,
                     Category.Dream => questionVaultConfig.DreamsQuestionConfig,
+                    Category.WhichOf => questionVaultConfig.WhichOfQuestionConfig,
                     _ => throw new Exception($"{this} : Not found any question")
                 };
 

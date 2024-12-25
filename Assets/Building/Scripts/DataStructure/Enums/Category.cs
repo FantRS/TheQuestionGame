@@ -6,7 +6,7 @@
         Boys,
         Girls,
         Lovers,
-        Funny,
+        WhichOf,
         Art,
         Life,
         Dream,

@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
+  m_Name: WhichOf
+  m_EditorClassIdentifier: 
+  _screenName: Which of...
+  _background: {fileID: 21300000, guid: 0e0ea10dc37b009409d152bda2b97ad9, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 32ca18ee30a2e3f448e40374a879294c, type: 3}
+  _questionTextColor: {r: 1, g: 0.019607844, b: 0.003921569, a: 1}
+  _buttonColor: {r: 0, g: 0, b: 0, a: 1}
+  _category: 4
+  _questionList:
+  - Who among those present would you start dating?
+  - Who among those present would you trust to choose a photo for your profile?
+  - "Who among those present is most likely to forget they\u2019ve already told this
+    story?"
+  - Who among those present would you choose for a funny dance together?
+  - Who among those present would you trust to pick out your underwear?
+  - Who among those present do you think forgets about personal boundaries in conversations
+    the most?
+  - Who among those present would you suspect of having a hidden passion?
+  - Who among those present is most likely to laugh loudly at a joke nobody else
+    understood?
+  - Who among those present do you think smiles most often when remembering your
+    interactions?
+  - Who among those present would you sleep with?
+  - Who among those present would you trust to choose an outfit for your romantic
+    evening?
+  - If you had to choose the most caring person, who would it be?
+  - Who among those present do you think could appear in your sexual dreams?
+  - Who among those present would you trust to pick out a gift for you?
+  - Who among those present do you think is most likely to fall on a flat surface?
+  - Who among those present would you trust to take a spicy photo of you, if needed?
+  - Who among those present do you think would be the first to tell an embarrassing
+    story?
+  - Who among those present would you suspect of secretly liking you?
+  - "Who among those present is most likely to accidentally forget a friend\u2019s
+    birthday?"
+  - Who among those present would you trust to help you come up with a spicy compliment?
+  - Who among those present do you think could create a culinary masterpiece?
+  - Who among those present would be the first to argue about whether pineapple pizza
+    is better or worse?
+  - "Who among those present is most likely to peek at someone else\u2019s messages
+    out of curiosity?"
+  - Who among those present do you think would blush first from your compliment?
+  - Who among those present is most likely to forget their own name in a stressful
+    situation?
+  - Who among those present do you think would be the first to talk about their strangest
+    sexual fantasies?
+  - Who among those present is the most impulsive and quick at making decisions?
+  - Who among those present do you imagine in an awkward situation because of an
+    overly revealing gift?
+  - Who among those present would you trust with your private messages if you had
+    to?
+  - Who among those present would you trust to help you choose a gift for your partner?
+  - Who among those present do you think smiles the most when they see you?
+  - Who among those present do you think would eat ice cream even outside in winter?
+  - Who among those present would start looking for the strangest ways to entertain
+    you on a boring day?
+  - Who among those present do you think could cook the strangest dish?
+  - Who among those present would be the first to joke about something intimate at
+    dinner?
+  - Who among those present do you think could make candid comments in a group of
+    friends?
+  - Who among those present is most likely to write something silly in a group chat?
+  - Who among those present do you think could accidentally confuse tea with coffee?
+  - Who among those present do you think would be the first to act too uninhibited
+    at a party?
+  - Who among those present is most likely to struggle answering the question, "What
+    do you like in sex?"
+  - Who among those present is most likely to suggest a strange idea for a pastime?
+  - Who among those present would start mimicking your phrases if you said something
+    funny?
+  - Who among those present do you think would be the first to joke about sex with
+    a friend?
+  - Who among those present is most likely to suggest playing a game with risque
+    questions?
+  - Who among those present has the most contagious laughter?
+  - Who among those present would start a debate about what type of pizza is better?
+  - Who among those present would be the first to show you their favorite memes?
+  - Who among those present would be the first to tell you funny stories to lighten
+    a mundane day?
+  - Who among those present would be the first to make silly crafts out of random
+    materials?
+  - Who among those present has a unique sense of humor?
+  - Who among those present would be the first to share a funny childhood story?
+  - Who among those present do you think makes you laugh the most often?

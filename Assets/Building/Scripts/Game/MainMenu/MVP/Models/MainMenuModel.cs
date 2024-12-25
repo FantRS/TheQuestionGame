@@ -19,7 +19,7 @@ namespace MainSpace.MainMenu.Models
         public readonly ReactiveProperty<int> GirlsCount;
         public readonly ReactiveProperty<int> BoysCount;
         public readonly ReactiveProperty<int> LoverCount;
-        public readonly ReactiveProperty<int> FunnyCount;
+        public readonly ReactiveProperty<int> WhichOfCount;
         public readonly ReactiveProperty<int> ArtCount;
         public readonly ReactiveProperty<int> LifeCount;
         public readonly ReactiveProperty<int> DreamCount;
@@ -40,11 +40,11 @@ namespace MainSpace.MainMenu.Models
             GirlsCount = new ReactiveProperty<int>(VaultConfig.ForGirlsQuestionConfig.QuestionList.Count);
             BoysCount = new ReactiveProperty<int>(VaultConfig.ForBoysQuestionConfig.QuestionList.Count);
             LoverCount = new ReactiveProperty<int>(VaultConfig.ForLoversQuestionConfig.QuestionList.Count);
-            FunnyCount = new ReactiveProperty<int>(VaultConfig.FunnyQuestionConfig.QuestionList.Count);
             ArtCount = new ReactiveProperty<int>(VaultConfig.ArtistsQuestionConfig.QuestionList.Count);
             LifeCount = new ReactiveProperty<int>(VaultConfig.LifeQuestionConfig.QuestionList.Count);
             DreamCount = new ReactiveProperty<int>(VaultConfig.DreamsQuestionConfig.QuestionList.Count);
             FamilyCount = new ReactiveProperty<int>(VaultConfig.FamilyQuestionConfig.QuestionList.Count);
+            WhichOfCount = new ReactiveProperty<int>(VaultConfig.WhichOfQuestionConfig.QuestionList.Count);
 
             CompositeDisposable = new CompositeDisposable();
         }

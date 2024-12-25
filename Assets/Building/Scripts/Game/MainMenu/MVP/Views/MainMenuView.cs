@@ -12,33 +12,33 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _forGirlsQuestionsButton;
         [SerializeField] private Button _forBoysQuestionsButton;
         [SerializeField] private Button _forLoverQuestionsButton;
-        [SerializeField] private Button _funnyQuestionsButton;
         [SerializeField] private Button _artistsQuestionsButton;
         [SerializeField] private Button _lifeQuestionsButton;
         [SerializeField] private Button _dreamQuestionsButton;
         [SerializeField] private Button _familyQuesionsButton;
+        [SerializeField] private Button _whichOfQuestionsButton;
 
         [Header("Questions count texts")]
         [SerializeField] private Text _favouriteQuestionsCount;
         [SerializeField] private Text _forGirlsQuestionsCount;
         [SerializeField] private Text _forBoysQuestionsCount;
         [SerializeField] private Text _forLoverQuestionsCount;
-        [SerializeField] private Text _funnyQuestionsCount;
         [SerializeField] private Text _artistsQuestionsCount;
         [SerializeField] private Text _lifeQuestionsCount;
         [SerializeField] private Text _dreamQuestionsCount;
         [SerializeField] private Text _familyQuestionsCount;
+        [SerializeField] private Text _whichOfQuestionsCount;
 
         // events
         public readonly Subject<Unit> FavouriteQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnForGirlsQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnForBoysQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnForLoversQuestionsButtonClickEvent = new();
-        public readonly Subject<Unit> OnFunnyQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnFamilyQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnWhichOfQuestionsButtonClickEvent = new();
 
         public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
 
@@ -66,9 +66,9 @@ namespace MainSpace.MainMenu.Views
                 OnForLoversQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
-            _funnyQuestionsButton.onClick.AddListener(() =>
+            _whichOfQuestionsButton.onClick.AddListener(() =>
             {
-                OnFunnyQuestionsButtonClickEvent?.OnNext(Unit.Default);
+                OnWhichOfQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _artistsQuestionsButton.onClick.AddListener(() =>
@@ -122,9 +122,9 @@ namespace MainSpace.MainMenu.Views
             _forLoverQuestionsCount.text = count.ToString();
         }
 
-        public void ShowFunnyQuestionsCount(int count)
+        public void ShowWhichOfQuestionsCount(int count)
         {
-            _funnyQuestionsCount.text = count.ToString();
+            _whichOfQuestionsCount.text = count.ToString();
         }
 
         public void ShowArtistQuestionsCount(int count)
