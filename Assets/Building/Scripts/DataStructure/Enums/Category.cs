@@ -9,6 +9,7 @@
         Funny,
         Art,
         Life,
-        Dream
+        Dream,
+        Family
     }
 }

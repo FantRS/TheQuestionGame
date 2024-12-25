@@ -20,3 +20,4 @@ MonoBehaviour:
   _artistsQuestionsConfig: {fileID: 11400000, guid: 45f13e7f0e1e61d4a9cd2bcf48117c91, type: 2}
   _lifeQuestionsConfig: {fileID: 11400000, guid: 00242ab1c9660614d86980913906ee4d, type: 2}
   _dreamsQuestionsConfig: {fileID: 11400000, guid: cb9a2ae13acc35f499ae136e5d3bcdb1, type: 2}
+  _familyQuestionsConfig: {fileID: 11400000, guid: f8bec65a24a762143a0a1ce80b4fa565, type: 2}

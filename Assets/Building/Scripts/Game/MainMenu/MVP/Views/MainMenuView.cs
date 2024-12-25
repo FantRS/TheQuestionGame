@@ -16,6 +16,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _artistsQuestionsButton;
         [SerializeField] private Button _lifeQuestionsButton;
         [SerializeField] private Button _dreamQuestionsButton;
+        [SerializeField] private Button _familyQuesionsButton;
 
         [Header("Questions count texts")]
         [SerializeField] private Text _favouriteQuestionsCount;
@@ -26,6 +27,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _artistsQuestionsCount;
         [SerializeField] private Text _lifeQuestionsCount;
         [SerializeField] private Text _dreamQuestionsCount;
+        [SerializeField] private Text _familyQuestionsCount;
 
         // events
         public readonly Subject<Unit> FavouriteQuestionsButtonClickEvent = new();
@@ -36,6 +38,7 @@ namespace MainSpace.MainMenu.Views
         public readonly Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnFamilyQuestionsButtonClickEvent = new();
 
         public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
 
@@ -81,6 +84,11 @@ namespace MainSpace.MainMenu.Views
             _dreamQuestionsButton.onClick.AddListener(() =>
             {
                 OnDreamQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _familyQuesionsButton.onClick.AddListener(() =>
+            {
+                OnFamilyQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
         }
 
@@ -132,6 +140,11 @@ namespace MainSpace.MainMenu.Views
         public void ShowDreamQuestionsCount(int count)
         {
             _dreamQuestionsCount.text = count.ToString();
+        }
+
+        public void ShowFamilyQuestionsCount(int count)
+        {
+            _familyQuestionsCount.text = count.ToString();
         }
 
         public void ShowFavouriteQuestionsCount(int count)

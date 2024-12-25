@@ -20,15 +20,13 @@ namespace MainSpace.MainMenu.Presenters
             _menuView = view;
             _menuModel = model;
 
-
             // subscriptions
             EventSubsctiptions();
             ReactiveSubscriptions();
+
             // some logic...
             InitializeFavoriteConfig();
             CheckFavouriteButton();
-
-
         }
 
         private void EventSubsctiptions()
@@ -89,6 +87,12 @@ namespace MainSpace.MainMenu.Presenters
                 view.SceneTransitionSignal
                     .OnNext(_menuModel.VaultConfig.DreamsQuestionConfig);
             });
+
+            _menuView.OnFamilyQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.FamilyQuestionConfig);
+            });
         }
 
         private void ReactiveSubscriptions()
@@ -104,6 +108,7 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.ArtCount.Subscribe((value) => view.ShowArtistQuestionsCount(value));
             _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
+            _menuModel.FamilyCount.Subscribe((value) => view.ShowFamilyQuestionsCount(value));
 
             model.CompositeDisposable.Add(_menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
             {

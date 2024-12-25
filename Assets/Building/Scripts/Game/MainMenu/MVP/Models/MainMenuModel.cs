@@ -23,6 +23,7 @@ namespace MainSpace.MainMenu.Models
         public readonly ReactiveProperty<int> ArtCount;
         public readonly ReactiveProperty<int> LifeCount;
         public readonly ReactiveProperty<int> DreamCount;
+        public readonly ReactiveProperty<int> FamilyCount;
 
         public readonly CompositeDisposable CompositeDisposable;
 
@@ -43,6 +44,7 @@ namespace MainSpace.MainMenu.Models
             ArtCount = new ReactiveProperty<int>(VaultConfig.ArtistsQuestionConfig.QuestionList.Count);
             LifeCount = new ReactiveProperty<int>(VaultConfig.LifeQuestionConfig.QuestionList.Count);
             DreamCount = new ReactiveProperty<int>(VaultConfig.DreamsQuestionConfig.QuestionList.Count);
+            FamilyCount = new ReactiveProperty<int>(VaultConfig.FamilyQuestionConfig.QuestionList.Count);
 
             CompositeDisposable = new CompositeDisposable();
         }

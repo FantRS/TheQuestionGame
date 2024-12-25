@@ -6033,6 +6033,7 @@ MonoBehaviour:
   _artistsQuestionsButton: {fileID: 7332317347126343547}
   _lifeQuestionsButton: {fileID: 8203391080290585150}
   _dreamQuestionsButton: {fileID: 7409917257637177051}
+  _familyQuesionsButton: {fileID: 1310684163106085898}
   _favouriteQuestionsCount: {fileID: 244708824071826649}
   _forGirlsQuestionsCount: {fileID: 3336277085468557214}
   _forBoysQuestionsCount: {fileID: 3293237592458636794}
@@ -6041,6 +6042,7 @@ MonoBehaviour:
   _artistsQuestionsCount: {fileID: 5786943268347539419}
   _lifeQuestionsCount: {fileID: 8308106753802874953}
   _dreamQuestionsCount: {fileID: 6510598598442337727}
+  _familyQuestionsCount: {fileID: 5216360999916223950}
 --- !u!225 &2547179651217360797
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6509,7 +6511,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 6931520172964579176}
   m_OnClick:
     m_PersistentCalls:
