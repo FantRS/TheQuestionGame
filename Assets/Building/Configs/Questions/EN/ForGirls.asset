@@ -18,4 +18,70 @@ MonoBehaviour:
   _questionTextColor: {r: 1, g: 0, b: 0.3647059, a: 1}
   _buttonColor: {r: 0, g: 0, b: 0, a: 1}
   _category: 2
-  _questionList: []
+  _questionList:
+  - What is your favorite clothing brand?
+  - What does your ideal partner look like?
+  - What is your favorite drink?
+  - What was the last book or movie that impressed you?
+  - What would you like to learn or master if you had enough time?
+  - If you could spend a day with anyone (a celebrity or historical figure), who
+    would it be?
+  - What have you always wanted to ask but never dared?
+  - What song perfectly describes your personality?
+  - What is your hidden talent that no one expects?
+  - If you could choose any profession without thinking about money, what would you
+    do?
+  - What goal would you like to achieve in the next year?
+  - What is your favorite fragrance (perfume, flowers, or the smell of coffee)?
+  - Do you have a favorite place where you feel especially comfortable?
+  - If you could change one rule in the world, what would it be?
+  - If you could be the protagonist of a movie, what genre would it be?
+  - If you won a million dollars, how would you spend it?
+  - What does your perfect morning looks like?
+  - 'What makes you happier: long walks or cozy evenings at home?'
+  - What small thing in daily life brings you the most joy?
+  - "What hobby would you like to try but haven\u2019t dared yet?"
+  - Do you prefer cooking yourself or trying something new at a cafe?
+  - If you could keep one memory forever, what would it be?
+  - What trip or journey left you with the brightest emotions?
+  - If you could become someone else for one day, who would you choose?
+  - If you could ask the universe one question, what would it be?
+  - Who or what inspires you most often to try something new?
+  - Do you have a favorite color that reflects your mood?
+  - What is most important to you in friendship?
+  - What moment from spending time with friends is especially dear to you?
+  - If you could see the future, what would you want to know?
+  - Do you prefer sweet or savory breakfasts?
+  - "What\u2019s your favorite way to cheer yourself up?"
+  - Relationships or career?
+  - What do you value most in our friendship?
+  - Have you ever experienced a situation where someone gave you too much attention?
+  - "What style of clothing would you like to try but haven\u2019t dared yet?"
+  - How do you prefer to relax after a hard day?
+  - What song brings back the brightest memories?
+  - What tradition or family custom is especially dear to you?
+  - If you had to choose one sport to practice for life, what would it be?
+  - What is your favorite holiday, and why?
+  - Do you believe in destiny or think that everything depends on us?
+  - What do you consider your greatest achievement so far?
+  - Do you prefer classic jewelry or unique accessories?
+  - What is your favorite movie that you can rewatch endlessly?
+  - What is your most unusual or memorable dream?
+  - If you could create your own cosmetics line, what would its main product be?
+  - What quality in yourself do you consider your greatest strength?
+  - What habit makes your mornings better?
+  - Which famous person inspires you the most?
+  - What quality in people do you value the most?
+  - What does your ideal retirement looks like?
+  - What kind of remarks can offend you?
+  - What guilty pleasures do you allow yourself?
+  - What happy moment comes to mind first?
+  - What are your fears, and how do you overcome them?
+  - What things are you embarrassed to do?
+  - What is your favorite tradition from childhood?
+  - What ranking do you dream of topping?
+  - What does the best party in the world look like?
+  - What do you value most in gifts?
+  - What inspires you?
+  - What apps or services do you dream of having?
+  - Who would you want to collaborate with, and on what?

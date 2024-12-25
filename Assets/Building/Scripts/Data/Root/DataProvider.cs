@@ -35,7 +35,7 @@ namespace MainSpace.Data.Root
                 _favouriteQuestionsData = StorageService.Load<FavouriteQuestionsData>(FAV_QUESTIONS_DATA_KEY);
                 FavouriteQuestionsDataProxy = new FavouriteQuestionsDataProxy(_favouriteQuestionsData);
             }
-            catch (FileNotFoundException)
+            catch (System.Exception)
             {
                 _favouriteQuestionsData = new FavouriteQuestionsData();
                 FavouriteQuestionsDataProxy = new FavouriteQuestionsDataProxy(_favouriteQuestionsData);
@@ -51,7 +51,7 @@ namespace MainSpace.Data.Root
                 _settingsData = StorageService.Load<SettingsData>(SETTINGS_DATA_KEY);
                 SettingsDataProxy = new SettingsDataProxy(_settingsData);
             }
-            catch (FileNotFoundException)
+            catch (System.Exception)
             {
                 _settingsData = new SettingsData();
                 SettingsDataProxy = new SettingsDataProxy(_settingsData);

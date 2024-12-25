@@ -12,10 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a9ba0f26d2794cb601ff4cb35b170, type: 3}
   m_Name: Artists
   m_EditorClassIdentifier: 
-  _screenName: Art ?=
+  _screenName: Creativity
   _background: {fileID: 21300000, guid: 1f07845856af51b449921f92068401c3, type: 3}
   _cardSprite: {fileID: 21300000, guid: 0f4192702a4850b47b6544bbabfde809, type: 3}
   _questionTextColor: {r: 0.14117648, g: 0.53333336, b: 0.003921569, a: 1}
   _buttonColor: {r: 0, g: 0, b: 0, a: 1}
   _category: 5
-  _questionList: []
+  _questionList:
+  - How do you find inspiration to create something new?
+  - What is your favorite type of art?
+  - Which movies or books inspire your creativity?
+  - What motivates you when the creative process becomes challenging?
+  - What role does music play in your creativity?
+  - What piece of art would you like to create?
+  - If you could master any art form, what would you choose?
+  - Where do you usually find inspiration?
+  - What is your best creative work?
+  - How do you perceive criticism of your work?
+  - 'What inspires you more: nature or technology?'
+  - What form of art do you consider underrated?
+  - What project do you dream of bringing to life?
+  - What music helps you focus?
+  - What historical period of art inspires you?
+  - How do you evaluate your own creations?
+  - What details make a work of art unique?
+  - What is your opinion on digital art?
+  - What kind of weather inspires you the most?
+  - What do you think about artificial intelligence in art?
+  - What do you most often draw or create?
+  - What emotions do you experience during the creative process?
+  - What is your favorite color and why?
+  - 'What is more important: the idea or its execution?'
+  - How would you design your dream studio?
+  - Do you believe art can change the world?
+  - What piece of art impressed you with its depth?
+  - What is your opinion on minimalism in art?
+  - What song would you describe as inspiring?
+  - 'What is harder: starting a new project or finishing it?'
+  - If you were a superhero, what form of creativity would be your superpower?
+  - What little things in life inspire you the most?
+  - What is your opinion on modern art?
+  - Where do you think creativity comes from?
+  - 'What inspires you more: successes or failures?'
+  - Which historical artist or musician do you admire?
+  - What is your opinion on perfectionism in creativity?
+  - What idea have you wanted to realize for a long time but haven't dared yet?
+  - How do you understand the concept of "creative freedom"?
+  - What era in art do you like the most?
+  - How would your ideal garden looked like if you designed it?
+  - How do you evaluate your works over time?
+  - What season of the year is the most inspiring for you?
+  - Do you prefer chaos or order?
+  - How do you see the role of creativity in the modern world?
+  - What is your opinion on popularizing art through the internet?
+  - What is your opinion on popularizing art through the internet?What is your opinion
+    on popularizing art through the internet?
+  - Do you believe everyone is capable of creating?
+  - Why do you think people create art?
+  - 'What do you like more: music, painting, or literature?'
+  - Do you think creativity requires talent?
+  - Do you have a favorite creative person? Who is it?
+  - Do you consider yourself a creative person? Why?
+  - What paintings or photos do you especially like?
+  - What scene from a movie left an indelible impression on you?
+  - What colors, in your opinion, best express emotions?
+  - 'What do you think is harder: composing music or painting?'
+  - If you could revive any work of art, what would it be?
+  - Imagine you could create a perfect movie. What would it be about?
+  - What emotion would you turn into a sculpture?
+  - How do you express creativity at work or in everyday life?
+  - What quirk would you call your "creative signature"?
+  - Do you believe cooking is a form of art?
+  - Why do you think some paintings are worth millions?
+  - What musical composition gives you goosebumps?
+  - Do you think fashion is art?
+  - What craft from your childhood do you still remember?
+  - If you could create your own museum, what would it be dedicated to?

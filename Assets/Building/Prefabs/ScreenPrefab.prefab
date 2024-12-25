@@ -746,6 +746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainTab: {fileID: 7416820327860212161}
   _questionTab: {fileID: 4365912654466537255}
+  _mainGroup: {fileID: 7700376161896710095}
+  _questionGroup: {fileID: 6751819726911378789}
   _contentListTransform: {fileID: 1940615870335528315}
   _buttonPrefab: {fileID: 8705834606703216121, guid: 273d382e6bad9344498a01c4cc0e529e, type: 3}
   _toMainTabButton: {fileID: 591013916083008574}

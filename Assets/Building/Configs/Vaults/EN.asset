@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _favouriteConfig: {fileID: 11400000, guid: 4a47df51b84fd094fb2788ff465cd9d8, type: 2}
   _forGirlsQuestionConfig: {fileID: 11400000, guid: d59b1313b29e5ec4fb9f238d32a1aa94, type: 2}
-  _forBoysQuestionConfig: {fileID: 11400000, guid: dbf1755e4c527e74e91eb6c71fb9bfd8, type: 2}
+  _forBoysQuestionConfig: {fileID: 11400000, guid: 17010fd1a42f34642b84834aef13f3f4, type: 2}
   _forLoversQuestionConfig: {fileID: 11400000, guid: 129dad75b235e4b41b6bcfe9a7e4bade, type: 2}
   _funnyQuestionConfig: {fileID: 11400000, guid: 0daf88b6b32065a409522d1904eac763, type: 2}
   _artistsQuestionsConfig: {fileID: 11400000, guid: 45f13e7f0e1e61d4a9cd2bcf48117c91, type: 2}

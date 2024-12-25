@@ -18,4 +18,79 @@ MonoBehaviour:
   _questionTextColor: {r: 1, g: 0.011764706, b: 0.011764706, a: 1}
   _buttonColor: {r: 0, g: 0, b: 0, a: 1}
   _category: 3
-  _questionList: []
+  _questionList:
+  - What is the most romantic thing you've done for someone?
+  - What is the most challenging thing for you when communicating with the opposite
+    sex?
+  - Name three things you and your partner have in common.
+  - Take a minute to tell your partner your life story in as much detail as possible.
+  - Share an embarrassing moment from your life with your partner.
+  - Share a personal problem and ask your partner for advice on how they would handle
+    it. Also, ask them to describe how they perceive your attitude toward the problem.
+  - What qualities do you like in your partner?
+  - How do you feel when you see him/her?
+  - What is your love language (words, gifts, physical touch)?
+  - What was your first impression of him/her?
+  - When did you realize you were in love?
+  - Which emoji perfectly describes him/her?
+  - What do you associate him/her with?
+  - Which movie you watched together was the most memorable?
+  - 'Which would you choose: a kiss on the neck or the shoulders?'
+  - What hobby connects you both?
+  - Have you ever had dreams about each other?
+  - What part of my body do you like the most?
+  - Who was your first love?
+  - What did you feel during your first kiss with him/her?
+  - 'Which would you choose: making breakfast together or a movie date in the evening?'
+  - How do you feel when he/she is near?
+  - Which compliments do you remember the most?
+  - After which date did you realize they were the one?
+  - What is the steamiest movie you've ever watched?
+  - How do you imagine your future together in 10 years?
+  - Who was your childhood crush?
+  - 'What do you enjoy most about being together: cozy movie nights or going out?'
+  - Describe your first meeting with him/her.
+  - What connects and distinguishes you?
+  - What about me turns you on the most?
+  - What song do you associate him/her with?
+  - How do you imagine our steamiest encounter?
+  - What does your ideal date look like?
+  - Choose a photo where he/she looks cute or funny.
+  - What dessert does he/she love the most?
+  - Who is your favorite movie or series character and why?
+  - What flowers does she love?
+  - What is his favorite cologne?
+  - What does he/she do when you feel sad?
+  - How do you picture our perfect weekend?
+  - What was the most unexpected moment that made you feel passionate about me?
+  - What is your favorite moment we've shared together?
+  - What turns you on about my spontaneous actions?
+  - If this were your last conversation with your partner, what would you want them
+    to never forget?
+  - What are you most grateful for in your relationship?
+  - "What have you learned about him/her in the past few months that you didn\u2019t
+    know before?"
+  - What are you hesitant to ask him/her, and why?
+  - What does my love feel like to you?
+  - What does he/she do that makes you feel better?
+  - What would you like us to do more often together?
+  - What do you dream of that we could achieve together?
+  - What place would you like to visit with me, and why?
+  - If we wrote a book about our love, what would its title be?
+  - When did you feel we truly became close?
+  - What do you value most in our relationship?
+  - Which moment from our life together would you want to relive?
+  - How do you think we inspire each other?
+  - If you could describe our love with one song, what would it be?
+  - What memory of me is particularly dear to you?
+  - What gift from me has left the biggest impression on you?
+  - What did you feel the first time we held hands?
+  - What do you like about my personality?
+  - "What do you think I\u2019ve taught you in our relationship?"
+  - If we got a pet, which one would you choose?
+  - Which of our jokes or games is the most memorable?
+  - If we could spend a day off anywhere, where would you like to go?
+  - If you could fulfill one of my wishes, what would it be?
+  - "What do you feel when we haven\u2019t seen each other for a long time?"
+  - Is there anything you still want to know about me?
+  - What unusual thing would you like to try together?

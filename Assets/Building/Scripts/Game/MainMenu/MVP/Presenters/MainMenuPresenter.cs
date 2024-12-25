@@ -20,12 +20,15 @@ namespace MainSpace.MainMenu.Presenters
             _menuView = view;
             _menuModel = model;
 
-            // some logic...
-            CheckFavouriteButton();
 
             // subscriptions
             EventSubsctiptions();
             ReactiveSubscriptions();
+            // some logic...
+            InitializeFavoriteConfig();
+            CheckFavouriteButton();
+
+
         }
 
         private void EventSubsctiptions()
@@ -133,19 +136,23 @@ namespace MainSpace.MainMenu.Presenters
                 };
 
                 // in case of missing questions from the category
-                if (question.Index >= categoryConfig.QuestionList.Count)
-                    continue;
+                if (question.Index >= categoryConfig.QuestionList.Count || question.Index < 0)
+                {
+                    questionVaultConfig.FavouriteConfig.QuestionList.Clear();
+                    favouriteQuestions.Clear();
+                    return;
+                }
 
                 string questionString = categoryConfig.QuestionList[question.Index];
 
-                _menuModel.VaultConfig.FavouriteConfig.QuestionList
+                questionVaultConfig.FavouriteConfig.QuestionList
                     .Add(questionString);
             }
         }
 
         private void CheckFavouriteButton()
         {
-            if (_menuModel.FavouriteCount.CurrentValue == 0)
+            if (_menuModel.VaultConfig.FavouriteConfig.QuestionList.Count == 0)
             {
                 _menuView.DisableFavouriteButton();
             }

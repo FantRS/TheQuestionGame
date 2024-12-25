@@ -13,60 +13,103 @@ MonoBehaviour:
   m_Name: ForBoys
   m_EditorClassIdentifier: 
   _screenName: For boys
-  _background: {fileID: 21300000, guid: e5ef5fc8a1fa62745a90e5cc1b417386, type: 3}
-  _cardSprite: {fileID: 21300000, guid: 4f986ecd886cc5e488adcc2d0e6d3438, type: 3}
-  _questionTextColor: {r: 0.07450981, g: 0.2509804, b: 0.38039216, a: 1}
+  _background: {fileID: 21300000, guid: b01a6688022177846a2d3b6ab210d26e, type: 3}
+  _cardSprite: {fileID: 21300000, guid: c6534a65b58026f409e0b7c7bd1a5119, type: 3}
+  _questionTextColor: {r: 0.07450981, g: 0.16862746, b: 0.83137256, a: 1}
   _buttonColor: {r: 1, g: 1, b: 1, a: 1}
   _category: 1
   _questionList:
-  - "What\u2019s your dream car?"
-  - "Video games or sports \u2013 what would you choose?"
-  - Could you build a computer by yourself?
+  - What is your dream car?
+  - You prefer video games or sport?
+  - Could you build your own computer?
   - If you became a race car driver, what car would you want to drive?
-  - "Who\u2019s your favorite superhero?"
-  - "Who\u2019s your favorite Which military vehicle do you find the most impressive?"
+  - Which military vehicle do you find the most impressive?
   - What action of a friend impressed you the most?
   - Which friend would you take on a trip around the world?
-  - How do you choose gifts for your friends?
-  - Have you ever competed with a friend in something serious?
   - If you were to organize a bachelor party, what would definitely be included in
     the plan?
-  - "What\u2019s your all-time favorite meme for guys?"
-  - If you could visit any bar in the world, where would it be?
   - What game or activity definitely livens up a group of men?
-  - Would you rather try a racing car or a tank?
-  - "What\u2019s the most absurd but awesome dream you\u2019d like to achieve?"
-  - What movie could you rewatch endlessly?
-  - "What\u2019s your favorite clothing brand?"
-  - "What\u2019s the funniest thing you\u2019ve ever done with friends?"
-  - "What\u2019s your most valuable life rule?"
+  - What is your most valuable life rule?
   - Blondes or brunettes?
-  - Would you ever consider taking steroids?
-  - Would you date a woman 20 years older than you?
   - Have you ever lied about your age to seem cooler?
-  - Do you believe in love at first sight?
-  - What would you do if you found out your friend was in love with your girlfriend?
   - What are you really good at?
   - "What\u2019s the best and worst thing about being a man?"
   - How well can you explain how a car works?
   - Android or iOS?
+  - "What\u2019s your favorite part of a man\u2019s routine?"
   - What are the pros and cons of marriage?
-  - Is it better to try and fail or never try at all?
-  - Why are most famous artists, writers, and directors are men?
-  - How is the male brain different from the female brain?
-  - Should vaping or hookah smoking be banned?
-  - Top 5 reasons not to start your own business?
-  - Should prostitution be legalized?
-  - Top 3 best anime.
-  - Do you believe in flat Earth theories?
-  - "A woman works while a man takes care of the home \u2013 is this normal?"
+  - Is it better to try and fail or not try at all?
+  - What are the top 5 reasons not to start your own business?
   - Should a guy start working at 16?
-  - What sport do you love to watch?
-  - Is sex on the first date okay?
+  - What sport do you enjoy watching?
   - Is male infidelity acceptable?
   - What risks are worth taking?
-  - What easily makes you angry?
-  - What would you do for your girlfriend?
-  - What sport interests you the most?
-  - "What role does family play in a man\u2019s life?"
-  - "What\u2019s more important for a man: intelligence or strength?"
+  - What easily irritates you?
+  - "What\u2019s more important to you: intelligence strength?"
+  - What was your first alcoholic drink, and how did it end?
+  - What does being a real man mean to you?
+  - "What\u2019s the most important thing in male friendship for you?"
+  - "What\u2019s the dumbest or most awkward compliment you\u2019ve ever given a
+    girl?"
+  - Was there a time you deeply regretted saying something? What was it?
+  - "What\u2019s the funniest way you\u2019ve ever tried to meet a girl?"
+  - "Do you have a bucket list for things to try before turning 30? What\u2019s the
+    craziest item on it?"
+  - "What\u2019s the craziest thing you\u2019ve done at a party?"
+  - What gadget do you use most often?
+  - "What\u2019s your greatest achievement in life?"
+  - What, to you, is a sign of real strength in a man?
+  - Do you prefer to wear a watch or go without?
+  - Do you have a rule you always follow?
+  - If you could start a business, in what field would it be?
+  - "What\u2019s your least favorite part of a man\u2019s routine?"
+  - How do you motivate yourself to keep moving forward?
+  - Would you rather live in a big city or a secluded place? Why?
+  - What does responsibility mean to you?
+  - How do you usually react when faced with injustice?
+  - "What\u2019s more important to you in a car: speed or comfort?"
+  - 'What matters more: moral principles or practical benefits?'
+  - Do you enjoy fishing or hunting? If so, how often do you do it?
+  - "What\u2019s your opinion on motorcycles? Would you like to own one?"
+  - Do you prefer board games or computer games?
+  - Do you consider hiking a worthwhile activity?
+  - Do you have a favorite action movie? Which one?
+  - Do you prefer saving up for big purchases or buying small things regularly?
+  - "What\u2019s your favorite way to relax after a tough day?"
+  - Do you have a favorite barbershop?
+  - Have you ever gone camping with friends? How was it?
+  - Do you prefer ties or bow ties?
+  - "What\u2019s the hardest task you\u2019ve solved with your own hands?"
+  - "What\u2019s the most memorable gathering with friends you\u2019ve had?"
+  - What was your first experience with power tools?
+  - What advice would you give to young guys just starting their adult lives?
+  - Do you prefer coffee, tea, or energy drinks? Why?
+  - What hairstyle do you find most practical?
+  - Do you prefer a manual or automatic transmission?
+  - Have you ever repaired household appliances yourself? Which ones?
+  - What accessory do you think is essential for a man?
+  - Do you prefer a laptop or a desktop computer?
+  - Have you ever collected anything?
+  - "What\u2019s your favorite alcoholic drink?"
+  - Do you prefer Asian, European, or American cuisine?
+  - What part of your job do you find most interesting?
+  - Which video game reminds you of your childhood?
+  - What was your first job?
+  - "What\u2019s the toughest physical challenge you\u2019ve faced?"
+  - What advice would you give to friends in difficult situations?
+  - Do you prefer discussing serious topics or joking around in a group?
+  - "What\u2019s the most memorable trip to the cinema you\u2019ve had?"
+  - Do you prefer making plans or acting spontaneously?
+  - 'What clothing style do you like more: classic or sporty?'
+  - "What\u2019s the last thing you repaired?"
+  - What personality trait do you think is the most important for a man?
+  - How do you plan your expenses?
+  - What movie genre do you like the most?
+  - Do you prefer listening to music with headphones or speakers?
+  - "What\u2019s your ideal vacation?"
+  - Do you prefer traveling in your home country or abroad?
+  - Which country would you choose for long-term living?
+  - Have you ever realized you achieved a long-held dream?
+  - What qualities do you think are most important for career success?
+  - Have you ever thought about changing your image?
+  - What games or pastimes interest you?

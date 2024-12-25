@@ -28,6 +28,8 @@ namespace MainSpace.MainMenu.Presenters
 
         private void OnQuestionButtonClick(int sortedIndex)
         {
+            _listView.CloseList();
+
             string sortedQuestionString = _screenModel.Config.QuestionList[sortedIndex];
             int newIndex = _screenModel.ShuffledStringsList.IndexOf(sortedQuestionString);
             _screenModel.CurrentIndex.OnNext(newIndex);

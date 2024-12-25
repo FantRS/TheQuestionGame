@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ namespace MainSpace.MainMenu.Views
     {
         [SerializeField] private GameObject _mainTab;
         [SerializeField] private GameObject _questionTab;
+
+        [SerializeField] private CanvasGroup _mainGroup;
+        [SerializeField] private CanvasGroup _questionGroup;
 
         [SerializeField] private Transform _contentListTransform;
         [SerializeField] private ButtonView _buttonPrefab;
@@ -42,6 +46,26 @@ namespace MainSpace.MainMenu.Views
             {
                 OnQuestionButtonClickEvent?.Invoke(idx);
             });
+        }
+
+        public void CloseList()
+        {
+            DisableGroup(_questionGroup);
+            EnableGroup(_mainGroup);
+        }
+
+        private void DisableGroup(CanvasGroup group)
+        {
+            group.blocksRaycasts = false;
+            group.interactable = false;
+            group.DOFade(0, 0.15f);
+        }
+
+        private void EnableGroup(CanvasGroup group)
+        {
+            group.blocksRaycasts = true;
+            group.interactable = true;
+            group.DOFade(1, 0.15f);
         }
     }
 }

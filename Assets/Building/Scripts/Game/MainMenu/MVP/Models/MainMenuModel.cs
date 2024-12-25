@@ -9,6 +9,7 @@ namespace MainSpace.MainMenu.Models
     public sealed class MainMenuModel
     {
         private readonly LocaleMap _localeMap;
+        private readonly DataProvider _dataProvider;
 
         public ScreenVaultConfig VaultConfig;
         public readonly FavouriteQuestionsDataProxy FavouriteQuestionsProxy;
@@ -27,12 +28,12 @@ namespace MainSpace.MainMenu.Models
 
         public MainMenuModel(DIContainer sceneContainer)
         {
-            var dataProvider = sceneContainer.Resolve<DataProvider>();
-            SettingsData = dataProvider.SettingsDataProxy;
             _localeMap = sceneContainer.Resolve<LocaleMap>();
+            _dataProvider = sceneContainer.Resolve<DataProvider>();
+            SettingsData = _dataProvider.SettingsDataProxy;
 
             VaultConfig = _localeMap.GetVaultConfigByLanguage(SettingsData.LanguageID.CurrentValue);
-            FavouriteQuestionsProxy = dataProvider.FavouriteQuestionsDataProxy;
+            FavouriteQuestionsProxy = _dataProvider.FavouriteQuestionsDataProxy;
 
             FavouriteCount = new ReactiveProperty<int>(FavouriteQuestionsProxy.QuestionsList.Count);
             GirlsCount = new ReactiveProperty<int>(VaultConfig.ForGirlsQuestionConfig.QuestionList.Count);
