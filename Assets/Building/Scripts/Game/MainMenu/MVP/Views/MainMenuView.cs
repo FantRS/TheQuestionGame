@@ -15,6 +15,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _artistsQuestionsButton;
         [SerializeField] private Button _lifeQuestionsButton;
         [SerializeField] private Button _dreamQuestionsButton;
+        [SerializeField] private Button _philosophyQuestionsButton;
         [SerializeField] private Button _familyQuesionsButton;
         [SerializeField] private Button _whichOfQuestionsButton;
 
@@ -26,6 +27,7 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _artistsQuestionsCount;
         [SerializeField] private Text _lifeQuestionsCount;
         [SerializeField] private Text _dreamQuestionsCount;
+        [SerializeField] private Text _philosophyQuestionsCount;
         [SerializeField] private Text _familyQuestionsCount;
         [SerializeField] private Text _whichOfQuestionsCount;
 
@@ -37,6 +39,7 @@ namespace MainSpace.MainMenu.Views
         public readonly Subject<Unit> OnArtistQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnLifeQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnPhilosophyQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnFamilyQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnWhichOfQuestionsButtonClickEvent = new();
 
@@ -84,6 +87,11 @@ namespace MainSpace.MainMenu.Views
             _dreamQuestionsButton.onClick.AddListener(() =>
             {
                 OnDreamQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _philosophyQuestionsButton.onClick.AddListener(() =>
+            {
+                OnPhilosophyQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
             _familyQuesionsButton.onClick.AddListener(() =>
@@ -140,6 +148,11 @@ namespace MainSpace.MainMenu.Views
         public void ShowDreamQuestionsCount(int count)
         {
             _dreamQuestionsCount.text = count.ToString();
+        }
+
+        public void ShowPhilosophyQuestionsCount(int count)
+        {
+            _philosophyQuestionsCount.text = count.ToString();
         }
 
         public void ShowFamilyQuestionsCount(int count)

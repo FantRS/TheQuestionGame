@@ -82,6 +82,12 @@ namespace MainSpace.MainMenu.Presenters
                     .OnNext(_menuModel.VaultConfig.DreamsQuestionConfig);
             });
 
+            _menuView.OnPhilosophyQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.PhilosophyQuestionConfig);
+            });
+
             _menuView.OnFamilyQuestionsButtonClickEvent.Subscribe(_ =>
             {
                 view.SceneTransitionSignal
@@ -107,6 +113,7 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.ArtCount.Subscribe((value) => view.ShowArtistQuestionsCount(value));
             _menuModel.LifeCount.Subscribe((value) => view.ShowLifeQuestionsCount(value));
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
+            _menuModel.PhilosophyCount.Subscribe((value) => view.ShowPhilosophyQuestionsCount(value));
             _menuModel.FamilyCount.Subscribe((value) => view.ShowFamilyQuestionsCount(value));
             _menuModel.WhichOfCount.Subscribe((value) => view.ShowWhichOfQuestionsCount(value));
 
@@ -136,6 +143,8 @@ namespace MainSpace.MainMenu.Presenters
                     Category.Art => questionVaultConfig.ArtistsQuestionConfig,
                     Category.Life => questionVaultConfig.LifeQuestionConfig,
                     Category.Dream => questionVaultConfig.DreamsQuestionConfig,
+                    Category.Philosophy => questionVaultConfig.PhilosophyQuestionConfig,
+                    Category.Family => questionVaultConfig.FamilyQuestionConfig,
                     Category.WhichOf => questionVaultConfig.WhichOfQuestionConfig,
                     _ => throw new Exception($"{this} : Not found any question")
                 };

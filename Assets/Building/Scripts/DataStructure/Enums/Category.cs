@@ -10,6 +10,7 @@
         Art,
         Life,
         Dream,
-        Family
+        Family,
+        Philosophy
     }
 }

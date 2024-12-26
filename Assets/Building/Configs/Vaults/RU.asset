@@ -19,5 +19,6 @@ MonoBehaviour:
   _artistsQuestionsConfig: {fileID: 11400000, guid: ad354a5422ad37e498a9fd7e376ff11d, type: 2}
   _lifeQuestionsConfig: {fileID: 11400000, guid: 0d08fdbdf026bc54d9328fcbbd19f10e, type: 2}
   _dreamsQuestionsConfig: {fileID: 11400000, guid: 1ef0cef4a8b80374d88c868169fa2670, type: 2}
+  _philosophyQuestionsConfig: {fileID: 11400000, guid: 94a595fdf1aa34042972838b239a26a5, type: 2}
   _familyQuestionsConfig: {fileID: 11400000, guid: f7dd2cc0c8477024a94771674ca2190e, type: 2}
   _whichOfQuestionConfig: {fileID: 11400000, guid: c11274d8ca1d7de43988bbd6095d8e4f, type: 2}
