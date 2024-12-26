@@ -17,6 +17,9 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Button _dreamQuestionsButton;
         [SerializeField] private Button _philosophyQuestionsButton;
         [SerializeField] private Button _familyQuesionsButton;
+        [SerializeField] private Button _whatIfQuesionsButton;
+        [SerializeField] private Button _dilemmaQuesionsButton;
+        [SerializeField] private Button _sharpsQuesionsButton;
         [SerializeField] private Button _whichOfQuestionsButton;
 
         [Header("Questions count texts")]
@@ -29,6 +32,9 @@ namespace MainSpace.MainMenu.Views
         [SerializeField] private Text _dreamQuestionsCount;
         [SerializeField] private Text _philosophyQuestionsCount;
         [SerializeField] private Text _familyQuestionsCount;
+        [SerializeField] private Text _whatIfQuestionsCount;
+        [SerializeField] private Text _dilemmaQuestionsCount;
+        [SerializeField] private Text _sharpsQuestionsCount;
         [SerializeField] private Text _whichOfQuestionsCount;
 
         // events
@@ -41,6 +47,9 @@ namespace MainSpace.MainMenu.Views
         public readonly Subject<Unit> OnDreamQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnPhilosophyQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnFamilyQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnWhatIfQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnDilemmaQuestionsButtonClickEvent = new();
+        public readonly Subject<Unit> OnSharpsQuestionsButtonClickEvent = new();
         public readonly Subject<Unit> OnWhichOfQuestionsButtonClickEvent = new();
 
         public Subject<ScreenConfig> SceneTransitionSignal { get; private set; }
@@ -69,11 +78,6 @@ namespace MainSpace.MainMenu.Views
                 OnForLoversQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
 
-            _whichOfQuestionsButton.onClick.AddListener(() =>
-            {
-                OnWhichOfQuestionsButtonClickEvent?.OnNext(Unit.Default);
-            });
-
             _artistsQuestionsButton.onClick.AddListener(() =>
             {
                 OnArtistQuestionsButtonClickEvent?.OnNext(Unit.Default);
@@ -97,6 +101,26 @@ namespace MainSpace.MainMenu.Views
             _familyQuesionsButton.onClick.AddListener(() =>
             {
                 OnFamilyQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _whatIfQuesionsButton.onClick.AddListener(() =>
+            {
+                OnWhatIfQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _dilemmaQuesionsButton.onClick.AddListener(() =>
+            {
+                OnDilemmaQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _sharpsQuesionsButton.onClick.AddListener(() =>
+            {
+                OnSharpsQuestionsButtonClickEvent?.OnNext(Unit.Default);
+            });
+
+            _whichOfQuestionsButton.onClick.AddListener(() =>
+            {
+                OnWhichOfQuestionsButtonClickEvent?.OnNext(Unit.Default);
             });
         }
 
@@ -158,6 +182,21 @@ namespace MainSpace.MainMenu.Views
         public void ShowFamilyQuestionsCount(int count)
         {
             _familyQuestionsCount.text = count.ToString();
+        }
+
+        public void ShowWhatIfQuestionsCount(int count)
+        {
+            _whatIfQuestionsCount.text = count.ToString();
+        }
+
+        public void ShowDilemmaQuestionsCount(int count)
+        {
+            _dilemmaQuestionsCount.text = count.ToString();
+        }
+
+        public void ShowSharpsQuestionsCount(int count)
+        {
+            _sharpsQuestionsCount.text = count.ToString();
         }
 
         public void ShowFavouriteQuestionsCount(int count)

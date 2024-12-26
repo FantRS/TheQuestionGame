@@ -94,6 +94,24 @@ namespace MainSpace.MainMenu.Presenters
                     .OnNext(_menuModel.VaultConfig.FamilyQuestionConfig);
             });
 
+            _menuView.OnWhatIfQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.WhatIfQuestionConfig);
+            });
+
+            _menuView.OnDilemmaQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.DilemmaQuestionConfig);
+            });
+
+            _menuView.OnSharpsQuestionsButtonClickEvent.Subscribe(_ =>
+            {
+                view.SceneTransitionSignal
+                    .OnNext(_menuModel.VaultConfig.SharpsQuestionConfig);
+            });
+
             _menuView.OnWhichOfQuestionsButtonClickEvent.Subscribe(_ =>
             {
                 view.SceneTransitionSignal
@@ -115,6 +133,9 @@ namespace MainSpace.MainMenu.Presenters
             _menuModel.DreamCount.Subscribe((value) => view.ShowDreamQuestionsCount(value));
             _menuModel.PhilosophyCount.Subscribe((value) => view.ShowPhilosophyQuestionsCount(value));
             _menuModel.FamilyCount.Subscribe((value) => view.ShowFamilyQuestionsCount(value));
+            _menuModel.WhatIfCount.Subscribe((value) => view.ShowWhatIfQuestionsCount(value));
+            _menuModel.DilemmaCount.Subscribe((value) => view.ShowDilemmaQuestionsCount(value));
+            _menuModel.SharpsCount.Subscribe((value) => view.ShowSharpsQuestionsCount(value));
             _menuModel.WhichOfCount.Subscribe((value) => view.ShowWhichOfQuestionsCount(value));
 
             model.CompositeDisposable.Add(_menuModel.FavouriteQuestionsProxy.QuestionsList.ObserveClear().Subscribe(_ =>
@@ -145,6 +166,9 @@ namespace MainSpace.MainMenu.Presenters
                     Category.Dream => questionVaultConfig.DreamsQuestionConfig,
                     Category.Philosophy => questionVaultConfig.PhilosophyQuestionConfig,
                     Category.Family => questionVaultConfig.FamilyQuestionConfig,
+                    Category.WhatIf => questionVaultConfig.WhatIfQuestionConfig,
+                    Category.Dilemma => questionVaultConfig.DilemmaQuestionConfig,
+                    Category.Sharps => questionVaultConfig.SharpsQuestionConfig,
                     Category.WhichOf => questionVaultConfig.WhichOfQuestionConfig,
                     _ => throw new Exception($"{this} : Not found any question")
                 };

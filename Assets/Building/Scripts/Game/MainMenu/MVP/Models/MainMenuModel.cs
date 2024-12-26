@@ -19,12 +19,15 @@ namespace MainSpace.MainMenu.Models
         public readonly ReactiveProperty<int> GirlsCount;
         public readonly ReactiveProperty<int> BoysCount;
         public readonly ReactiveProperty<int> LoverCount;
-        public readonly ReactiveProperty<int> WhichOfCount;
         public readonly ReactiveProperty<int> ArtCount;
         public readonly ReactiveProperty<int> LifeCount;
         public readonly ReactiveProperty<int> DreamCount;
         public readonly ReactiveProperty<int> PhilosophyCount;
         public readonly ReactiveProperty<int> FamilyCount;
+        public readonly ReactiveProperty<int> WhatIfCount;
+        public readonly ReactiveProperty<int> DilemmaCount;
+        public readonly ReactiveProperty<int> SharpsCount;
+        public readonly ReactiveProperty<int> WhichOfCount;
 
         public readonly CompositeDisposable CompositeDisposable;
 
@@ -46,6 +49,9 @@ namespace MainSpace.MainMenu.Models
             DreamCount = new ReactiveProperty<int>(VaultConfig.DreamsQuestionConfig.QuestionList.Count);
             PhilosophyCount = new ReactiveProperty<int>(VaultConfig.PhilosophyQuestionConfig.QuestionList.Count);
             FamilyCount = new ReactiveProperty<int>(VaultConfig.FamilyQuestionConfig.QuestionList.Count);
+            WhatIfCount = new ReactiveProperty<int>(VaultConfig.WhatIfQuestionConfig.QuestionList.Count);
+            DilemmaCount = new ReactiveProperty<int>(VaultConfig.DilemmaQuestionConfig.QuestionList.Count);
+            SharpsCount = new ReactiveProperty<int>(VaultConfig.SharpsQuestionConfig.QuestionList.Count);
             WhichOfCount = new ReactiveProperty<int>(VaultConfig.WhichOfQuestionConfig.QuestionList.Count);
 
             CompositeDisposable = new CompositeDisposable();

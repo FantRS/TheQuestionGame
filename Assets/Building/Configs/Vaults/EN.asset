@@ -21,4 +21,7 @@ MonoBehaviour:
   _dreamsQuestionsConfig: {fileID: 11400000, guid: cb9a2ae13acc35f499ae136e5d3bcdb1, type: 2}
   _philosophyQuestionsConfig: {fileID: 11400000, guid: 6b3c08b8b0a80a943a30844a9fa3de0e, type: 2}
   _familyQuestionsConfig: {fileID: 11400000, guid: f8bec65a24a762143a0a1ce80b4fa565, type: 2}
+  _whatIfQuestionsConfig: {fileID: 11400000, guid: 8a7b1e994a5bc3a48a49ecec2fb777af, type: 2}
+  _dilemmaQuestionsConfig: {fileID: 11400000, guid: db45d8783525bd54ab45409de225139c, type: 2}
+  _sharpsQuestionsConfig: {fileID: 11400000, guid: 2863a2391590e6f4383e71c29246f7f8, type: 2}
   _whichOfQuestionConfig: {fileID: 11400000, guid: 0daf88b6b32065a409522d1904eac763, type: 2}

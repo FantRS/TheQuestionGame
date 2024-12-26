@@ -11,6 +11,9 @@
         Life,
         Dream,
         Family,
-        Philosophy
+        Philosophy,
+        WhatIf,
+        Dilemma,
+        Sharps
     }
 }

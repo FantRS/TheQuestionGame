@@ -15,6 +15,9 @@ namespace MainSpace.Configs
         [SerializeField] private ScreenConfig _dreamsQuestionsConfig;
         [SerializeField] private ScreenConfig _philosophyQuestionsConfig;
         [SerializeField] private ScreenConfig _familyQuestionsConfig;
+        [SerializeField] private ScreenConfig _whatIfQuestionsConfig;
+        [SerializeField] private ScreenConfig _dilemmaQuestionsConfig;
+        [SerializeField] private ScreenConfig _sharpsQuestionsConfig;
         [SerializeField] private ScreenConfig _whichOfQuestionConfig;
 
 
@@ -28,6 +31,9 @@ namespace MainSpace.Configs
         public ScreenConfig DreamsQuestionConfig => _dreamsQuestionsConfig;
         public ScreenConfig PhilosophyQuestionConfig => _philosophyQuestionsConfig;
         public ScreenConfig FamilyQuestionConfig => _familyQuestionsConfig;
+        public ScreenConfig WhatIfQuestionConfig => _whatIfQuestionsConfig;
+        public ScreenConfig DilemmaQuestionConfig => _dilemmaQuestionsConfig;
+        public ScreenConfig SharpsQuestionConfig => _sharpsQuestionsConfig;
         public ScreenConfig WhichOfQuestionConfig => _whichOfQuestionConfig;
     }
 }
