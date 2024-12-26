@@ -37,7 +37,7 @@ namespace MainSpace.MainMenu.Models
             _dataProvider = sceneContainer.Resolve<DataProvider>();
             SettingsData = _dataProvider.SettingsDataProxy;
 
-            VaultConfig = _localeMap.GetVaultConfigByLanguage(SettingsData.LanguageID.CurrentValue);
+            InitVaultConfig();
             FavouriteQuestionsProxy = _dataProvider.FavouriteQuestionsDataProxy;
 
             FavouriteCount = new ReactiveProperty<int>(FavouriteQuestionsProxy.QuestionsList.Count);
@@ -60,6 +60,19 @@ namespace MainSpace.MainMenu.Models
         public void ChangeLocaleVaultByLanguage(int localeId)
         {
             VaultConfig = _localeMap.GetVaultConfigByLanguage(localeId);
+        }
+
+        private void InitVaultConfig()
+        {
+            try
+            {
+                VaultConfig = _localeMap.GetVaultConfigByLanguage(SettingsData.LanguageID.CurrentValue);
+            }
+            catch (System.Exception)
+            {
+                SettingsData.LanguageID.Value = 0;
+                VaultConfig = _localeMap.GetVaultConfigByLanguage(SettingsData.LanguageID.CurrentValue);
+            }
         }
     }
 }
