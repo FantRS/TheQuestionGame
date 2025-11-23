@@ -3,4 +3,4 @@
 2. Over 850 questions to make every game unique and exciting.
 3. User-friendly interface, perfectly designed for mobile devices. Discover new emotions and make your gatherings bright and unforgettable! 💬✨
 
-Download [https://github.com/FantRS/TheQuestionGame/releases/download/game/TheQuestionGame.apk]dow 
+Download: https://github.com/FantRS/TheQuestionGame/releases/download/game/TheQuestionGame.apk
